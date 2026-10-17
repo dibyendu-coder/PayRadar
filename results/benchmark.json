@@ -1,44 +1,185 @@
 {
-  "benchmark_timestamp": "2026-10-17 16:52:33",
+  "benchmark_timestamp": "2026-10-17 17:35:33",
   "dataset": "Synthetic Invoice Dataset",
   "synthetic": true,
-  "split": {
-    "strategy": "Time-based chronological (70/30)",
-    "train_samples": 268,
-    "test_samples": 115,
-    "train_date_range": [
-      "2023-11-02",
-      "2025-10-10"
-    ],
-    "test_date_range": [
-      "2025-10-13",
-      "2026-09-12"
-    ]
-  },
-  "results": [
+  "n_splits": 3,
+  "split_strategy": "3 Expanding-Window Chronological Splits (no leakage)",
+  "splits": [
+    {
+      "split_idx": 1,
+      "train_samples": 191,
+      "test_samples": 57,
+      "train_dates": [
+        "2023-11-02",
+        "2025-03-21"
+      ],
+      "test_dates": [
+        "2025-03-23",
+        "2025-08-22"
+      ]
+    },
+    {
+      "split_idx": 2,
+      "train_samples": 248,
+      "test_samples": 58,
+      "train_dates": [
+        "2023-11-02",
+        "2025-08-22"
+      ],
+      "test_dates": [
+        "2025-08-23",
+        "2026-01-30"
+      ]
+    },
+    {
+      "split_idx": 3,
+      "train_samples": 306,
+      "test_samples": 77,
+      "train_dates": [
+        "2023-11-02",
+        "2026-01-30"
+      ],
+      "test_dates": [
+        "2026-01-30",
+        "2026-09-12"
+      ]
+    }
+  ],
+  "models": [
     {
       "model": "Per-Client Mean Baseline",
-      "classifier_auc": 0.874,
-      "regressor_mae": 8.02,
-      "fit_time_sec": 0.007,
-      "predict_time_sec": 0.001,
-      "status": "Evaluated"
+      "auc_mean": 0.8548,
+      "auc_std": 0.035,
+      "brier_mean": 0.1283,
+      "brier_std": 0.0248,
+      "mae_mean": 8.02,
+      "mae_std": 0.32,
+      "fit_time_mean_sec": 0.003,
+      "pred_time_mean_sec": 0.001,
+      "fold_auc": [
+        0.8151,
+        0.8686,
+        0.8808
+      ],
+      "fold_brier": [
+        0.1257,
+        0.1543,
+        0.105
+      ],
+      "fold_mae": [
+        8.28,
+        8.13,
+        7.66
+      ]
     },
     {
       "model": "HistGradientBoosting (Sklearn)",
-      "classifier_auc": 0.859,
-      "regressor_mae": 8.92,
-      "fit_time_sec": 0.593,
-      "predict_time_sec": 0.033,
-      "status": "Evaluated"
+      "auc_mean": 0.8631,
+      "auc_std": 0.0619,
+      "brier_mean": 0.1443,
+      "brier_std": 0.0583,
+      "mae_mean": 8.66,
+      "mae_std": 1.2,
+      "fit_time_mean_sec": 0.364,
+      "pred_time_mean_sec": 0.021,
+      "fold_auc": [
+        0.8556,
+        0.8053,
+        0.9283
+      ],
+      "fold_brier": [
+        0.1412,
+        0.2041,
+        0.0876
+      ],
+      "fold_mae": [
+        9.98,
+        8.36,
+        7.63
+      ]
+    },
+    {
+      "model": "TabPFN-3.5-Fast (Local)",
+      "auc_mean": 0.8543,
+      "auc_std": 0.0546,
+      "brier_mean": 0.1224,
+      "brier_std": 0.027,
+      "mae_mean": 7.36,
+      "mae_std": 0.97,
+      "fit_time_mean_sec": 0.554,
+      "pred_time_mean_sec": 4.356,
+      "fold_auc": [
+        0.8016,
+        0.8507,
+        0.9106
+      ],
+      "fold_brier": [
+        0.1165,
+        0.1518,
+        0.0988
+      ],
+      "fold_mae": [
+        8.34,
+        7.35,
+        6.4
+      ]
     },
     {
       "model": "TabPFN-3.5 (Local)",
-      "classifier_auc": 0.888,
-      "regressor_mae": 6.6,
-      "fit_time_sec": 1.232,
-      "predict_time_sec": 26.278,
-      "status": "Evaluated"
+      "auc_mean": 0.8435,
+      "auc_std": 0.0197,
+      "brier_mean": 0.1242,
+      "brier_std": 0.0246,
+      "mae_mean": 7.28,
+      "mae_std": 0.92,
+      "fit_time_mean_sec": 1.002,
+      "pred_time_mean_sec": 32.37,
+      "fold_auc": [
+        0.8238,
+        0.8435,
+        0.8631
+      ],
+      "fold_brier": [
+        0.1129,
+        0.1524,
+        0.1074
+      ],
+      "fold_mae": [
+        8.18,
+        7.3,
+        6.35
+      ]
     }
-  ]
+  ],
+  "bootstrap_95_ci_last_split": {
+    "mean_diff": -0.0197,
+    "ci_lower_95": -0.0809,
+    "ci_upper_95": 0.0399,
+    "bootstraps_run": 1000
+  },
+  "overconfidence_assessment": {
+    "summary": "Probability Calibration Note: TabPFN outputs sharp posteriors with a significant fraction of risk probabilities near extreme boundaries (>99% or <1%). The Brier score penalizes sharp misclassifications heavily (quadratic loss). While TabPFN achieves top ranking discrimination (ROC-AUC), its probabilities exhibit mild overconfidence in ambiguous edge cases. For production credit-risk scoring, temperature scaling or isotonic calibration is recommended to soften uncalibrated tails.",
+    "metrics_last_split": {
+      "Per-Client Mean Baseline": {
+        "brier_score": 0.105,
+        "pct_extreme_probs": 36.4,
+        "actual_late_rate_at_high_risk": 100.0
+      },
+      "HistGradientBoosting (Sklearn)": {
+        "brier_score": 0.0876,
+        "pct_extreme_probs": 59.7,
+        "actual_late_rate_at_high_risk": 97.0
+      },
+      "TabPFN-3.5-Fast (Local)": {
+        "brier_score": 0.0988,
+        "pct_extreme_probs": 26.0,
+        "actual_late_rate_at_high_risk": 100.0
+      },
+      "TabPFN-3.5 (Local)": {
+        "brier_score": 0.1074,
+        "pct_extreme_probs": 26.0,
+        "actual_late_rate_at_high_risk": 100.0
+      }
+    }
+  }
 }
