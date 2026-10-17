@@ -15,6 +15,6 @@
 
 | Model | Classification ROC-AUC | Delay MAE (Days) | Fit Time (s) | Predict Time (s) | Status |
 |---|---|---|---|---|---|
-| **Per-Client Mean Baseline** | 0.8740 | 8.02 | 0.004s | 0.000s | Evaluated |
-| **HistGradientBoosting (Sklearn)** | 0.8590 | 8.92 | 0.614s | 0.026s | Evaluated |
-| **TabPFN-3.5 (Local)** | N/A | N/A | N/A | N/A | Requires TABPFN_TOKEN env var |
+| **Per-Client Mean Baseline** | 0.8740 | 8.02 | 0.007s | 0.001s | Evaluated |
+| **HistGradientBoosting (Sklearn)** | 0.8590 | 8.92 | 0.593s | 0.033s | Evaluated |
+| **TabPFN-3.5 (Local)** | 0.8880 | 6.60 | 1.232s | 26.278s | Evaluated |

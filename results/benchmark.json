@@ -1,5 +1,5 @@
 {
-  "benchmark_timestamp": "2026-10-17 16:29:58",
+  "benchmark_timestamp": "2026-10-17 16:52:33",
   "dataset": "Synthetic Invoice Dataset",
   "synthetic": true,
   "split": {
@@ -20,25 +20,25 @@
       "model": "Per-Client Mean Baseline",
       "classifier_auc": 0.874,
       "regressor_mae": 8.02,
-      "fit_time_sec": 0.004,
-      "predict_time_sec": 0.0,
+      "fit_time_sec": 0.007,
+      "predict_time_sec": 0.001,
       "status": "Evaluated"
     },
     {
       "model": "HistGradientBoosting (Sklearn)",
       "classifier_auc": 0.859,
       "regressor_mae": 8.92,
-      "fit_time_sec": 0.614,
-      "predict_time_sec": 0.026,
+      "fit_time_sec": 0.593,
+      "predict_time_sec": 0.033,
       "status": "Evaluated"
     },
     {
       "model": "TabPFN-3.5 (Local)",
-      "classifier_auc": null,
-      "regressor_mae": null,
-      "fit_time_sec": null,
-      "predict_time_sec": null,
-      "status": "Requires TABPFN_TOKEN env var"
+      "classifier_auc": 0.888,
+      "regressor_mae": 6.6,
+      "fit_time_sec": 1.232,
+      "predict_time_sec": 26.278,
+      "status": "Evaluated"
     }
   ]
 }

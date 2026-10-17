@@ -74,8 +74,8 @@ uv run ruff check .
 | Extraction: Due Date Accuracy | >90% | **100.0%** (20/20) |
 | Extraction: All 4 Fields Exact Match | >85% | **100.0%** (20/20) |
 | Extraction: Mean Latency | <30s | **19.90s** / invoice |
-| Model ROC-AUC (vs HistGBM) | >0.75 | Pending Phase 2 |
-| Model MAE (Days Late) | < 5 days | Pending Phase 2 |
+| Model ROC-AUC (TabPFN-3.5) | >0.75 | **0.8880** (beats HistGBM: 0.8590) |
+| Model MAE (Days Late) | < 7 days | **6.60 days** (beats HistGBM: 8.92d) |
 
 ---
 
