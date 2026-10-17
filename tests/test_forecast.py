@@ -92,3 +92,18 @@ def test_overdue_invoice_clamped_to_today():
     assert res[1]["expected_pay_date"] == "2026-10-27"
     assert res[1]["pay_status"] == "on schedule"
     assert res[1]["is_overdue"] is False
+
+
+def test_forecast_statement_based_on_invoices_issued_so_far():
+    """Verify forecast table header and returned text state 'based on invoices issued so far'."""
+    from payradar.forecast import format_forecast_text
+
+    invoices = [
+        {"id": "INV-1", "amount": 2000.0, "due_on": "2026-10-20", "predicted_days_late": 0.0}
+    ]
+    df = build_weekly_forecast(invoices, monthly_costs=4000.0, today=datetime.date(2026, 10, 15))
+
+    required_phrase = "based on invoices issued so far"
+    assert required_phrase in df.attrs["table_header"]
+    assert required_phrase in df.attrs["text"]
+    assert required_phrase in format_forecast_text(df)

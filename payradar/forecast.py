@@ -121,5 +121,20 @@ def build_weekly_forecast(
 
     df_forecast = pd.DataFrame(weeks)
     df_forecast.attrs["title"] = "8-Week Cash Forecast (based on invoices issued so far)"
-    df_forecast.attrs["disclaimer"] = "Forecast based on invoices issued so far"
+    df_forecast.attrs["table_header"] = "8-Week Cash Forecast (based on invoices issued so far)"
+    df_forecast.attrs["text"] = (
+        f"8-Week Cash Forecast (based on invoices issued so far): "
+        f"Expected cash-in ${float(df_forecast['expected_cash_in'].sum()):,.2f} over next 8 weeks; "
+        f"{int(df_forecast['is_gap_week'].sum())}/8 weeks flagged as cash gap."
+    )
     return df_forecast
+
+
+def format_forecast_text(forecast_df: pd.DataFrame) -> str:
+    """Format forecast into text summary stating 'based on invoices issued so far'."""
+    gap_count = int(forecast_df["is_gap_week"].sum())
+    total_in = float(forecast_df["expected_cash_in"].sum())
+    return (
+        f"8-Week Cash Forecast (based on invoices issued so far): "
+        f"Expected cash-in ${total_in:,.2f} over next 8 weeks; {gap_count}/8 weeks flagged as cash gap."
+    )
