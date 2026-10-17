@@ -1,0 +1,12 @@
+{
+  "id": "INV-GT-006",
+  "client": "Orion Enterprise",
+  "issued_on": "2026-09-05",
+  "due_on": "2026-10-05",
+  "amount": 2914.28,
+  "currency": "USD",
+  "terms_days": 30,
+  "project_type": "ai_consulting",
+  "synthetic": true,
+  "source_file": "inv_06.pdf"
+}

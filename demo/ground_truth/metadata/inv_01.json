@@ -1,0 +1,12 @@
+{
+  "id": "INV-GT-001",
+  "client": "Apex Innovations",
+  "issued_on": "2026-08-10",
+  "due_on": "2026-09-09",
+  "amount": 2868.25,
+  "currency": "USD",
+  "terms_days": 30,
+  "project_type": "web_dev",
+  "synthetic": true,
+  "source_file": "inv_01.pdf"
+}

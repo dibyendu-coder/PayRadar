@@ -1,0 +1,12 @@
+{
+  "id": "INV-GT-013",
+  "client": "Pinnacle Advisory",
+  "issued_on": "2026-10-03",
+  "due_on": "2026-11-02",
+  "amount": 6280.32,
+  "currency": "USD",
+  "terms_days": 30,
+  "project_type": "web_dev",
+  "synthetic": true,
+  "source_file": "inv_13.pdf"
+}

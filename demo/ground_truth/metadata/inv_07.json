@@ -1,0 +1,12 @@
+{
+  "id": "INV-GT-007",
+  "client": "Beacon Health Group",
+  "issued_on": "2026-09-10",
+  "due_on": "2026-09-24",
+  "amount": 7663.21,
+  "currency": "USD",
+  "terms_days": 14,
+  "project_type": "web_dev",
+  "synthetic": true,
+  "source_file": "inv_07.pdf"
+}

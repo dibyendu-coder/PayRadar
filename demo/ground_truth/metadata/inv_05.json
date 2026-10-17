@@ -1,0 +1,12 @@
+{
+  "id": "INV-GT-005",
+  "client": "Cascade Retail Brands",
+  "issued_on": "2026-09-01",
+  "due_on": "2026-10-01",
+  "amount": 9949.61,
+  "currency": "USD",
+  "terms_days": 30,
+  "project_type": "data_engineering",
+  "synthetic": true,
+  "source_file": "inv_05.pdf"
+}

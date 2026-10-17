@@ -1,0 +1,12 @@
+{
+  "id": "INV-GT-020",
+  "client": "Acuity AI Analytics",
+  "issued_on": "2026-10-14",
+  "due_on": "2026-11-13",
+  "amount": 1618.01,
+  "currency": "USD",
+  "terms_days": 30,
+  "project_type": "mobile_app",
+  "synthetic": true,
+  "source_file": "inv_20.pdf"
+}

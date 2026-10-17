@@ -1,0 +1,12 @@
+{
+  "id": "INV-GT-014",
+  "client": "Cobalt BioLabs",
+  "issued_on": "2026-10-05",
+  "due_on": "2026-11-04",
+  "amount": 6272.48,
+  "currency": "USD",
+  "terms_days": 30,
+  "project_type": "mobile_app",
+  "synthetic": true,
+  "source_file": "inv_14.pdf"
+}

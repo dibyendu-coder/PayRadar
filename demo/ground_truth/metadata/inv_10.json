@@ -1,0 +1,12 @@
+{
+  "id": "INV-GT-010",
+  "client": "Prime Legal Solutions",
+  "issued_on": "2026-09-25",
+  "due_on": "2026-10-25",
+  "amount": 7604.27,
+  "currency": "USD",
+  "terms_days": 30,
+  "project_type": "cloud_infrastructure",
+  "synthetic": true,
+  "source_file": "inv_10.pdf"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "INV-GT-017",
+  "client": "Pulse Digital Studio",
+  "issued_on": "2026-10-10",
+  "due_on": "2026-10-24",
+  "amount": 2907.54,
+  "currency": "USD",
+  "terms_days": 14,
+  "project_type": "data_engineering",
+  "synthetic": true,
+  "source_file": "inv_17.pdf"
+}

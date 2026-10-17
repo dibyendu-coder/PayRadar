@@ -1,0 +1,12 @@
+{
+  "id": "INV-GT-016",
+  "client": "Nexus Software Labs",
+  "issued_on": "2026-10-08",
+  "due_on": "2026-11-22",
+  "amount": 5017.44,
+  "currency": "USD",
+  "terms_days": 45,
+  "project_type": "cloud_infrastructure",
+  "synthetic": true,
+  "source_file": "inv_16.pdf"
+}

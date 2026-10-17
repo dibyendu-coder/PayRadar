@@ -1,0 +1,12 @@
+{
+  "id": "INV-GT-015",
+  "client": "Horizon CleanTech",
+  "issued_on": "2026-10-07",
+  "due_on": "2026-11-06",
+  "amount": 3978.17,
+  "currency": "USD",
+  "terms_days": 30,
+  "project_type": "ui_ux_design",
+  "synthetic": true,
+  "source_file": "inv_15.pdf"
+}

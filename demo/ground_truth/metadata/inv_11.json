@@ -1,0 +1,12 @@
+{
+  "id": "INV-GT-011",
+  "client": "Quantum Ventures",
+  "issued_on": "2026-09-28",
+  "due_on": "2026-10-28",
+  "amount": 6266.83,
+  "currency": "USD",
+  "terms_days": 30,
+  "project_type": "data_engineering",
+  "synthetic": true,
+  "source_file": "inv_11.pdf"
+}

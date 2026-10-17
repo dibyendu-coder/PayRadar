@@ -1,0 +1,12 @@
+{
+  "id": "INV-GT-018",
+  "client": "Crestline Partners",
+  "issued_on": "2026-10-11",
+  "due_on": "2026-11-10",
+  "amount": 5013.64,
+  "currency": "USD",
+  "terms_days": 30,
+  "project_type": "ai_consulting",
+  "synthetic": true,
+  "source_file": "inv_18.pdf"
+}

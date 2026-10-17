@@ -1,0 +1,127 @@
+[
+  {
+    "name": "Apex Innovations",
+    "archetype": "always_late",
+    "industry": "tech"
+  },
+  {
+    "name": "Vanguard Media",
+    "archetype": "always_late",
+    "industry": "marketing"
+  },
+  {
+    "name": "Echo Dynamics",
+    "archetype": "always_late",
+    "industry": "hardware"
+  },
+  {
+    "name": "Summit Global Logistics",
+    "archetype": "always_late",
+    "industry": "supply_chain"
+  },
+  {
+    "name": "Cascade Retail Brands",
+    "archetype": "always_late",
+    "industry": "ecommerce"
+  },
+  {
+    "name": "Orion Enterprise",
+    "archetype": "pays_on_30th",
+    "industry": "enterprise"
+  },
+  {
+    "name": "Beacon Health Group",
+    "archetype": "pays_on_30th",
+    "industry": "healthcare"
+  },
+  {
+    "name": "Atlas Financial Tech",
+    "archetype": "pays_on_30th",
+    "industry": "fintech"
+  },
+  {
+    "name": "Zenith Corp",
+    "archetype": "pays_on_30th",
+    "industry": "manufacturing"
+  },
+  {
+    "name": "Prime Legal Solutions",
+    "archetype": "pays_on_30th",
+    "industry": "legal"
+  },
+  {
+    "name": "Quantum Ventures",
+    "archetype": "big_invoices_slower",
+    "industry": "vc"
+  },
+  {
+    "name": "Starlight Systems",
+    "archetype": "big_invoices_slower",
+    "industry": "software"
+  },
+  {
+    "name": "Pinnacle Advisory",
+    "archetype": "big_invoices_slower",
+    "industry": "consulting"
+  },
+  {
+    "name": "Cobalt BioLabs",
+    "archetype": "big_invoices_slower",
+    "industry": "biotech"
+  },
+  {
+    "name": "Horizon CleanTech",
+    "archetype": "big_invoices_slower",
+    "industry": "energy"
+  },
+  {
+    "name": "Nexus Software Labs",
+    "archetype": "reliable",
+    "industry": "saas"
+  },
+  {
+    "name": "Pulse Digital Studio",
+    "archetype": "reliable",
+    "industry": "design"
+  },
+  {
+    "name": "Crestline Partners",
+    "archetype": "reliable",
+    "industry": "private_equity"
+  },
+  {
+    "name": "Solaria Renewable Energy",
+    "archetype": "reliable",
+    "industry": "cleantech"
+  },
+  {
+    "name": "Acuity AI Analytics",
+    "archetype": "reliable",
+    "industry": "ai"
+  },
+  {
+    "name": "RocketByte Labs",
+    "archetype": "erratic",
+    "industry": "crypto"
+  },
+  {
+    "name": "Nova Intelligence",
+    "archetype": "erratic",
+    "industry": "ai"
+  },
+  {
+    "name": "SparkStudio Interactive",
+    "archetype": "erratic",
+    "industry": "gaming"
+  },
+  {
+    "name": "Kite Urban Mobility",
+    "archetype": "erratic",
+    "industry": "transport"
+  },
+  {
+    "name": "Drift Protocol",
+    "archetype": "erratic",
+    "industry": "web3"
+  }
+]

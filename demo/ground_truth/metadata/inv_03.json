@@ -1,0 +1,12 @@
+{
+  "id": "INV-GT-003",
+  "client": "Echo Dynamics",
+  "issued_on": "2026-08-20",
+  "due_on": "2026-09-19",
+  "amount": 7632.39,
+  "currency": "USD",
+  "terms_days": 30,
+  "project_type": "ui_ux_design",
+  "synthetic": true,
+  "source_file": "inv_03.pdf"
+}

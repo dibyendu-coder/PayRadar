@@ -1,0 +1,12 @@
+{
+  "id": "INV-GT-012",
+  "client": "Starlight Systems",
+  "issued_on": "2026-10-01",
+  "due_on": "2026-10-15",
+  "amount": 9932.15,
+  "currency": "USD",
+  "terms_days": 14,
+  "project_type": "ai_consulting",
+  "synthetic": true,
+  "source_file": "inv_12.pdf"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "INV-GT-004",
+  "client": "Summit Global Logistics",
+  "issued_on": "2026-08-25",
+  "due_on": "2026-10-09",
+  "amount": 5113.6,
+  "currency": "USD",
+  "terms_days": 45,
+  "project_type": "cloud_infrastructure",
+  "synthetic": true,
+  "source_file": "inv_04.pdf"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "INV-GT-002",
+  "client": "Vanguard Media",
+  "issued_on": "2026-08-15",
+  "due_on": "2026-08-29",
+  "amount": 6306.04,
+  "currency": "USD",
+  "terms_days": 14,
+  "project_type": "mobile_app",
+  "synthetic": true,
+  "source_file": "inv_02.pdf"
+}

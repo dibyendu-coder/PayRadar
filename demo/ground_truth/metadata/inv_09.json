@@ -1,0 +1,12 @@
+{
+  "id": "INV-GT-009",
+  "client": "Zenith Corp",
+  "issued_on": "2026-09-20",
+  "due_on": "2026-11-19",
+  "amount": 6317.01,
+  "currency": "USD",
+  "terms_days": 60,
+  "project_type": "ui_ux_design",
+  "synthetic": true,
+  "source_file": "inv_09.pdf"
+}

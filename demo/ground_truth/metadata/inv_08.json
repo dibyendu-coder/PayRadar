@@ -1,0 +1,12 @@
+{
+  "id": "INV-GT-008",
+  "client": "Atlas Financial Tech",
+  "issued_on": "2026-09-15",
+  "due_on": "2026-10-15",
+  "amount": 9968.11,
+  "currency": "USD",
+  "terms_days": 30,
+  "project_type": "mobile_app",
+  "synthetic": true,
+  "source_file": "inv_08.pdf"
+}
