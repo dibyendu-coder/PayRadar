@@ -1,0 +1,41 @@
+[project]
+name = "payradar"
+version = "0.1.0"
+description = "Local-first late-payment radar for freelancers"
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [{ name = "Dibyendu" }]
+license = { text = "MIT" }
+dependencies = [
+    "pymupdf>=1.23.0",
+    "pandas>=2.0.0",
+    "pydantic>=2.0.0",
+    "httpx>=0.27.0",
+    "pillow>=10.0.0",
+    "reportlab>=4.0.0",
+    "scikit-learn>=1.3.0",
+    "tabpfn>=0.1.11; sys_platform != 'never'",
+    "streamlit>=1.32.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+    "ruff>=0.4.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.ruff]
+target-version = "py311"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I"]
+ignore = ["E501"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
