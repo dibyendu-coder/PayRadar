@@ -1,7 +1,13 @@
 """Score open invoices and compute rolling 8-week cash gap forecast.
 
+Features:
+- Scores open invoices using TabPFN-3.5 (or TabPFN-3.5-Fast with --fast flag).
+- Persists risk and days_late predictions to SQLite 'scores' table.
+- Enforces clamping expected pay date >= today and flags overdue invoices.
+- Explicitly states 'based on invoices issued so far' in all output tables and headers.
+
 Usage:
-  uv run python scripts/predict_open.py [--today YYYY-MM-DD] [--db path/to/db]
+  uv run python scripts/predict_open.py [--today YYYY-MM-DD] [--db path/to/db] [--fast]
 """
 
 from __future__ import annotations
@@ -18,10 +24,11 @@ from typing import Any
 if hasattr(sys.stdout, "reconfigure"):
     sys.stdout.reconfigure(encoding="utf-8")
 
+import pandas as pd
 from sklearn.ensemble import HistGradientBoostingClassifier, HistGradientBoostingRegressor
 from sklearn.preprocessing import OrdinalEncoder
 
-from payradar.db import get_all_invoices, get_open_invoices, get_setting
+from payradar.db import get_all_invoices, get_open_invoices, get_setting, save_scores
 from payradar.features import (
     CATEGORICAL_COLUMNS,
     FEATURE_COLUMNS,
@@ -50,8 +57,13 @@ def get_risk_tier(risk_prob: float) -> str:
 def score_open_invoices(
     today: datetime.date | None = None,
     db_path: str | Path | None = None,
+    fast: bool = False,
 ) -> tuple[list[dict], Any]:
-    """Score all open invoices and compute 8-week cash forecast."""
+    """Score all open invoices and compute 8-week cash forecast.
+
+    Saves results to the scores SQLite table so UI never fits TabPFN during page render.
+    Forecast and risk are computed strictly based on invoices issued so far.
+    """
     if today is None:
         today = datetime.date.today()
 
@@ -85,20 +97,18 @@ def score_open_invoices(
         feat = compute_invoice_features(inv, all_invoices)
         open_feature_rows.append(feat)
 
-    import pandas as pd
-
     X_open = pd.DataFrame(open_feature_rows)[FEATURE_COLUMNS]
 
     # Predict risk and delay
     tabpfn_token = os.environ.get("TABPFN_TOKEN")
-    model_name = "TabPFN-3.5"
+    model_name = "TabPFN-3.5-Fast" if fast else "TabPFN-3.5"
 
     if tabpfn_token:
         try:
             device = os.environ.get("DEVICE", "cpu")
-            clf = LatePaymentClassifier(device=device)
+            clf = LatePaymentClassifier(device=device, fast=fast)
             clf.fit(X_train, y_train_clf)
-            reg = PaymentDelayRegressor(device=device)
+            reg = PaymentDelayRegressor(device=device, fast=fast)
             reg.fit(X_train, y_train_reg)
 
             risks = clf.predict_risk(X_open)
@@ -135,8 +145,22 @@ def score_open_invoices(
     # Sort open invoices by risk descending
     scored.sort(key=lambda x: x["predicted_risk"], reverse=True)
 
-    # Compute expected pay dates
-    scored_with_dates = calculate_expected_pay_dates(scored)
+    # Compute expected pay dates with clamping to today
+    scored_with_dates = calculate_expected_pay_dates(scored, today=today)
+
+    # Save scores to SQLite scores table
+    now_iso = datetime.datetime.now().isoformat()
+    score_rows = [
+        {
+            "invoice_id": inv["id"],
+            "risk": inv["predicted_risk"],
+            "predicted_days_late": inv["predicted_days_late"],
+            "scored_at": now_iso,
+            "model": model_name,
+        }
+        for inv in scored_with_dates
+    ]
+    save_scores(score_rows, db_path=db_path)
 
     # Build weekly forecast
     cost_setting = get_setting("monthly_costs", default="5000.0", db_path=db_path)
@@ -150,36 +174,31 @@ def score_open_invoices(
     )
 
     # Print results
-    print("=" * 105)
-    print("PAYRADAR OPEN INVOICE RISK RADAR [SYNTHETIC DEMO DATA]")
+    print("=" * 115)
+    print("PAYRADAR OPEN INVOICE RISK RADAR [SYNTHETIC DEMO DATA] (based on invoices issued so far)")
     print(f"Scoring Engine: {model_name} | Reference Date (Today): {today.strftime('%Y-%m-%d')}")
     print(f"Monthly Operating Cost: ${monthly_costs:,.2f} (${monthly_costs * 12 / 52:,.2f}/week)")
-    print("=" * 105)
+    print(f"[DB] Persisted {len(score_rows)} predictions to 'scores' table (Model: {model_name})")
+    print("=" * 115)
 
     print(f"\n1. OPEN INVOICES RANKED BY LATE-PAYMENT RISK (Total: {len(scored)} open invoices):")
-    print("-" * 105)
-    print(
-        f"{'Invoice ID':<14} | {'Client':<26} | {'Amount':<10} | {'Due Date':<11} | {'Delay':<8} | {'Pay Date':<11} | {'Risk':<7} | {'Tier'}"
-    )
-    print("-" * 105)
+    print("-" * 115)
+    print(f"{'Invoice ID':<14} | {'Client':<26} | {'Amount':<10} | {'Due Date':<11} | {'Delay':<8} | {'Pay Date':<11} | {'Risk':<7} | {'Status'}")
+    print("-" * 115)
 
     for inv in scored_with_dates:
         amt_str = f"${float(inv['amount']):,.2f}"
         delay_str = f"{float(inv['predicted_days_late']):+.1f}d"
         risk_pct = f"{float(inv['predicted_risk']) * 100:.1f}%"
-        tier_str = get_risk_tier(float(inv["predicted_risk"]))
-        print(
-            f"{inv['id']:<14} | {inv['client']:<26} | {amt_str:<10} | {inv['due_on']:<11} | {delay_str:<8} | {inv['expected_pay_date']:<11} | {risk_pct:<7} | {tier_str}"
-        )
+        status_str = inv.get("pay_status", get_risk_tier(float(inv["predicted_risk"])))
+        print(f"{inv['id']:<14} | {inv['client']:<26} | {amt_str:<10} | {inv['due_on']:<11} | {delay_str:<8} | {inv['expected_pay_date']:<11} | {risk_pct:<7} | {status_str}")
 
-    print("-" * 105)
+    print("-" * 115)
 
-    print("\n2. 8-WEEK CASH FLOW & GAP RADAR FORECAST:")
-    print("-" * 105)
-    print(
-        f"{'Week':<6} | {'Period':<23} | {'Cash-In':<11} | {'Weekly Cost':<12} | {'Net Cash Flow':<14} | {'Status'}"
-    )
-    print("-" * 105)
+    print("\n2. 8-WEEK CASH FLOW & GAP RADAR FORECAST (based on invoices issued so far):")
+    print("-" * 115)
+    print(f"{'Week':<6} | {'Period':<23} | {'Cash-In':<11} | {'Weekly Cost':<12} | {'Net Cash Flow':<14} | {'Status'}")
+    print("-" * 115)
 
     total_in = 0.0
     for _, row in forecast_df.iterrows():
@@ -189,33 +208,28 @@ def score_open_invoices(
         net_str = f"${float(row['net_cash_flow']):+,.2f}"
         status = "[!] CASH GAP WEEK" if row["is_gap_week"] else "[OK] Covered"
         total_in += float(row["expected_cash_in"])
-        print(
-            f"Wk {int(row['week_num']):<3} | {period:<23} | {cash_str:<11} | {cost_str:<12} | {net_str:<14} | {status}"
-        )
+        print(f"Wk {int(row['week_num']):<3} | {period:<23} | {cash_str:<11} | {cost_str:<12} | {net_str:<14} | {status}")
 
     total_costs = float(forecast_df["weekly_cost"].sum())
     total_net = total_in - total_costs
     gap_count = int(forecast_df["is_gap_week"].sum())
 
-    print("-" * 105)
-    print(
-        f"8-Week Cumulative: Expected In: ${total_in:,.2f} | Costs: ${total_costs:,.2f} | Net: ${total_net:+,.2f} | Gap Weeks: {gap_count}/8"
-    )
-    print("=" * 105 + "\n")
+    print("-" * 115)
+    print(f"8-Week Cumulative (based on invoices issued so far): Expected In: ${total_in:,.2f} | Costs: ${total_costs:,.2f} | Net: ${total_net:+,.2f} | Gap Weeks: {gap_count}/8")
+    print("=" * 115 + "\n")
 
     return scored_with_dates, forecast_df
 
 
 def main():
     parser = argparse.ArgumentParser(description="Predict late payment risk on open invoices")
-    parser.add_argument(
-        "--today", type=str, default=None, help="Evaluation reference date (YYYY-MM-DD)"
-    )
+    parser.add_argument("--today", type=str, default=None, help="Evaluation reference date (YYYY-MM-DD)")
     parser.add_argument("--db", type=str, default=None, help="Path to SQLite database")
+    parser.add_argument("--fast", action="store_true", help="Use TabPFN-3.5-Fast checkpoint")
     args = parser.parse_args()
 
     ref_date = parse_date(args.today) if args.today else datetime.date(2026, 10, 15)
-    score_open_invoices(today=ref_date, db_path=args.db)
+    score_open_invoices(today=ref_date, db_path=args.db, fast=args.fast)
 
 
 if __name__ == "__main__":

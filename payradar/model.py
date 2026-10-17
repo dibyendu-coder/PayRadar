@@ -51,12 +51,18 @@ def verify_tabpfn_token() -> str:
 _MODEL_CACHE: dict[str, Any] = {}
 
 
+TABPFN_FAST_MODEL_NAME = "tabpfn-v3.5-fast-20260909.safetensors"
+
+
 class LatePaymentClassifier:
     """TabPFNClassifier predicting P(invoice paid > 7 days late)."""
 
-    def __init__(self, device: str = DEFAULT_DEVICE, **kwargs: Any):
+    def __init__(self, device: str = DEFAULT_DEVICE, fast: bool = False, **kwargs: Any):
         self.device = os.environ.get("DEVICE", device)
+        self.fast = fast
         self.kwargs = kwargs
+        if "model_path" not in self.kwargs:
+            self.kwargs["model_path"] = TABPFN_FAST_MODEL_NAME if fast else "auto"
         self.model: TabPFNClassifier | None = None
         self.feature_names_: list[str] = []
 
@@ -98,9 +104,12 @@ class LatePaymentClassifier:
 class PaymentDelayRegressor:
     """TabPFNRegressor predicting expected days_late for an invoice."""
 
-    def __init__(self, device: str = DEFAULT_DEVICE, **kwargs: Any):
+    def __init__(self, device: str = DEFAULT_DEVICE, fast: bool = False, **kwargs: Any):
         self.device = os.environ.get("DEVICE", device)
+        self.fast = fast
         self.kwargs = kwargs
+        if "model_path" not in self.kwargs:
+            self.kwargs["model_path"] = TABPFN_FAST_MODEL_NAME if fast else "auto"
         self.model: TabPFNRegressor | None = None
         self.feature_names_: list[str] = []
 

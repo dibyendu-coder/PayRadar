@@ -67,3 +67,48 @@ def test_tabpfn_fit_predict_tiny_fixture():
     reg.fit(X, y_reg)
     preds = reg.predict(X)
     assert len(preds) == 4
+
+
+def test_tabpfn_fast_model_config():
+    """Verify fast=True configures the TabPFN-3.5-Fast model path."""
+    from payradar.model import TABPFN_FAST_MODEL_NAME
+
+    clf_fast = LatePaymentClassifier(fast=True)
+    reg_fast = PaymentDelayRegressor(fast=True)
+
+    assert clf_fast.kwargs["model_path"] == TABPFN_FAST_MODEL_NAME
+    assert reg_fast.kwargs["model_path"] == TABPFN_FAST_MODEL_NAME
+
+
+def test_scores_table_persistence(tmp_path):
+    """Verify writing and reading predictions from the SQLite scores table."""
+    from payradar.db import get_scores, save_scores
+
+    db_path = tmp_path / "test_scores.db"
+    sample_scores = [
+        {
+            "invoice_id": "INV-TEST-01",
+            "risk": 0.885,
+            "predicted_days_late": 12.5,
+            "scored_at": "2026-10-15T12:00:00",
+            "model": "TabPFN-3.5-Fast",
+        },
+        {
+            "invoice_id": "INV-TEST-02",
+            "risk": 0.120,
+            "predicted_days_late": -1.0,
+            "scored_at": "2026-10-15T12:00:00",
+            "model": "TabPFN-3.5-Fast",
+        },
+    ]
+
+    save_scores(sample_scores, db_path=db_path)
+    retrieved = get_scores(db_path=db_path)
+
+    assert len(retrieved) == 2
+    # Verify ordered by risk descending
+    assert retrieved[0]["invoice_id"] == "INV-TEST-01"
+    assert abs(retrieved[0]["risk"] - 0.885) < 1e-4
+    assert abs(retrieved[0]["predicted_days_late"] - 12.5) < 1e-4
+    assert retrieved[0]["model"] == "TabPFN-3.5-Fast"
+    assert retrieved[1]["invoice_id"] == "INV-TEST-02"

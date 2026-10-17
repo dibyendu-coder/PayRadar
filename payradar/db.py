@@ -34,9 +34,18 @@ CREATE TABLE IF NOT EXISTS settings (
     value TEXT NOT NULL
 );
 
+CREATE TABLE IF NOT EXISTS scores (
+    invoice_id TEXT PRIMARY KEY,
+    risk REAL NOT NULL,
+    predicted_days_late REAL NOT NULL,
+    scored_at TEXT NOT NULL,
+    model TEXT NOT NULL
+);
+
 CREATE INDEX IF NOT EXISTS idx_invoices_client ON invoices(client);
 CREATE INDEX IF NOT EXISTS idx_invoices_issued_on ON invoices(issued_on);
 CREATE INDEX IF NOT EXISTS idx_invoices_paid_on ON invoices(paid_on);
+CREATE INDEX IF NOT EXISTS idx_scores_scored_at ON scores(scored_at);
 """
 
 
@@ -132,3 +141,33 @@ def set_setting(key: str, value: str, db_path: str | Path | None = None) -> None
             "INSERT OR REPLACE INTO settings (key, value) VALUES (?, ?)",
             (key, str(value)),
         )
+
+
+def save_scores(scores: list[dict[str, Any]], db_path: str | Path | None = None) -> None:
+    """Save or update predictions in the scores table."""
+    init_db(db_path)
+    with get_db(db_path) as conn:
+        for s in scores:
+            conn.execute(
+                """
+                INSERT OR REPLACE INTO scores (
+                    invoice_id, risk, predicted_days_late, scored_at, model
+                ) VALUES (?, ?, ?, ?, ?)
+                """,
+                (
+                    s["invoice_id"],
+                    float(s["risk"]),
+                    float(s["predicted_days_late"]),
+                    s["scored_at"],
+                    s["model"],
+                ),
+            )
+
+
+def get_scores(db_path: str | Path | None = None) -> list[dict[str, Any]]:
+    """Return all scored open invoices from the scores table."""
+    init_db(db_path)
+    with get_db(db_path) as conn:
+        cur = conn.cursor()
+        cur.execute("SELECT * FROM scores ORDER BY risk DESC")
+        return [dict(row) for row in cur.fetchall()]
