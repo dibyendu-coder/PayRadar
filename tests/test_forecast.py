@@ -62,7 +62,33 @@ def test_calculate_expected_pay_dates():
         {"id": "INV-2", "due_on": "2026-09-20"},
     ]
     delays = [5.2, -2.0]
-    res = calculate_expected_pay_dates(invoices, predicted_delays=delays)
+    res = calculate_expected_pay_dates(invoices, predicted_delays=delays, today=datetime.date(2026, 9, 1))
 
+    assert res[0]["raw_expected_pay_date"] == "2026-09-15"
     assert res[0]["expected_pay_date"] == "2026-09-15"
     assert res[1]["expected_pay_date"] == "2026-09-18"
+
+
+def test_overdue_invoice_clamped_to_today():
+    """Verify that an overdue open invoice has its expected pay date clamped to today."""
+    fixed_today = datetime.date(2026, 10, 15)
+
+    # An invoice due on Sept 1st with predicted delay 5 days -> raw pay date Sept 6th (in the past relative to Oct 15)
+    invoices = [
+        {"id": "INV-PAST-DUE", "due_on": "2026-09-01", "predicted_days_late": 5.0},
+        {"id": "INV-FUTURE", "due_on": "2026-10-25", "predicted_days_late": 2.0},
+    ]
+
+    res = calculate_expected_pay_dates(invoices, today=fixed_today)
+
+    # Clamped row
+    assert res[0]["raw_expected_pay_date"] == "2026-09-06"
+    assert res[0]["expected_pay_date"] == "2026-10-15"
+    assert res[0]["pay_status"] == "overdue, expected any day"
+    assert res[0]["is_overdue"] is True
+
+    # Future row
+    assert res[1]["raw_expected_pay_date"] == "2026-10-27"
+    assert res[1]["expected_pay_date"] == "2026-10-27"
+    assert res[1]["pay_status"] == "on schedule"
+    assert res[1]["is_overdue"] is False

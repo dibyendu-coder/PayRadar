@@ -22,8 +22,16 @@ from payradar.features import parse_date
 def calculate_expected_pay_dates(
     open_invoices: list[dict[str, Any]],
     predicted_delays: list[float] | np.ndarray | None = None,
+    today: datetime.date | None = None,
 ) -> list[dict[str, Any]]:
-    """Compute expected pay date for each open invoice as due_on + predicted days_late."""
+    """Compute expected pay date for each open invoice as due_on + predicted days_late.
+
+    Rule: An open invoice's expected pay date must be >= today. If due_on + predicted days_late
+    is earlier than today, clamp it to today and mark the row 'overdue, expected any day'.
+    """
+    if today is None:
+        today = datetime.date.today()
+
     enriched = []
     for idx, inv in enumerate(open_invoices):
         rec = dict(inv)
@@ -37,9 +45,19 @@ def calculate_expected_pay_dates(
             delay = float(rec.get("predicted_days_late", 0.0))
 
         rec["predicted_days_late"] = delay
-        # Expected pay date = due_on + delay
-        expected_dt = due_dt + datetime.timedelta(days=int(round(delay)))
-        rec["expected_pay_date"] = expected_dt.strftime("%Y-%m-%d")
+        raw_expected_dt = due_dt + datetime.timedelta(days=int(round(delay)))
+        rec["raw_expected_pay_date"] = raw_expected_dt.strftime("%Y-%m-%d")
+
+        if raw_expected_dt < today:
+            # Clamped to today
+            rec["expected_pay_date"] = today.strftime("%Y-%m-%d")
+            rec["pay_status"] = "overdue, expected any day"
+            rec["is_overdue"] = True
+        else:
+            rec["expected_pay_date"] = raw_expected_dt.strftime("%Y-%m-%d")
+            rec["pay_status"] = "on schedule"
+            rec["is_overdue"] = False
+
         enriched.append(rec)
 
     return enriched
@@ -55,22 +73,15 @@ def build_weekly_forecast(
 
     Weekly cost threshold is prorated as (monthly_costs * 12 / 52).
     A week is flagged as a gap week if expected_cash_in < weekly_cost.
+    Forecast is based strictly on invoices issued so far.
     """
     if today is None:
         today = datetime.date.today()
 
     weekly_cost = round(float(monthly_costs) * 12.0 / 52.0, 2)
 
-    # Ensure expected_pay_date is populated
-    processed_invoices = []
-    for inv in open_invoices:
-        if "expected_pay_date" not in inv:
-            due_dt = parse_date(inv.get("due_on"))
-            delay = float(inv.get("predicted_days_late", 0.0))
-            if due_dt is not None:
-                exp_dt = due_dt + datetime.timedelta(days=int(round(delay)))
-                inv["expected_pay_date"] = exp_dt.strftime("%Y-%m-%d")
-        processed_invoices.append(inv)
+    # Ensure expected_pay_date is populated with clamping to today
+    processed_invoices = calculate_expected_pay_dates(open_invoices, today=today)
 
     weeks = []
     for w in range(weeks_ahead):
@@ -86,11 +97,7 @@ def build_weekly_forecast(
             if exp_d is None:
                 continue
 
-            # Invoices expected prior to today roll into Week 1 as immediately due/overdue
-            if w == 0 and exp_d < today:
-                matching_invoices.append(inv)
-                cash_in += float(inv.get("amount", 0.0))
-            elif w_start <= exp_d <= w_end:
+            if w_start <= exp_d <= w_end:
                 matching_invoices.append(inv)
                 cash_in += float(inv.get("amount", 0.0))
 
@@ -112,4 +119,7 @@ def build_weekly_forecast(
             }
         )
 
-    return pd.DataFrame(weeks)
+    df_forecast = pd.DataFrame(weeks)
+    df_forecast.attrs["title"] = "8-Week Cash Forecast (based on invoices issued so far)"
+    df_forecast.attrs["disclaimer"] = "Forecast based on invoices issued so far"
+    return df_forecast
