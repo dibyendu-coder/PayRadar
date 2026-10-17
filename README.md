@@ -68,10 +68,12 @@ uv run ruff check .
 
 | Metric | Target | Result (Synthetic) |
 |---|---|---|
-| Extraction: Client Accuracy | >90% | Pending Phase 1 |
-| Extraction: Amount Accuracy | >90% | Pending Phase 1 |
-| Extraction: Issue Date Accuracy | >90% | Pending Phase 1 |
-| Extraction: Due Date Accuracy | >90% | Pending Phase 1 |
+| Extraction: Client Accuracy | >90% | **100.0%** (20/20) |
+| Extraction: Amount Accuracy | >90% | **100.0%** (20/20) |
+| Extraction: Issue Date Accuracy | >90% | **100.0%** (20/20) |
+| Extraction: Due Date Accuracy | >90% | **100.0%** (20/20) |
+| Extraction: All 4 Fields Exact Match | >85% | **100.0%** (20/20) |
+| Extraction: Mean Latency | <30s | **19.90s** / invoice |
 | Model ROC-AUC (vs HistGBM) | >0.75 | Pending Phase 2 |
 | Model MAE (Days Late) | < 5 days | Pending Phase 2 |
 

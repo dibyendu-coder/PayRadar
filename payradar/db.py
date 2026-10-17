@@ -114,7 +114,9 @@ def get_open_invoices(db_path: str | Path | None = None) -> list[dict[str, Any]]
         return [dict(row) for row in cur.fetchall()]
 
 
-def get_setting(key: str, default: str | None = None, db_path: str | Path | None = None) -> str | None:
+def get_setting(
+    key: str, default: str | None = None, db_path: str | Path | None = None
+) -> str | None:
     """Get a configuration setting value."""
     with get_db(db_path) as conn:
         cur = conn.cursor()

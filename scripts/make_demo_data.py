@@ -11,7 +11,6 @@ Notice: ALL DATA IS 100% SYNTHETIC and labelled synthetic everywhere.
 from __future__ import annotations
 
 import json
-import os
 import random
 from datetime import date, datetime, timedelta
 from pathlib import Path
@@ -159,9 +158,7 @@ def generate_synthetic_invoices(
             amount = round(base_amt + random.uniform(-250, 450), 2)
 
             proj_type = random.choice(PROJECT_TYPES)
-            paid_on = calculate_paid_on(
-                issued_on, due_on, amount, client["archetype"], cutoff_date
-            )
+            paid_on = calculate_paid_on(issued_on, due_on, amount, client["archetype"], cutoff_date)
 
             inv_id = f"INV-{issued_on.year}-{inv_counter:04d}"
             inv_counter += 1
@@ -192,235 +189,383 @@ def generate_synthetic_invoices(
 
 def render_layout_classic(doc_path: Path, data: dict):
     """Layout 1: Classic Minimalist Clean."""
-    doc = SimpleDocTemplate(str(doc_path), pagesize=letter, rightMargin=40, leftMargin=40, topMargin=40, bottomMargin=40)
+    doc = SimpleDocTemplate(
+        str(doc_path), pagesize=letter, rightMargin=40, leftMargin=40, topMargin=40, bottomMargin=40
+    )
     styles = getSampleStyleSheet()
     elements = []
 
-    title_style = ParagraphStyle('Title', parent=styles['Heading1'], fontSize=22, textColor=colors.HexColor('#1E293B'))
-    label_style = ParagraphStyle('Label', parent=styles['Normal'], fontSize=10, textColor=colors.HexColor('#64748B'))
-    val_style = ParagraphStyle('Val', parent=styles['Normal'], fontSize=11, fontName='Helvetica-Bold', textColor=colors.HexColor('#0F172A'))
+    title_style = ParagraphStyle(
+        "Title", parent=styles["Heading1"], fontSize=22, textColor=colors.HexColor("#1E293B")
+    )
+    label_style = ParagraphStyle(
+        "Label", parent=styles["Normal"], fontSize=10, textColor=colors.HexColor("#64748B")
+    )
+    val_style = ParagraphStyle(
+        "Val",
+        parent=styles["Normal"],
+        fontSize=11,
+        fontName="Helvetica-Bold",
+        textColor=colors.HexColor("#0F172A"),
+    )
 
     elements.append(Paragraph("<b>INVOICE</b>", title_style))
-    elements.append(Paragraph("<font size=8 color='#94A3B8'>[SYNTHETIC TEST DOCUMENT]</font>", styles['Normal']))
+    elements.append(
+        Paragraph("<font size=8 color='#94A3B8'>[SYNTHETIC TEST DOCUMENT]</font>", styles["Normal"])
+    )
     elements.append(Spacer(1, 15))
 
-    header_table = Table([
-        [Paragraph("<b>Billed To:</b>", label_style), Paragraph("<b>Invoice Details:</b>", label_style)],
-        [Paragraph(f"<b>{data['client']}</b><br/>Accounts Payable<br/>accounting@{data['client'].lower().replace(' ', '')}.com", val_style),
-         Paragraph(f"<b>Invoice ID:</b> {data['id']}<br/><b>Issue Date:</b> {data['issued_on']}<br/><b>Due Date:</b> {data['due_on']}<br/><b>Terms:</b> Net {data['terms_days']} days", val_style)]
-    ], colWidths=[280, 250])
-    header_table.setStyle(TableStyle([('VALIGN', (0,0), (-1,-1), 'TOP')]))
+    header_table = Table(
+        [
+            [
+                Paragraph("<b>Billed To:</b>", label_style),
+                Paragraph("<b>Invoice Details:</b>", label_style),
+            ],
+            [
+                Paragraph(
+                    f"<b>{data['client']}</b><br/>Accounts Payable<br/>accounting@{data['client'].lower().replace(' ', '')}.com",
+                    val_style,
+                ),
+                Paragraph(
+                    f"<b>Invoice ID:</b> {data['id']}<br/><b>Issue Date:</b> {data['issued_on']}<br/><b>Due Date:</b> {data['due_on']}<br/><b>Terms:</b> Net {data['terms_days']} days",
+                    val_style,
+                ),
+            ],
+        ],
+        colWidths=[280, 250],
+    )
+    header_table.setStyle(TableStyle([("VALIGN", (0, 0), (-1, -1), "TOP")]))
     elements.append(header_table)
     elements.append(Spacer(1, 25))
 
     # Items Table
     items = [
         ["Description", "Category", "Amount"],
-        [f"Professional Services ({data['project_type'].replace('_', ' ').title()})", data['project_type'], f"${data['amount']:,.2f}"],
+        [
+            f"Professional Services ({data['project_type'].replace('_', ' ').title()})",
+            data["project_type"],
+            f"${data['amount']:,.2f}",
+        ],
         ["", "Subtotal:", f"${data['amount']:,.2f}"],
-        ["", "Total Due:", f"${data['amount']:,.2f}"]
+        ["", "Total Due:", f"${data['amount']:,.2f}"],
     ]
     t = Table(items, colWidths=[280, 120, 130])
-    t.setStyle(TableStyle([
-        ('BACKGROUND', (0,0), (-1,0), colors.HexColor('#F1F5F9')),
-        ('TEXTCOLOR', (0,0), (-1,0), colors.HexColor('#1E293B')),
-        ('FONTNAME', (0,0), (-1,0), 'Helvetica-Bold'),
-        ('BOTTOMPADDING', (0,0), (-1,0), 8),
-        ('GRID', (0,0), (-1,-1), 0.5, colors.HexColor('#E2E8F0')),
-        ('FONTNAME', (1,-1), (-1,-1), 'Helvetica-Bold'),
-        ('BACKGROUND', (1,-1), (-1,-1), colors.HexColor('#F8FAFC')),
-    ]))
+    t.setStyle(
+        TableStyle(
+            [
+                ("BACKGROUND", (0, 0), (-1, 0), colors.HexColor("#F1F5F9")),
+                ("TEXTCOLOR", (0, 0), (-1, 0), colors.HexColor("#1E293B")),
+                ("FONTNAME", (0, 0), (-1, 0), "Helvetica-Bold"),
+                ("BOTTOMPADDING", (0, 0), (-1, 0), 8),
+                ("GRID", (0, 0), (-1, -1), 0.5, colors.HexColor("#E2E8F0")),
+                ("FONTNAME", (1, -1), (-1, -1), "Helvetica-Bold"),
+                ("BACKGROUND", (1, -1), (-1, -1), colors.HexColor("#F8FAFC")),
+            ]
+        )
+    )
     elements.append(t)
     elements.append(Spacer(1, 30))
-    elements.append(Paragraph(f"Payment due within {data['terms_days']} days. Thank you for your partnership.", label_style))
+    elements.append(
+        Paragraph(
+            f"Payment due within {data['terms_days']} days. Thank you for your partnership.",
+            label_style,
+        )
+    )
 
     doc.build(elements)
 
 
 def render_layout_corporate_blue(doc_path: Path, data: dict):
     """Layout 2: Corporate Blue Grid."""
-    doc = SimpleDocTemplate(str(doc_path), pagesize=letter, rightMargin=36, leftMargin=36, topMargin=36, bottomMargin=36)
+    doc = SimpleDocTemplate(
+        str(doc_path), pagesize=letter, rightMargin=36, leftMargin=36, topMargin=36, bottomMargin=36
+    )
     styles = getSampleStyleSheet()
     elements = []
 
-    banner_data = [[
-        Paragraph("<font color='white' size=18><b>CONSULTING INVOICE</b></font><br/><font color='#BFDBFE' size=8>SYNTHETIC DEMO RECORD</font>", styles['Normal']),
-        Paragraph(f"<font color='white' size=14><b>{data['id']}</b></font><br/><font color='#DBEAFE'>Due: {data['due_on']}</font>", styles['Normal'])
-    ]]
+    banner_data = [
+        [
+            Paragraph(
+                "<font color='white' size=18><b>CONSULTING INVOICE</b></font><br/><font color='#BFDBFE' size=8>SYNTHETIC DEMO RECORD</font>",
+                styles["Normal"],
+            ),
+            Paragraph(
+                f"<font color='white' size=14><b>{data['id']}</b></font><br/><font color='#DBEAFE'>Due: {data['due_on']}</font>",
+                styles["Normal"],
+            ),
+        ]
+    ]
     banner = Table(banner_data, colWidths=[360, 180])
-    banner.setStyle(TableStyle([
-        ('BACKGROUND', (0,0), (-1,-1), colors.HexColor('#1E40AF')),
-        ('TOPPADDING', (0,0), (-1,-1), 16),
-        ('BOTTOMPADDING', (0,0), (-1,-1), 16),
-        ('LEFTPADDING', (0,0), (-1,-1), 14),
-        ('RIGHTPADDING', (0,0), (-1,-1), 14),
-    ]))
+    banner.setStyle(
+        TableStyle(
+            [
+                ("BACKGROUND", (0, 0), (-1, -1), colors.HexColor("#1E40AF")),
+                ("TOPPADDING", (0, 0), (-1, -1), 16),
+                ("BOTTOMPADDING", (0, 0), (-1, -1), 16),
+                ("LEFTPADDING", (0, 0), (-1, -1), 14),
+                ("RIGHTPADDING", (0, 0), (-1, -1), 14),
+            ]
+        )
+    )
     elements.append(banner)
     elements.append(Spacer(1, 20))
 
     meta = [
         ["Client (Bill To)", "Issue Date", "Due Date", "Payment Terms"],
-        [data['client'], data['issued_on'], data['due_on'], f"{data['terms_days']} Days"]
+        [data["client"], data["issued_on"], data["due_on"], f"{data['terms_days']} Days"],
     ]
     meta_t = Table(meta, colWidths=[200, 110, 110, 120])
-    meta_t.setStyle(TableStyle([
-        ('FONTNAME', (0,0), (-1,0), 'Helvetica-Bold'),
-        ('TEXTCOLOR', (0,0), (-1,0), colors.HexColor('#1E40AF')),
-        ('GRID', (0,0), (-1,-1), 0.5, colors.HexColor('#CBD5E1')),
-        ('BACKGROUND', (0,0), (-1,0), colors.HexColor('#EFF6FF')),
-        ('PADDING', (0,0), (-1,-1), 7),
-    ]))
+    meta_t.setStyle(
+        TableStyle(
+            [
+                ("FONTNAME", (0, 0), (-1, 0), "Helvetica-Bold"),
+                ("TEXTCOLOR", (0, 0), (-1, 0), colors.HexColor("#1E40AF")),
+                ("GRID", (0, 0), (-1, -1), 0.5, colors.HexColor("#CBD5E1")),
+                ("BACKGROUND", (0, 0), (-1, 0), colors.HexColor("#EFF6FF")),
+                ("PADDING", (0, 0), (-1, -1), 7),
+            ]
+        )
+    )
     elements.append(meta_t)
     elements.append(Spacer(1, 25))
 
     lines = [
         ["Service Milestone", "Units", "Rate", "Total"],
-        [f"Milestone Deliverables - {data['project_type'].upper()}", "1.0", f"${data['amount']:,.2f}", f"${data['amount']:,.2f}"],
-        ["", "", "Total Balance Due:", f"${data['amount']:,.2f}"]
+        [
+            f"Milestone Deliverables - {data['project_type'].upper()}",
+            "1.0",
+            f"${data['amount']:,.2f}",
+            f"${data['amount']:,.2f}",
+        ],
+        ["", "", "Total Balance Due:", f"${data['amount']:,.2f}"],
     ]
     lines_t = Table(lines, colWidths=[260, 70, 100, 110])
-    lines_t.setStyle(TableStyle([
-        ('GRID', (0,0), (-1,-1), 0.5, colors.HexColor('#94A3B8')),
-        ('BACKGROUND', (0,0), (-1,0), colors.HexColor('#1E3A8A')),
-        ('TEXTCOLOR', (0,0), (-1,0), colors.white),
-        ('FONTNAME', (0,0), (-1,0), 'Helvetica-Bold'),
-        ('FONTNAME', (2,-1), (-1,-1), 'Helvetica-Bold'),
-        ('BACKGROUND', (2,-1), (-1,-1), colors.HexColor('#DBEAFE')),
-        ('PADDING', (0,0), (-1,-1), 8),
-    ]))
+    lines_t.setStyle(
+        TableStyle(
+            [
+                ("GRID", (0, 0), (-1, -1), 0.5, colors.HexColor("#94A3B8")),
+                ("BACKGROUND", (0, 0), (-1, 0), colors.HexColor("#1E3A8A")),
+                ("TEXTCOLOR", (0, 0), (-1, 0), colors.white),
+                ("FONTNAME", (0, 0), (-1, 0), "Helvetica-Bold"),
+                ("FONTNAME", (2, -1), (-1, -1), "Helvetica-Bold"),
+                ("BACKGROUND", (2, -1), (-1, -1), colors.HexColor("#DBEAFE")),
+                ("PADDING", (0, 0), (-1, -1), 8),
+            ]
+        )
+    )
     elements.append(lines_t)
     doc.build(elements)
 
 
 def render_layout_modern_dark(doc_path: Path, data: dict):
     """Layout 3: Modern Charcoal Agency Layout."""
-    doc = SimpleDocTemplate(str(doc_path), pagesize=letter, rightMargin=45, leftMargin=45, topMargin=40, bottomMargin=40)
+    doc = SimpleDocTemplate(
+        str(doc_path), pagesize=letter, rightMargin=45, leftMargin=45, topMargin=40, bottomMargin=40
+    )
     styles = getSampleStyleSheet()
     elements = []
 
     header = [
-        [Paragraph(f"<font size=20 color='#09090B'><b>STUDIO INVOICE</b></font><br/><font size=9 color='#71717A'>REF: {data['id']} (SYNTHETIC)</font>", styles['Normal']),
-         Paragraph(f"<font size=10 color='#71717A'>TOTAL DUE</font><br/><font size=18 color='#09090B'><b>${data['amount']:,.2f}</b></font>", styles['Normal'])]
+        [
+            Paragraph(
+                f"<font size=20 color='#09090B'><b>STUDIO INVOICE</b></font><br/><font size=9 color='#71717A'>REF: {data['id']} (SYNTHETIC)</font>",
+                styles["Normal"],
+            ),
+            Paragraph(
+                f"<font size=10 color='#71717A'>TOTAL DUE</font><br/><font size=18 color='#09090B'><b>${data['amount']:,.2f}</b></font>",
+                styles["Normal"],
+            ),
+        ]
     ]
     t_head = Table(header, colWidths=[330, 190])
-    t_head.setStyle(TableStyle([('ALIGN', (1,0), (1,0), 'RIGHT')]))
+    t_head.setStyle(TableStyle([("ALIGN", (1, 0), (1, 0), "RIGHT")]))
     elements.append(t_head)
     elements.append(Spacer(1, 15))
 
     card_data = [
         ["CUSTOMER", "DATES & TERMS"],
-        [f"{data['client']}\nProject: {data['project_type']}",
-         f"Issued: {data['issued_on']}\nDue: {data['due_on']}\nTerms: {data['terms_days']} Days Net"]
+        [
+            f"{data['client']}\nProject: {data['project_type']}",
+            f"Issued: {data['issued_on']}\nDue: {data['due_on']}\nTerms: {data['terms_days']} Days Net",
+        ],
     ]
     t_card = Table(card_data, colWidths=[260, 260])
-    t_card.setStyle(TableStyle([
-        ('FONTNAME', (0,0), (-1,0), 'Helvetica-Bold'),
-        ('TEXTCOLOR', (0,0), (-1,0), colors.HexColor('#71717A')),
-        ('BACKGROUND', (0,0), (-1,-1), colors.HexColor('#F4F4F5')),
-        ('PADDING', (0,0), (-1,-1), 10),
-    ]))
+    t_card.setStyle(
+        TableStyle(
+            [
+                ("FONTNAME", (0, 0), (-1, 0), "Helvetica-Bold"),
+                ("TEXTCOLOR", (0, 0), (-1, 0), colors.HexColor("#71717A")),
+                ("BACKGROUND", (0, 0), (-1, -1), colors.HexColor("#F4F4F5")),
+                ("PADDING", (0, 0), (-1, -1), 10),
+            ]
+        )
+    )
     elements.append(t_card)
     elements.append(Spacer(1, 20))
 
-    t_items = Table([
-        ["Item Description", "Qty", "Price", "Amount"],
-        [f"Scope Execution: {data['project_type'].replace('_', ' ').title()}", "1", f"${data['amount']:,.2f}", f"${data['amount']:,.2f}"],
-        ["", "", "Net Total:", f"${data['amount']:,.2f}"]
-    ], colWidths=[270, 50, 100, 100])
-    t_items.setStyle(TableStyle([
-        ('LINEBELOW', (0,0), (-1,0), 1.5, colors.HexColor('#18181B')),
-        ('FONTNAME', (0,0), (-1,0), 'Helvetica-Bold'),
-        ('FONTNAME', (2,-1), (-1,-1), 'Helvetica-Bold'),
-        ('PADDING', (0,0), (-1,-1), 8),
-    ]))
+    t_items = Table(
+        [
+            ["Item Description", "Qty", "Price", "Amount"],
+            [
+                f"Scope Execution: {data['project_type'].replace('_', ' ').title()}",
+                "1",
+                f"${data['amount']:,.2f}",
+                f"${data['amount']:,.2f}",
+            ],
+            ["", "", "Net Total:", f"${data['amount']:,.2f}"],
+        ],
+        colWidths=[270, 50, 100, 100],
+    )
+    t_items.setStyle(
+        TableStyle(
+            [
+                ("LINEBELOW", (0, 0), (-1, 0), 1.5, colors.HexColor("#18181B")),
+                ("FONTNAME", (0, 0), (-1, 0), "Helvetica-Bold"),
+                ("FONTNAME", (2, -1), (-1, -1), "Helvetica-Bold"),
+                ("PADDING", (0, 0), (-1, -1), 8),
+            ]
+        )
+    )
     elements.append(t_items)
     doc.build(elements)
 
 
 def render_layout_compact_freelance(doc_path: Path, data: dict):
     """Layout 4: Compact Freelance Statement."""
-    doc = SimpleDocTemplate(str(doc_path), pagesize=letter, rightMargin=50, leftMargin=50, topMargin=40, bottomMargin=40)
+    doc = SimpleDocTemplate(
+        str(doc_path), pagesize=letter, rightMargin=50, leftMargin=50, topMargin=40, bottomMargin=40
+    )
     styles = getSampleStyleSheet()
     elements = []
 
-    elements.append(Paragraph("<b>FREELANCE BILLING STATEMENT</b>", styles['Heading2']))
-    elements.append(Paragraph("<font size=8 color='#6B7280'>[SYNTHETIC TESTING DATASET]</font>", styles['Normal']))
+    elements.append(Paragraph("<b>FREELANCE BILLING STATEMENT</b>", styles["Heading2"]))
+    elements.append(
+        Paragraph(
+            "<font size=8 color='#6B7280'>[SYNTHETIC TESTING DATASET]</font>", styles["Normal"]
+        )
+    )
     elements.append(Spacer(1, 10))
 
     info = [
         [f"Invoice Number: {data['id']}", f"Issue Date: {data['issued_on']}"],
         [f"Client Name: {data['client']}", f"Payment Due Date: {data['due_on']}"],
-        [f"Engagement: {data['project_type']}", f"Standard Terms: Net {data['terms_days']}"]
+        [f"Engagement: {data['project_type']}", f"Standard Terms: Net {data['terms_days']}"],
     ]
     t_info = Table(info, colWidths=[250, 250])
-    t_info.setStyle(TableStyle([
-        ('FONTNAME', (0,0), (-1,-1), 'Helvetica'),
-        ('PADDING', (0,0), (-1,-1), 4),
-    ]))
+    t_info.setStyle(
+        TableStyle(
+            [
+                ("FONTNAME", (0, 0), (-1, -1), "Helvetica"),
+                ("PADDING", (0, 0), (-1, -1), 4),
+            ]
+        )
+    )
     elements.append(t_info)
     elements.append(Spacer(1, 20))
 
     body = [
         ["Description of Delivered Work", "Total Amount"],
-        [f"Contracted Sprint: {data['project_type'].replace('_', ' ').title()}", f"${data['amount']:,.2f}"],
-        ["Amount Due (USD):", f"${data['amount']:,.2f}"]
+        [
+            f"Contracted Sprint: {data['project_type'].replace('_', ' ').title()}",
+            f"${data['amount']:,.2f}",
+        ],
+        ["Amount Due (USD):", f"${data['amount']:,.2f}"],
     ]
     t_body = Table(body, colWidths=[360, 140])
-    t_body.setStyle(TableStyle([
-        ('BACKGROUND', (0,0), (-1,0), colors.HexColor('#E5E7EB')),
-        ('FONTNAME', (0,0), (-1,0), 'Helvetica-Bold'),
-        ('GRID', (0,0), (-1,-1), 0.5, colors.HexColor('#9CA3AF')),
-        ('FONTNAME', (0,-1), (-1,-1), 'Helvetica-Bold'),
-        ('PADDING', (0,0), (-1,-1), 8),
-    ]))
+    t_body.setStyle(
+        TableStyle(
+            [
+                ("BACKGROUND", (0, 0), (-1, 0), colors.HexColor("#E5E7EB")),
+                ("FONTNAME", (0, 0), (-1, 0), "Helvetica-Bold"),
+                ("GRID", (0, 0), (-1, -1), 0.5, colors.HexColor("#9CA3AF")),
+                ("FONTNAME", (0, -1), (-1, -1), "Helvetica-Bold"),
+                ("PADDING", (0, 0), (-1, -1), 8),
+            ]
+        )
+    )
     elements.append(t_body)
     doc.build(elements)
 
 
 def render_layout_enterprise_boxed(doc_path: Path, data: dict):
     """Layout 5: Formal Enterprise Boxed Layout."""
-    doc = SimpleDocTemplate(str(doc_path), pagesize=letter, rightMargin=40, leftMargin=40, topMargin=40, bottomMargin=40)
+    doc = SimpleDocTemplate(
+        str(doc_path), pagesize=letter, rightMargin=40, leftMargin=40, topMargin=40, bottomMargin=40
+    )
     styles = getSampleStyleSheet()
     elements = []
 
-    header = Table([
-        [Paragraph("<font size=16 color='#047857'><b>ENTERPRISE VENDOR INVOICE</b></font>", styles['Normal']),
-         Paragraph(f"<b>INVOICE NO:</b> {data['id']}<br/><font size=8 color='#065F46'>SYNTHETIC RECORD</font>", styles['Normal'])]
-    ], colWidths=[320, 210])
-    header.setStyle(TableStyle([('BOX', (0,0), (-1,-1), 1, colors.HexColor('#047857')), ('PADDING', (0,0), (-1,-1), 8)]))
+    header = Table(
+        [
+            [
+                Paragraph(
+                    "<font size=16 color='#047857'><b>ENTERPRISE VENDOR INVOICE</b></font>",
+                    styles["Normal"],
+                ),
+                Paragraph(
+                    f"<b>INVOICE NO:</b> {data['id']}<br/><font size=8 color='#065F46'>SYNTHETIC RECORD</font>",
+                    styles["Normal"],
+                ),
+            ]
+        ],
+        colWidths=[320, 210],
+    )
+    header.setStyle(
+        TableStyle(
+            [
+                ("BOX", (0, 0), (-1, -1), 1, colors.HexColor("#047857")),
+                ("PADDING", (0, 0), (-1, -1), 8),
+            ]
+        )
+    )
     elements.append(header)
     elements.append(Spacer(1, 15))
 
     details = [
         ["BILL TO (CLIENT):", "INVOICE METRICS:"],
-        [f"Organization: {data['client']}\nStatus: Active Client\nTerms: {data['terms_days']} Days",
-         f"Invoice Date: {data['issued_on']}\nPayment Deadline: {data['due_on']}\nCurrency: {data['currency']}"]
+        [
+            f"Organization: {data['client']}\nStatus: Active Client\nTerms: {data['terms_days']} Days",
+            f"Invoice Date: {data['issued_on']}\nPayment Deadline: {data['due_on']}\nCurrency: {data['currency']}",
+        ],
     ]
     t_det = Table(details, colWidths=[265, 265])
-    t_det.setStyle(TableStyle([
-        ('BACKGROUND', (0,0), (-1,0), colors.HexColor('#D1FAE5')),
-        ('FONTNAME', (0,0), (-1,0), 'Helvetica-Bold'),
-        ('GRID', (0,0), (-1,-1), 0.5, colors.HexColor('#A7F3D0')),
-        ('PADDING', (0,0), (-1,-1), 7),
-    ]))
+    t_det.setStyle(
+        TableStyle(
+            [
+                ("BACKGROUND", (0, 0), (-1, 0), colors.HexColor("#D1FAE5")),
+                ("FONTNAME", (0, 0), (-1, 0), "Helvetica-Bold"),
+                ("GRID", (0, 0), (-1, -1), 0.5, colors.HexColor("#A7F3D0")),
+                ("PADDING", (0, 0), (-1, -1), 7),
+            ]
+        )
+    )
     elements.append(t_det)
     elements.append(Spacer(1, 20))
 
     charges = [
         ["Service Item", "Category", "Rate", "Total"],
-        [f"Core Engineering Deliverables", data['project_type'], f"${data['amount']:,.2f}", f"${data['amount']:,.2f}"],
-        ["TOTAL PAYABLE DUE", "", "", f"${data['amount']:,.2f}"]
+        [
+            "Core Engineering Deliverables",
+            data["project_type"],
+            f"${data['amount']:,.2f}",
+            f"${data['amount']:,.2f}",
+        ],
+        ["TOTAL PAYABLE DUE", "", "", f"${data['amount']:,.2f}"],
     ]
     t_charges = Table(charges, colWidths=[230, 110, 90, 100])
-    t_charges.setStyle(TableStyle([
-        ('BACKGROUND', (0,0), (-1,0), colors.HexColor('#047857')),
-        ('TEXTCOLOR', (0,0), (-1,0), colors.white),
-        ('FONTNAME', (0,0), (-1,0), 'Helvetica-Bold'),
-        ('GRID', (0,0), (-1,-1), 0.5, colors.HexColor('#6EE7B7')),
-        ('FONTNAME', (0,-1), (-1,-1), 'Helvetica-Bold'),
-        ('BACKGROUND', (0,-1), (-1,-1), colors.HexColor('#ECFDF5')),
-        ('PADDING', (0,0), (-1,-1), 8),
-    ]))
+    t_charges.setStyle(
+        TableStyle(
+            [
+                ("BACKGROUND", (0, 0), (-1, 0), colors.HexColor("#047857")),
+                ("TEXTCOLOR", (0, 0), (-1, 0), colors.white),
+                ("FONTNAME", (0, 0), (-1, 0), "Helvetica-Bold"),
+                ("GRID", (0, 0), (-1, -1), 0.5, colors.HexColor("#6EE7B7")),
+                ("FONTNAME", (0, -1), (-1, -1), "Helvetica-Bold"),
+                ("BACKGROUND", (0, -1), (-1, -1), colors.HexColor("#ECFDF5")),
+                ("PADDING", (0, 0), (-1, -1), 8),
+            ]
+        )
+    )
     elements.append(t_charges)
     doc.build(elements)
 
@@ -454,11 +599,26 @@ def generate_ground_truth_suite(count: int = 20) -> list[dict]:
     selected_clients = CLIENT_PROFILES[:count]
 
     base_dates = [
-        ("2026-08-10", 30), ("2026-08-15", 14), ("2026-08-20", 30), ("2026-08-25", 45),
-        ("2026-09-01", 30), ("2026-09-05", 30), ("2026-09-10", 14), ("2026-09-15", 30),
-        ("2026-09-20", 60), ("2026-09-25", 30), ("2026-09-28", 30), ("2026-10-01", 14),
-        ("2026-10-03", 30), ("2026-10-05", 30), ("2026-10-07", 30), ("2026-10-08", 45),
-        ("2026-10-10", 14), ("2026-10-11", 30), ("2026-10-12", 30), ("2026-10-14", 30),
+        ("2026-08-10", 30),
+        ("2026-08-15", 14),
+        ("2026-08-20", 30),
+        ("2026-08-25", 45),
+        ("2026-09-01", 30),
+        ("2026-09-05", 30),
+        ("2026-09-10", 14),
+        ("2026-09-15", 30),
+        ("2026-09-20", 60),
+        ("2026-09-25", 30),
+        ("2026-09-28", 30),
+        ("2026-10-01", 14),
+        ("2026-10-03", 30),
+        ("2026-10-05", 30),
+        ("2026-10-07", 30),
+        ("2026-10-08", 45),
+        ("2026-10-10", 14),
+        ("2026-10-11", 30),
+        ("2026-10-12", 30),
+        ("2026-10-14", 30),
     ]
 
     for idx in range(count):
@@ -468,9 +628,11 @@ def generate_ground_truth_suite(count: int = 20) -> list[dict]:
         due_dt = issue_dt + timedelta(days=terms)
         due_str = due_dt.strftime("%Y-%m-%d")
 
-        amount = round(random.choice([1500, 2750, 3800, 4950, 6200, 7500, 9800]) + random.uniform(50, 200), 2)
+        amount = round(
+            random.choice([1500, 2750, 3800, 4950, 6200, 7500, 9800]) + random.uniform(50, 200), 2
+        )
         proj = PROJECT_TYPES[idx % len(PROJECT_TYPES)]
-        inv_id = f"INV-GT-{idx+1:03d}"
+        inv_id = f"INV-GT-{idx + 1:03d}"
 
         record = {
             "id": inv_id,
@@ -482,12 +644,12 @@ def generate_ground_truth_suite(count: int = 20) -> list[dict]:
             "terms_days": terms,
             "project_type": proj,
             "synthetic": True,
-            "source_file": f"inv_{idx+1:02d}.pdf",
+            "source_file": f"inv_{idx + 1:02d}.pdf",
         }
 
-        pdf_path = GT_INVOICES_DIR / f"inv_{idx+1:02d}.pdf"
-        png_path = GT_INVOICES_DIR / f"inv_{idx+1:02d}.png"
-        meta_path = GT_META_DIR / f"inv_{idx+1:02d}.json"
+        pdf_path = GT_INVOICES_DIR / f"inv_{idx + 1:02d}.pdf"
+        png_path = GT_INVOICES_DIR / f"inv_{idx + 1:02d}.png"
+        meta_path = GT_META_DIR / f"inv_{idx + 1:02d}.json"
 
         # Rotate among the 5 distinct layout templates
         renderer = LAYOUT_RENDERERS[idx % len(LAYOUT_RENDERERS)]
@@ -518,14 +680,18 @@ def main():
     clients_path = DEMO_DIR / "clients.json"
     with open(clients_path, "w", encoding="utf-8") as f:
         json.dump(CLIENT_PROFILES, f, indent=2)
-    print(f"[OK] Saved {len(CLIENT_PROFILES)} client profiles to {clients_path.relative_to(PROJECT_ROOT)}")
+    print(
+        f"[OK] Saved {len(CLIENT_PROFILES)} client profiles to {clients_path.relative_to(PROJECT_ROOT)}"
+    )
 
     # 2. Generate ~400 Synthetic Invoices
     invoices = generate_synthetic_invoices(total_target=400)
     history_path = DEMO_DIR / "invoices_history.json"
     with open(history_path, "w", encoding="utf-8") as f:
         json.dump(invoices, f, indent=2)
-    print(f"[OK] Generated {len(invoices)} historical invoices saved to {history_path.relative_to(PROJECT_ROOT)}")
+    print(
+        f"[OK] Generated {len(invoices)} historical invoices saved to {history_path.relative_to(PROJECT_ROOT)}"
+    )
 
     # 3. Seed SQLite Database
     db_path = PROJECT_ROOT / "payradar.db"
@@ -536,7 +702,9 @@ def main():
 
     # 4. Generate 20 Ground Truth Documents in 5+ Layouts
     gt_docs = generate_ground_truth_suite(count=20)
-    print(f"[OK] Rendered {len(gt_docs)} ground-truth documents (PDF + PNG) across 5 layouts in {GT_DIR.relative_to(PROJECT_ROOT)}")
+    print(
+        f"[OK] Rendered {len(gt_docs)} ground-truth documents (PDF + PNG) across 5 layouts in {GT_DIR.relative_to(PROJECT_ROOT)}"
+    )
     print("Synthetic dataset generation complete!")
 
 

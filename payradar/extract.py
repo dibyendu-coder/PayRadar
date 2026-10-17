@@ -166,7 +166,7 @@ def extract_invoice(
     file_path: str | Path,
     model_name: str | None = None,
     base_url: str = DEFAULT_OLLAMA_URL,
-    timeout: float = 60.0,
+    timeout: float = 120.0,
 ) -> InvoiceExtraction:
     """Extract structured invoice fields from a PDF or image file using Gemma Vision."""
     path = Path(file_path)
@@ -230,7 +230,9 @@ def extract_invoice(
     inv_id = str(parsed.get("id") or path.stem).strip()
     client = str(parsed.get("client") or "Unknown Client").strip()
     # Strip common prefixes like 'Bill To:', 'Client:', etc.
-    client = re.sub(r"^(Bill\s+To:?|Client:?|Customer:?)\s*", "", client, flags=re.IGNORECASE).strip()
+    client = re.sub(
+        r"^(Bill\s+To:?|Client:?|Customer:?)\s*", "", client, flags=re.IGNORECASE
+    ).strip()
 
     issued_on = normalize_date_string(parsed.get("issued_on"))
     due_on_raw = parsed.get("due_on")
@@ -278,7 +280,7 @@ def extract_batch(
         try:
             extraction = extract_invoice(fp, model_name=model_name, base_url=base_url)
             results.append(extraction)
-        except Exception as e:
+        except Exception:
             # Return partial fallback record with 0 confidence
             p = Path(fp)
             results.append(
