@@ -132,10 +132,8 @@ def build_feature_dataset(
     computed using only earlier paid invoices in the same collection.
     """
     if isinstance(invoices, pd.DataFrame):
-        df_raw = invoices.copy()
         raw_records = invoices.to_dict(orient="records")
     else:
-        df_raw = pd.DataFrame(invoices)
         raw_records = invoices
 
     rows = []

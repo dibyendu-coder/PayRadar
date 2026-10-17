@@ -11,7 +11,6 @@ Non-negotiable requirements:
 from __future__ import annotations
 
 import datetime
-from pathlib import Path
 from typing import Any
 
 import numpy as np
@@ -99,16 +98,18 @@ def build_weekly_forecast(
         net_flow = round(cash_in - weekly_cost, 2)
         is_gap = bool(cash_in < weekly_cost)
 
-        weeks.append({
-            "week_num": w + 1,
-            "start_date": w_start.strftime("%Y-%m-%d"),
-            "end_date": w_end.strftime("%Y-%m-%d"),
-            "expected_cash_in": cash_in,
-            "weekly_cost": weekly_cost,
-            "net_cash_flow": net_flow,
-            "is_gap_week": is_gap,
-            "invoice_count": len(matching_invoices),
-            "invoice_ids": [inv.get("id", "") for inv in matching_invoices],
-        })
+        weeks.append(
+            {
+                "week_num": w + 1,
+                "start_date": w_start.strftime("%Y-%m-%d"),
+                "end_date": w_end.strftime("%Y-%m-%d"),
+                "expected_cash_in": cash_in,
+                "weekly_cost": weekly_cost,
+                "net_cash_flow": net_flow,
+                "is_gap_week": is_gap,
+                "invoice_count": len(matching_invoices),
+                "invoice_ids": [inv.get("id", "") for inv in matching_invoices],
+            }
+        )
 
     return pd.DataFrame(weeks)

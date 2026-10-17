@@ -2,6 +2,7 @@
 
 import numpy as np
 import pandas as pd
+
 from payradar.bench import PerClientMeanBaseline, get_time_based_split
 
 
@@ -19,11 +20,13 @@ def test_time_split_never_leaks_future_invoices():
         "2024-09-15",
         "2024-10-20",
     ]
-    df = pd.DataFrame({
-        "id": [f"INV-{i:02d}" for i in range(1, 11)],
-        "issued_on": dates,
-        "amount": [1000.0 * i for i in range(1, 11)],
-    })
+    df = pd.DataFrame(
+        {
+            "id": [f"INV-{i:02d}" for i in range(1, 11)],
+            "issued_on": dates,
+            "amount": [1000.0 * i for i in range(1, 11)],
+        }
+    )
 
     train_df, test_df = get_time_based_split(df, train_ratio=0.70)
 

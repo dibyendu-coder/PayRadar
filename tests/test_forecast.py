@@ -1,6 +1,7 @@
 """Unit tests for 8-week cash flow radar and gap week forecasting."""
 
 import datetime
+
 from payradar.forecast import build_weekly_forecast, calculate_expected_pay_dates
 
 

@@ -34,7 +34,6 @@ from payradar.db import get_all_invoices
 from payradar.features import CATEGORICAL_COLUMNS, FEATURE_COLUMNS, build_feature_dataset
 from payradar.model import (
     LatePaymentClassifier,
-    MissingTabPFNTokenError,
     PaymentDelayRegressor,
 )
 
@@ -141,14 +140,16 @@ def run_benchmark(db_path: str | Path | None = None) -> dict[str, Any]:
     auc_base = float(roc_auc_score(y_test_clf, pred_risk_base))
     mae_base = float(mean_absolute_error(y_test_reg, pred_delay_base))
 
-    results_table.append({
-        "model": "Per-Client Mean Baseline",
-        "classifier_auc": round(auc_base, 4),
-        "regressor_mae": round(mae_base, 2),
-        "fit_time_sec": round(fit_time_base, 3),
-        "predict_time_sec": round(pred_time_base, 3),
-        "status": "Evaluated",
-    })
+    results_table.append(
+        {
+            "model": "Per-Client Mean Baseline",
+            "classifier_auc": round(auc_base, 4),
+            "regressor_mae": round(mae_base, 2),
+            "fit_time_sec": round(fit_time_base, 3),
+            "predict_time_sec": round(pred_time_base, 3),
+            "status": "Evaluated",
+        }
+    )
 
     # Model 2: HistGradientBoosting (Sklearn)
     # Preprocess categorical features for HistGBM
@@ -175,14 +176,16 @@ def run_benchmark(db_path: str | Path | None = None) -> dict[str, Any]:
     auc_hgb = float(roc_auc_score(y_test_clf, pred_risk_hgb))
     mae_hgb = float(mean_absolute_error(y_test_reg, pred_delay_hgb))
 
-    results_table.append({
-        "model": "HistGradientBoosting (Sklearn)",
-        "classifier_auc": round(auc_hgb, 4),
-        "regressor_mae": round(mae_hgb, 2),
-        "fit_time_sec": round(fit_time_hgb, 3),
-        "predict_time_sec": round(pred_time_hgb, 3),
-        "status": "Evaluated",
-    })
+    results_table.append(
+        {
+            "model": "HistGradientBoosting (Sklearn)",
+            "classifier_auc": round(auc_hgb, 4),
+            "regressor_mae": round(mae_hgb, 2),
+            "fit_time_sec": round(fit_time_hgb, 3),
+            "predict_time_sec": round(pred_time_hgb, 3),
+            "status": "Evaluated",
+        }
+    )
 
     # Model 3: TabPFN-3.5
     tabpfn_token = os.environ.get("TABPFN_TOKEN")
@@ -204,32 +207,38 @@ def run_benchmark(db_path: str | Path | None = None) -> dict[str, Any]:
             auc_tab = float(roc_auc_score(y_test_clf, pred_risk_tab))
             mae_tab = float(mean_absolute_error(y_test_reg, pred_delay_tab))
 
-            results_table.append({
-                "model": "TabPFN-3.5 (Local)",
-                "classifier_auc": round(auc_tab, 4),
-                "regressor_mae": round(mae_tab, 2),
-                "fit_time_sec": round(fit_time_tab, 3),
-                "predict_time_sec": round(pred_time_tab, 3),
-                "status": "Evaluated",
-            })
+            results_table.append(
+                {
+                    "model": "TabPFN-3.5 (Local)",
+                    "classifier_auc": round(auc_tab, 4),
+                    "regressor_mae": round(mae_tab, 2),
+                    "fit_time_sec": round(fit_time_tab, 3),
+                    "predict_time_sec": round(pred_time_tab, 3),
+                    "status": "Evaluated",
+                }
+            )
         except Exception as e:
-            results_table.append({
+            results_table.append(
+                {
+                    "model": "TabPFN-3.5 (Local)",
+                    "classifier_auc": None,
+                    "regressor_mae": None,
+                    "fit_time_sec": None,
+                    "predict_time_sec": None,
+                    "status": f"Runtime Error: {e}",
+                }
+            )
+    else:
+        results_table.append(
+            {
                 "model": "TabPFN-3.5 (Local)",
                 "classifier_auc": None,
                 "regressor_mae": None,
                 "fit_time_sec": None,
                 "predict_time_sec": None,
-                "status": f"Runtime Error: {e}",
-            })
-    else:
-        results_table.append({
-            "model": "TabPFN-3.5 (Local)",
-            "classifier_auc": None,
-            "regressor_mae": None,
-            "fit_time_sec": None,
-            "predict_time_sec": None,
-            "status": "Requires TABPFN_TOKEN env var",
-        })
+                "status": "Requires TABPFN_TOKEN env var",
+            }
+        )
 
     # Format Output JSON
     benchmark_data = {
@@ -260,8 +269,8 @@ def run_benchmark(db_path: str | Path | None = None) -> dict[str, Any]:
 
 ## Evaluation Setup
 - **Split Strategy**: Chronological Time-Based Split (Oldest 70% Train, Newest 30% Test)
-- **Train Set**: {len(train_df)} invoices ({train_df['issued_on'].min()} to {train_df['issued_on'].max()})
-- **Test Set**: {len(test_df)} invoices ({test_df['issued_on'].min()} to {test_df['issued_on'].max()})
+- **Train Set**: {len(train_df)} invoices ({train_df["issued_on"].min()} to {train_df["issued_on"].max()})
+- **Test Set**: {len(test_df)} invoices ({test_df["issued_on"].min()} to {test_df["issued_on"].max()})
 - **Classification Task**: $P(\\text{{Paid}} > 7\\text{{ days late}})$ (Metric: ROC-AUC)
 - **Regression Task**: Continuous delay in days (Metric: Mean Absolute Error)
 
@@ -271,10 +280,12 @@ def run_benchmark(db_path: str | Path | None = None) -> dict[str, Any]:
 |---|---|---|---|---|---|
 """
     for row in results_table:
-        auc_str = f"{row['classifier_auc']:.4f}" if row['classifier_auc'] is not None else "N/A"
-        mae_str = f"{row['regressor_mae']:.2f}" if row['regressor_mae'] is not None else "N/A"
-        fit_str = f"{row['fit_time_sec']:.3f}s" if row['fit_time_sec'] is not None else "N/A"
-        pred_str = f"{row['predict_time_sec']:.3f}s" if row['predict_time_sec'] is not None else "N/A"
+        auc_str = f"{row['classifier_auc']:.4f}" if row["classifier_auc"] is not None else "N/A"
+        mae_str = f"{row['regressor_mae']:.2f}" if row["regressor_mae"] is not None else "N/A"
+        fit_str = f"{row['fit_time_sec']:.3f}s" if row["fit_time_sec"] is not None else "N/A"
+        pred_str = (
+            f"{row['predict_time_sec']:.3f}s" if row["predict_time_sec"] is not None else "N/A"
+        )
         md_content += f"| **{row['model']}** | {auc_str} | {mae_str} | {fit_str} | {pred_str} | {row['status']} |\n"
 
     md_path = RESULTS_DIR / "benchmark.md"
@@ -285,19 +296,31 @@ def run_benchmark(db_path: str | Path | None = None) -> dict[str, Any]:
     print("\n" + "=" * 95)
     print("PAYRADAR MODEL BENCHMARK (100% SYNTHETIC DATA)")
     print("=" * 95)
-    print(f"Split: Train={len(train_df)} rows ({train_df['issued_on'].min()} -> {train_df['issued_on'].max()})")
-    print(f"       Test ={len(test_df)} rows ({test_df['issued_on'].min()} -> {test_df['issued_on'].max()})")
+    print(
+        f"Split: Train={len(train_df)} rows ({train_df['issued_on'].min()} -> {train_df['issued_on'].max()})"
+    )
+    print(
+        f"       Test ={len(test_df)} rows ({test_df['issued_on'].min()} -> {test_df['issued_on'].max()})"
+    )
     print("-" * 95)
-    print(f"{'Model':<32} | {'ROC-AUC':<9} | {'MAE (Days)':<10} | {'Fit (s)':<8} | {'Pred (s)':<8} | {'Status'}")
+    print(
+        f"{'Model':<32} | {'ROC-AUC':<9} | {'MAE (Days)':<10} | {'Fit (s)':<8} | {'Pred (s)':<8} | {'Status'}"
+    )
     print("-" * 95)
     for row in results_table:
-        auc_str = f"{row['classifier_auc']:.4f}" if row['classifier_auc'] is not None else "N/A"
-        mae_str = f"{row['regressor_mae']:.2f}" if row['regressor_mae'] is not None else "N/A"
-        fit_str = f"{row['fit_time_sec']:.3f}s" if row['fit_time_sec'] is not None else "N/A"
-        pred_str = f"{row['predict_time_sec']:.3f}s" if row['predict_time_sec'] is not None else "N/A"
-        print(f"{row['model']:<32} | {auc_str:<9} | {mae_str:<10} | {fit_str:<8} | {pred_str:<8} | {row['status']}")
+        auc_str = f"{row['classifier_auc']:.4f}" if row["classifier_auc"] is not None else "N/A"
+        mae_str = f"{row['regressor_mae']:.2f}" if row["regressor_mae"] is not None else "N/A"
+        fit_str = f"{row['fit_time_sec']:.3f}s" if row["fit_time_sec"] is not None else "N/A"
+        pred_str = (
+            f"{row['predict_time_sec']:.3f}s" if row["predict_time_sec"] is not None else "N/A"
+        )
+        print(
+            f"{row['model']:<32} | {auc_str:<9} | {mae_str:<10} | {fit_str:<8} | {pred_str:<8} | {row['status']}"
+        )
     print("=" * 95)
-    print(f"[OK] Written to {json_path.relative_to(PROJECT_ROOT)} and {md_path.relative_to(PROJECT_ROOT)}\n")
+    print(
+        f"[OK] Written to {json_path.relative_to(PROJECT_ROOT)} and {md_path.relative_to(PROJECT_ROOT)}\n"
+    )
 
     return benchmark_data
 
