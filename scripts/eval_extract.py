@@ -224,6 +224,49 @@ def run_evaluation(
         json.dump(summary, f, indent=2)
     print(f"\n[OK] Results saved to {out_file.relative_to(PROJECT_ROOT)}")
 
+    # Write results/extract_eval.md including seconds per document
+    chosen_model = model_name or os.environ.get("GEMMA_MODEL", "gemma4:e2b")
+    md_content = f"""# Gemma Vision Invoice Extraction Evaluation [SYNTHETIC DATASET]
+
+> **Evaluation Date**: {summary["evaluation_timestamp"]}
+> **Model**: `{chosen_model}` via local Ollama API
+> **Notice**: All evaluated documents and ground-truth values are 100% synthetically generated for Hacktoberfest Week 2.
+
+## 1. Summary Metrics
+
+| Metric | Target | Result (Synthetic) |
+|---|---|---|
+| **Client Name Accuracy** | >90% | **{client_acc:.1f}%** ({client_correct}/{total_docs}) |
+| **Total Amount Accuracy** | >90% | **{amount_acc:.1f}%** ({amount_correct}/{total_docs}) |
+| **Issue Date Accuracy** | >90% | **{issued_acc:.1f}%** ({issued_correct}/{total_docs}) |
+| **Due Date Accuracy** | >90% | **{due_acc:.1f}%** ({due_correct}/{total_docs}) |
+| **All 4 Fields Exact Match** | >85% | **{full_doc_acc:.1f}%** ({all_correct}/{total_docs}) |
+| **Mean Confidence Score** | - | **{avg_conf:.2f}** |
+| **Mean Latency per Doc** | <45s | **{avg_latency:.2f} seconds** |
+
+## 2. Per-Document Evaluation Breakdown (Seconds per Document)
+
+| # | Document File | Latency (s) | All Fields Match | Client Match | Amount Match | Issued Date Match | Due Date Match | Extracted Client | Extracted Amount |
+|---|---|---|---|---|---|---|---|---|---|
+"""
+    for idx, d in enumerate(doc_results, start=1):
+        m = d.get("matches", {})
+        all_ok = "✅ PASS" if m.get("all_fields") else "❌ FAIL"
+        c_ok = "✅ PASS" if m.get("client") else "❌ FAIL"
+        a_ok = "✅ PASS" if m.get("amount") else "❌ FAIL"
+        i_ok = "✅ PASS" if m.get("issued_on") else "❌ FAIL"
+        due_ok = "✅ PASS" if m.get("due_on") else "❌ FAIL"
+        ext = d.get("extracted", {})
+        ext_client = ext.get("client", "Error")
+        ext_amt = f"${ext.get('amount', 0.0):,.2f}" if "amount" in ext else "Error"
+        lat = d.get("latency_sec", 0.0)
+        md_content += f"| {idx:02d} | `{d['file']}` | **{lat:.2f}s** | {all_ok} | {c_ok} | {a_ok} | {i_ok} | {due_ok} | {ext_client} | {ext_amt} |\n"
+
+    md_file = RESULTS_DIR / "extract_eval.md"
+    with open(md_file, "w", encoding="utf-8") as f:
+        f.write(md_content)
+    print(f"[OK] Markdown report saved to {md_file.relative_to(PROJECT_ROOT)}")
+
     return summary
 
 
