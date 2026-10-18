@@ -17,6 +17,7 @@ dependencies = [
     "tabpfn>=0.1.11; sys_platform != 'never'",
     "streamlit>=1.32.0",
     "tabpfn>=9.2.0",
+    "sentry-sdk>=2.0.0",
 ]
 
 [dependency-groups]

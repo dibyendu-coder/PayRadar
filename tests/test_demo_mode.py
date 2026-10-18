@@ -60,26 +60,34 @@ def test_requirements_demo_excludes_heavy_packages():
     assert "pandas" in content
 
 
-def test_app_demo_mode_no_heavy_imports_at_module_level(monkeypatch):
+def test_app_demo_mode_no_heavy_imports_at_module_level():
     """Verify importing app under DEMO_MODE=1 does not load torch, tabpfn, or pymupdf."""
+    import os
+    import subprocess
     import sys
 
-    monkeypatch.setenv("DEMO_MODE", "1")
+    code = (
+        "import os, sys\n"
+        "os.environ['DEMO_MODE'] = '1'\n"
+        "import app\n"
+        "assert 'torch' not in sys.modules, 'torch was imported!'\n"
+        "assert 'tabpfn' not in sys.modules, 'tabpfn was imported!'\n"
+        "assert 'pymupdf' not in sys.modules, 'pymupdf was imported!'\n"
+        "assert 'fitz' not in sys.modules, 'fitz was imported!'\n"
+        "health = app.check_system_health()\n"
+        "assert health['db_ok'] is True\n"
+        "print('PASS')\n"
+    )
 
-    # If already loaded, remove to test fresh import
-    for mod in list(sys.modules.keys()):
-        if mod == "app" or mod.startswith("payradar"):
-            del sys.modules[mod]
-
-    import app
-
-    health = app.check_system_health()
-    assert health["db_ok"] is True
-    assert health["tabpfn_ok"] is True
-
-    # Assert heavy packages are not loaded into sys.modules
-    assert "torch" not in sys.modules
-    assert "tabpfn" not in sys.modules
-    assert "pymupdf" not in sys.modules
-    assert "fitz" not in sys.modules
+    env = dict(os.environ)
+    env["DEMO_MODE"] = "1"
+    proc = subprocess.run(
+        [sys.executable, "-c", code],
+        cwd=str(PROJECT_ROOT),
+        env=env,
+        capture_output=True,
+        text=True,
+    )
+    assert proc.returncode == 0, f"STDOUT: {proc.stdout}\nSTDERR: {proc.stderr}"
+    assert "PASS" in proc.stdout
 

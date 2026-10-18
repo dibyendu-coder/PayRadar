@@ -268,11 +268,15 @@ def extract_invoice(
     }
 
     try:
-        with httpx.Client(timeout=timeout) as client:
-            resp = client.post(f"{base_url}/api/chat", json=payload)
-            resp.raise_for_status()
-            data = resp.json()
-            raw_text = data.get("message", {}).get("content", "{}")
+        from payradar.telemetry import trace_gemma_call
+
+        with trace_gemma_call(operation_name="extract", model_name=chosen_model) as tracker:
+            with httpx.Client(timeout=timeout) as client:
+                resp = client.post(f"{base_url}/api/chat", json=payload)
+                resp.raise_for_status()
+                data = resp.json()
+                tracker.record_response(data)
+                raw_text = data.get("message", {}).get("content", "{}")
     except Exception as exc:
         raise RuntimeError(f"Ollama inference error with {chosen_model}: {exc}") from exc
 

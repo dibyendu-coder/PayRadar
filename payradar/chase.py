@@ -234,11 +234,15 @@ def draft_chase_email_with_gemma(
         },
     }
 
-    with httpx.Client(timeout=timeout) as client_http:
-        resp = client_http.post(f"{base_url}/api/chat", json=payload)
-        resp.raise_for_status()
-        data = resp.json()
-        raw_text = data.get("message", {}).get("content", "").strip()
+    from payradar.telemetry import trace_gemma_call
+
+    with trace_gemma_call(operation_name="chase", model_name=chosen_model) as tracker:
+        with httpx.Client(timeout=timeout) as client_http:
+            resp = client_http.post(f"{base_url}/api/chat", json=payload)
+            resp.raise_for_status()
+            data = resp.json()
+            tracker.record_response(data)
+            raw_text = data.get("message", {}).get("content", "").strip()
 
     # Parse SUBJECT and BODY
     subject_match = re.search(r"SUBJECT:\s*(.+)", raw_text, re.IGNORECASE)
