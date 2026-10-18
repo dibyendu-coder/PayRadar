@@ -42,10 +42,24 @@ CREATE TABLE IF NOT EXISTS scores (
     model TEXT NOT NULL
 );
 
+CREATE TABLE IF NOT EXISTS drafts (
+    invoice_id TEXT PRIMARY KEY,
+    subject TEXT NOT NULL,
+    body TEXT NOT NULL,
+    tone TEXT NOT NULL,
+    risk REAL NOT NULL,
+    reason TEXT,
+    is_user_edited INTEGER NOT NULL DEFAULT 0,
+    created_at TEXT NOT NULL,
+    updated_at TEXT NOT NULL,
+    model TEXT NOT NULL DEFAULT 'Gemma'
+);
+
 CREATE INDEX IF NOT EXISTS idx_invoices_client ON invoices(client);
 CREATE INDEX IF NOT EXISTS idx_invoices_issued_on ON invoices(issued_on);
 CREATE INDEX IF NOT EXISTS idx_invoices_paid_on ON invoices(paid_on);
 CREATE INDEX IF NOT EXISTS idx_scores_scored_at ON scores(scored_at);
+CREATE INDEX IF NOT EXISTS idx_drafts_updated_at ON drafts(updated_at);
 """
 
 
@@ -170,4 +184,121 @@ def get_scores(db_path: str | Path | None = None) -> list[dict[str, Any]]:
     with get_db(db_path) as conn:
         cur = conn.cursor()
         cur.execute("SELECT * FROM scores ORDER BY risk DESC")
+        return [dict(row) for row in cur.fetchall()]
+
+
+def get_scored_open_invoices(db_path: str | Path | None = None) -> list[dict[str, Any]]:
+    """Return open invoices joined with their latest predictions from scores table."""
+    init_db(db_path)
+    with get_db(db_path) as conn:
+        cur = conn.cursor()
+        cur.execute(
+            """
+            SELECT i.*, s.risk, s.predicted_days_late, s.scored_at, s.model
+            FROM invoices i
+            LEFT JOIN scores s ON i.id = s.invoice_id
+            WHERE i.paid_on IS NULL
+            ORDER BY COALESCE(s.risk, -1.0) DESC, i.due_on ASC
+            """
+        )
+        return [dict(row) for row in cur.fetchall()]
+
+
+def save_draft(
+    invoice_id: str,
+    subject: str,
+    body: str,
+    tone: str,
+    risk: float,
+    reason: str | None = None,
+    is_user_edited: bool = False,
+    force: bool = False,
+    model: str = "Gemma",
+    db_path: str | Path | None = None,
+) -> bool:
+    """Save or update a reminder draft.
+
+    If the draft has previously been edited by the user (is_user_edited == 1)
+    and force is False and the new save is an automated draft (is_user_edited == False),
+    the save is rejected to ensure we never overwrite user edits.
+
+    Returns True if saved, False if overwrite was blocked.
+    """
+    init_db(db_path)
+    import datetime
+
+    now_iso = datetime.datetime.now().isoformat()
+    with get_db(db_path) as conn:
+        cur = conn.cursor()
+        cur.execute(
+            "SELECT is_user_edited, created_at FROM drafts WHERE invoice_id = ?", (invoice_id,)
+        )
+        existing = cur.fetchone()
+
+        if existing:
+            prev_user_edited = bool(existing["is_user_edited"])
+            if prev_user_edited and not is_user_edited and not force:
+                return False  # Block overwriting user edits
+
+            existing["created_at"]
+            conn.execute(
+                """
+                UPDATE drafts
+                SET subject = ?, body = ?, tone = ?, risk = ?, reason = ?,
+                    is_user_edited = ?, updated_at = ?, model = ?
+                WHERE invoice_id = ?
+                """,
+                (
+                    subject,
+                    body,
+                    tone,
+                    float(risk),
+                    reason or "",
+                    1 if is_user_edited else (1 if prev_user_edited else 0),
+                    now_iso,
+                    model,
+                    invoice_id,
+                ),
+            )
+            return True
+        else:
+            conn.execute(
+                """
+                INSERT INTO drafts (
+                    invoice_id, subject, body, tone, risk, reason,
+                    is_user_edited, created_at, updated_at, model
+                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                """,
+                (
+                    invoice_id,
+                    subject,
+                    body,
+                    tone,
+                    float(risk),
+                    reason or "",
+                    1 if is_user_edited else 0,
+                    now_iso,
+                    now_iso,
+                    model,
+                ),
+            )
+            return True
+
+
+def get_draft(invoice_id: str, db_path: str | Path | None = None) -> dict[str, Any] | None:
+    """Return the saved reminder draft for a specific invoice, or None."""
+    init_db(db_path)
+    with get_db(db_path) as conn:
+        cur = conn.cursor()
+        cur.execute("SELECT * FROM drafts WHERE invoice_id = ?", (invoice_id,))
+        row = cur.fetchone()
+        return dict(row) if row else None
+
+
+def get_all_drafts(db_path: str | Path | None = None) -> list[dict[str, Any]]:
+    """Return all saved drafts ordered by updated_at descending."""
+    init_db(db_path)
+    with get_db(db_path) as conn:
+        cur = conn.cursor()
+        cur.execute("SELECT * FROM drafts ORDER BY updated_at DESC")
         return [dict(row) for row in cur.fetchall()]

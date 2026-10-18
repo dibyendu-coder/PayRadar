@@ -62,7 +62,9 @@ def test_calculate_expected_pay_dates():
         {"id": "INV-2", "due_on": "2026-09-20"},
     ]
     delays = [5.2, -2.0]
-    res = calculate_expected_pay_dates(invoices, predicted_delays=delays, today=datetime.date(2026, 9, 1))
+    res = calculate_expected_pay_dates(
+        invoices, predicted_delays=delays, today=datetime.date(2026, 9, 1)
+    )
 
     assert res[0]["raw_expected_pay_date"] == "2026-09-15"
     assert res[0]["expected_pay_date"] == "2026-09-15"

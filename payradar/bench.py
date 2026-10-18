@@ -216,8 +216,7 @@ def run_benchmark(db_path: str | Path | None = None) -> dict[str, Any]:
 
     # Track metrics across folds: {model: {"auc": [], "brier": [], "mae": [], "fit_time": [], "pred_time": []}}
     fold_metrics: dict[str, dict[str, list[float]]] = {
-        m: {"auc": [], "brier": [], "mae": [], "fit_time": [], "pred_time": []}
-        for m in model_names
+        m: {"auc": [], "brier": [], "mae": [], "fit_time": [], "pred_time": []} for m in model_names
     }
 
     last_split_predictions: dict[str, dict[str, np.ndarray]] = {}
@@ -229,15 +228,19 @@ def run_benchmark(db_path: str | Path | None = None) -> dict[str, Any]:
 
     split_details = []
     for split_idx, (train_df, test_df) in enumerate(splits, start=1):
-        print(f"\n--- Split {split_idx}/3: Train={len(train_df)} rows ({train_df['issued_on'].min()} -> {train_df['issued_on'].max()}) | Test={len(test_df)} rows ({test_df['issued_on'].min()} -> {test_df['issued_on'].max()}) ---")
+        print(
+            f"\n--- Split {split_idx}/3: Train={len(train_df)} rows ({train_df['issued_on'].min()} -> {train_df['issued_on'].max()}) | Test={len(test_df)} rows ({test_df['issued_on'].min()} -> {test_df['issued_on'].max()}) ---"
+        )
 
-        split_details.append({
-            "split_idx": split_idx,
-            "train_samples": len(train_df),
-            "test_samples": len(test_df),
-            "train_dates": [train_df["issued_on"].min(), train_df["issued_on"].max()],
-            "test_dates": [test_df["issued_on"].min(), test_df["issued_on"].max()],
-        })
+        split_details.append(
+            {
+                "split_idx": split_idx,
+                "train_samples": len(train_df),
+                "test_samples": len(test_df),
+                "train_dates": [train_df["issued_on"].min(), train_df["issued_on"].max()],
+                "test_dates": [test_df["issued_on"].min(), test_df["issued_on"].max()],
+            }
+        )
 
         X_train = train_df[FEATURE_COLUMNS].copy()
         y_train_clf = train_df["is_late_7d"].values.astype(int)
@@ -378,24 +381,31 @@ def run_benchmark(db_path: str | Path | None = None) -> dict[str, Any]:
         fit_vals = metrics["fit_time"]
         pred_vals = metrics["pred_time"]
 
-        summary_results.append({
-            "model": model_name,
-            "auc_mean": round(float(np.mean(auc_vals)), 4),
-            "auc_std": round(float(np.std(auc_vals, ddof=1)), 4) if len(auc_vals) > 1 else 0.0,
-            "brier_mean": round(float(np.mean(brier_vals)), 4),
-            "brier_std": round(float(np.std(brier_vals, ddof=1)), 4) if len(brier_vals) > 1 else 0.0,
-            "mae_mean": round(float(np.mean(mae_vals)), 2),
-            "mae_std": round(float(np.std(mae_vals, ddof=1)), 2) if len(mae_vals) > 1 else 0.0,
-            "fit_time_mean_sec": round(float(np.mean(fit_vals)), 3),
-            "pred_time_mean_sec": round(float(np.mean(pred_vals)), 3),
-            "fold_auc": [round(x, 4) for x in auc_vals],
-            "fold_brier": [round(x, 4) for x in brier_vals],
-            "fold_mae": [round(x, 2) for x in mae_vals],
-        })
+        summary_results.append(
+            {
+                "model": model_name,
+                "auc_mean": round(float(np.mean(auc_vals)), 4),
+                "auc_std": round(float(np.std(auc_vals, ddof=1)), 4) if len(auc_vals) > 1 else 0.0,
+                "brier_mean": round(float(np.mean(brier_vals)), 4),
+                "brier_std": round(float(np.std(brier_vals, ddof=1)), 4)
+                if len(brier_vals) > 1
+                else 0.0,
+                "mae_mean": round(float(np.mean(mae_vals)), 2),
+                "mae_std": round(float(np.std(mae_vals, ddof=1)), 2) if len(mae_vals) > 1 else 0.0,
+                "fit_time_mean_sec": round(float(np.mean(fit_vals)), 3),
+                "pred_time_mean_sec": round(float(np.mean(pred_vals)), 3),
+                "fold_auc": [round(x, 4) for x in auc_vals],
+                "fold_brier": [round(x, 4) for x in brier_vals],
+                "fold_mae": [round(x, 2) for x in mae_vals],
+            }
+        )
 
     # Bootstrap 95% CI on the last split: TabPFN vs Per-Client Mean
     bootstrap_ci = None
-    if "TabPFN-3.5 (Local)" in last_split_predictions and "Per-Client Mean Baseline" in last_split_predictions:
+    if (
+        "TabPFN-3.5 (Local)" in last_split_predictions
+        and "Per-Client Mean Baseline" in last_split_predictions
+    ):
         y_true_last = last_split_predictions["TabPFN-3.5 (Local)"]["y_true_clf"]
         pred_tab_last = last_split_predictions["TabPFN-3.5 (Local)"]["pred_risk"]
         pred_base_last = last_split_predictions["Per-Client Mean Baseline"]["pred_risk"]
@@ -430,7 +440,9 @@ def run_benchmark(db_path: str | Path | None = None) -> dict[str, Any]:
     print("\n" + "=" * 115)
     print("EXPANDING-WINDOW BENCHMARK SUMMARY (3 Chronological Splits | 100% Synthetic Data)")
     print("=" * 115)
-    print(f"{'Model':<30} | {'ROC-AUC (mean +/- std)':<23} | {'Brier (mean +/- std)':<22} | {'MAE (mean +/- std)':<20} | {'Speed (Fit / Pred)'}")
+    print(
+        f"{'Model':<30} | {'ROC-AUC (mean +/- std)':<23} | {'Brier (mean +/- std)':<22} | {'MAE (mean +/- std)':<20} | {'Speed (Fit / Pred)'}"
+    )
     print("-" * 115)
     for row in summary_results:
         auc_str = f"{row['auc_mean']:.4f} +/- {row['auc_std']:.4f}"
@@ -441,13 +453,21 @@ def run_benchmark(db_path: str | Path | None = None) -> dict[str, Any]:
     print("-" * 115)
 
     if bootstrap_ci:
-        print("\nBOOTSTRAP 95% CONFIDENCE INTERVAL (Last Split: TabPFN vs Per-Client Mean AUC Difference):")
+        print(
+            "\nBOOTSTRAP 95% CONFIDENCE INTERVAL (Last Split: TabPFN vs Per-Client Mean AUC Difference):"
+        )
         print(f"  Δ(AUC) = AUC(TabPFN) - AUC(Client Mean) = {bootstrap_ci['mean_diff']:+.4f}")
-        print(f"  95% CI: [{bootstrap_ci['ci_lower_95']:+.4f}, {bootstrap_ci['ci_upper_95']:+.4f}] (B={bootstrap_ci['bootstraps_run']} resamples)")
-        if bootstrap_ci['ci_lower_95'] > 0:
-            print("  Conclusion: TabPFN demonstrates statistically significant late-payment discrimination gain over per-client mean at alpha=0.05.")
+        print(
+            f"  95% CI: [{bootstrap_ci['ci_lower_95']:+.4f}, {bootstrap_ci['ci_upper_95']:+.4f}] (B={bootstrap_ci['bootstraps_run']} resamples)"
+        )
+        if bootstrap_ci["ci_lower_95"] > 0:
+            print(
+                "  Conclusion: TabPFN demonstrates statistically significant late-payment discrimination gain over per-client mean at alpha=0.05."
+            )
         else:
-            print("  Conclusion: 95% CI spans zero; TabPFN advantage is directional on this split size.")
+            print(
+                "  Conclusion: 95% CI spans zero; TabPFN advantage is directional on this split size."
+            )
 
     print(f"\n{overconfidence_assessment}")
     print("=" * 115 + "\n")
@@ -482,9 +502,9 @@ def run_benchmark(db_path: str | Path | None = None) -> dict[str, Any]:
 ## Evaluation Setup
 - **Split Strategy**: 3 Expanding-Window Chronological Time Splits (strict temporal order, zero leakage).
 - **Folds**:
-  1. Train: Oldest 50% ({split_details[0]['train_samples']} rows) | Test: Next 15% ({split_details[0]['test_samples']} rows)
-  2. Train: Oldest 65% ({split_details[1]['train_samples']} rows) | Test: Next 15% ({split_details[1]['test_samples']} rows)
-  3. Train: Oldest 80% ({split_details[2]['train_samples']} rows) | Test: Final 20% ({split_details[2]['test_samples']} rows)
+  1. Train: Oldest 50% ({split_details[0]["train_samples"]} rows) | Test: Next 15% ({split_details[0]["test_samples"]} rows)
+  2. Train: Oldest 65% ({split_details[1]["train_samples"]} rows) | Test: Next 15% ({split_details[1]["test_samples"]} rows)
+  3. Train: Oldest 80% ({split_details[2]["train_samples"]} rows) | Test: Final 20% ({split_details[2]["test_samples"]} rows)
 - **Classification Task**: $P(\\text{{Paid}} > 7\\text{{ days late}})$
   - Metrics: **ROC-AUC** (discrimination) & **Brier Score** (calibration / sharpness, lower is better).
 - **Regression Task**: Continuous delay in days (Metric: **Mean Absolute Error**, lower is better).
@@ -506,10 +526,10 @@ def run_benchmark(db_path: str | Path | None = None) -> dict[str, Any]:
         md_content += f"""
 ## Bootstrap Statistical Significance (Split 3)
 - **Comparison**: TabPFN-3.5 vs Per-Client Mean Baseline
-- **Sample Count**: {split_details[-1]['test_samples']} invoices (final chronological window)
-- **Bootstrap Iterations**: {bootstrap_ci['bootstraps_run']}
-- **Mean Difference**: $\\Delta\\text{{AUC}} = {bootstrap_ci['mean_diff']:+.4f}$
-- **95% Confidence Interval**: **[{bootstrap_ci['ci_lower_95']:+.4f}, {bootstrap_ci['ci_upper_95']:+.4f}]**
+- **Sample Count**: {split_details[-1]["test_samples"]} invoices (final chronological window)
+- **Bootstrap Iterations**: {bootstrap_ci["bootstraps_run"]}
+- **Mean Difference**: $\\Delta\\text{{AUC}} = {bootstrap_ci["mean_diff"]:+.4f}$
+- **95% Confidence Interval**: **[{bootstrap_ci["ci_lower_95"]:+.4f}, {bootstrap_ci["ci_upper_95"]:+.4f}]**
 """
 
     md_content += f"""
@@ -522,7 +542,9 @@ def run_benchmark(db_path: str | Path | None = None) -> dict[str, Any]:
     with open(md_path, "w", encoding="utf-8") as f:
         f.write(md_content)
 
-    print(f"[OK] Benchmark written to {json_path.relative_to(PROJECT_ROOT)} and {md_path.relative_to(PROJECT_ROOT)}")
+    print(
+        f"[OK] Benchmark written to {json_path.relative_to(PROJECT_ROOT)} and {md_path.relative_to(PROJECT_ROOT)}"
+    )
     return benchmark_data
 
 

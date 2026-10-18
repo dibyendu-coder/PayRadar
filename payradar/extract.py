@@ -10,6 +10,7 @@ Non-negotiable requirements:
 from __future__ import annotations
 
 import base64
+import io
 import json
 import os
 import re
@@ -19,6 +20,7 @@ from typing import Any
 
 import httpx
 import pymupdf
+from PIL import Image
 from pydantic import BaseModel, Field
 
 DEFAULT_OLLAMA_URL = os.environ.get("OLLAMA_HOST", "http://localhost:11434")
@@ -88,27 +90,68 @@ def resolve_model(preferred: str | None = None, base_url: str = DEFAULT_OLLAMA_U
     return available[0]
 
 
-def render_doc_to_image_bytes(doc_path: str | Path, dpi: int = 150) -> bytes:
-    """Render a PDF page or image file to PNG image bytes using PyMuPDF."""
-    path = Path(doc_path)
+def resize_image_bytes(img_bytes: bytes, max_dimension: int = 1024) -> bytes:
+    """Downsample image bytes so that max(width, height) <= max_dimension, preserving aspect ratio."""
+    try:
+        with Image.open(io.BytesIO(img_bytes)) as img:
+            w, h = img.size
+            if max(w, h) <= max_dimension:
+                return img_bytes
+
+            scale = max_dimension / max(w, h)
+            new_size = (int(round(w * scale)), int(round(h * scale)))
+            resized = img.resize(new_size, Image.Resampling.LANCZOS)
+            if resized.mode in ("RGBA", "P"):
+                resized = resized.convert("RGB")
+            out_buf = io.BytesIO()
+            resized.save(out_buf, format="PNG", optimize=True)
+            return out_buf.getvalue()
+    except Exception:
+        return img_bytes
+
+
+def render_doc_to_image_bytes(
+    doc: str | Path | bytes,
+    filename: str | None = None,
+    dpi: int = 150,
+    max_dimension: int = 1024,
+) -> bytes:
+    """Render a PDF page or image file/bytes to PNG image bytes resized for 4GB VRAM target."""
+    if isinstance(doc, bytes):
+        suffix = Path(filename).suffix.lower() if filename else ""
+        if suffix == ".pdf" or doc.startswith(b"%PDF"):
+            pdf_doc = pymupdf.open(stream=doc, filetype="pdf")
+            if len(pdf_doc) == 0:
+                raise ValueError("PDF has no pages")
+            page = pdf_doc[0]
+            mat = pymupdf.Matrix(dpi / 72.0, dpi / 72.0)
+            pix = page.get_pixmap(matrix=mat, alpha=False)
+            raw_bytes = pix.tobytes("png")
+            pdf_doc.close()
+        else:
+            raw_bytes = doc
+        return resize_image_bytes(raw_bytes, max_dimension=max_dimension)
+
+    path = Path(doc)
     if not path.exists():
         raise FileNotFoundError(f"File not found: {path}")
 
     suffix = path.suffix.lower()
     if suffix in [".png", ".jpg", ".jpeg", ".webp"]:
-        return path.read_bytes()
+        raw_bytes = path.read_bytes()
+        return resize_image_bytes(raw_bytes, max_dimension=max_dimension)
 
     if suffix == ".pdf":
-        doc = pymupdf.open(str(path))
-        if len(doc) == 0:
+        pdf_doc = pymupdf.open(str(path))
+        if len(pdf_doc) == 0:
             raise ValueError(f"PDF has no pages: {path}")
-        page = doc[0]  # First page usually has all metadata
+        page = pdf_doc[0]
         zoom = dpi / 72.0
         mat = pymupdf.Matrix(zoom, zoom)
         pix = page.get_pixmap(matrix=mat, alpha=False)
-        img_bytes = pix.tobytes("png")
-        doc.close()
-        return img_bytes
+        raw_bytes = pix.tobytes("png")
+        pdf_doc.close()
+        return resize_image_bytes(raw_bytes, max_dimension=max_dimension)
 
     raise ValueError(f"Unsupported document format: {suffix}")
 
@@ -163,16 +206,33 @@ def clean_currency_amount(val: Any) -> float:
 
 
 def extract_invoice(
-    file_path: str | Path,
+    file_path: str | Path | None = None,
+    file_bytes: bytes | None = None,
+    filename: str | None = None,
     model_name: str | None = None,
     base_url: str = DEFAULT_OLLAMA_URL,
     timeout: float = 120.0,
 ) -> InvoiceExtraction:
-    """Extract structured invoice fields from a PDF or image file using Gemma Vision."""
-    path = Path(file_path)
-    image_bytes = render_doc_to_image_bytes(path)
-    image_b64 = base64.b64encode(image_bytes).decode("utf-8")
+    """Extract structured invoice fields from a PDF or image file using Gemma Vision.
 
+    Operates on either a file path or in-memory file bytes.
+    Images are scaled down to <= 1024px and context length is set to 2048 to fit 4GB VRAM.
+    """
+    if file_bytes is not None:
+        source_name = filename or "uploaded_invoice"
+        image_bytes = render_doc_to_image_bytes(
+            file_bytes, filename=source_name, max_dimension=1024
+        )
+        doc_stem = Path(source_name).stem
+    elif file_path is not None:
+        path = Path(file_path)
+        source_name = path.name
+        doc_stem = path.stem
+        image_bytes = render_doc_to_image_bytes(path, max_dimension=1024)
+    else:
+        raise ValueError("Either file_path or file_bytes must be provided")
+
+    image_b64 = base64.b64encode(image_bytes).decode("utf-8")
     chosen_model = resolve_model(model_name, base_url=base_url)
 
     prompt = (
@@ -203,6 +263,7 @@ def extract_invoice(
         "stream": False,
         "options": {
             "temperature": 0.0,
+            "num_ctx": 2048,
         },
     }
 
@@ -227,7 +288,7 @@ def extract_invoice(
             parsed = {}
 
     # Normalize fields
-    inv_id = str(parsed.get("id") or path.stem).strip()
+    inv_id = str(parsed.get("id") or doc_stem).strip()
     client = str(parsed.get("client") or "Unknown Client").strip()
     # Strip common prefixes like 'Bill To:', 'Client:', etc.
     client = re.sub(
@@ -265,7 +326,7 @@ def extract_invoice(
         terms_days=terms_days,
         project_type=project_type,
         confidence=confidence,
-        source_file=path.name,
+        source_file=source_name,
     )
 
 
