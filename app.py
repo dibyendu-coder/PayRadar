@@ -200,26 +200,26 @@ def render_inbox_page(health: dict[str, Any]) -> None:
 
         sample_demo_invoices = [
             {
-                "id": "INV-2026-DEMO-01",
+                "id": "INV-2026-0016",
                 "client": "Apex Innovations",
-                "issued_on": "2026-10-01",
-                "due_on": "2026-10-31",
+                "issued_on": "2026-09-01",
+                "due_on": "2026-10-01",
                 "amount": 6863.46,
                 "currency": "USD",
                 "terms_days": 30,
                 "project_type": "consulting",
-                "confidence": 0.94,
+                "source_file": "INV-2026-0016.pdf",
             },
             {
-                "id": "INV-2026-DEMO-02",
+                "id": "INV-2026-0031",
                 "client": "Vanguard Media",
-                "issued_on": "2026-10-10",
-                "due_on": "2026-11-09",
-                "amount": 8511.39,
+                "issued_on": "2026-08-20",
+                "due_on": "2026-10-04",
+                "amount": 11260.95,
                 "currency": "USD",
-                "terms_days": 30,
-                "project_type": "branding",
-                "confidence": 0.91,
+                "terms_days": 45,
+                "project_type": "mobile_app",
+                "source_file": "INV-2026-0031.pdf",
             },
         ]
         chosen_sample = st.selectbox(
@@ -281,7 +281,9 @@ def render_inbox_page(health: dict[str, Any]) -> None:
                                     filename=uploaded_file.name,
                                     timeout=60.0,
                                 )
-                                st.session_state["extracted_invoice"] = extraction.model_dump()
+                                extracted_dict = extraction.model_dump()
+                                extracted_dict["is_real_extraction"] = True
+                                st.session_state["extracted_invoice"] = extracted_dict
                                 st.success("Extraction complete! Review the fields below.")
                             except Exception as ex:
                                 st.error(
@@ -294,13 +296,14 @@ def render_inbox_page(health: dict[str, Any]) -> None:
         st.divider()
         st.subheader("Review & Confirm Extracted Fields")
 
-        conf = float(extracted.get("confidence", 0.90))
-        conf_color = "green" if conf >= 0.85 else ("orange" if conf >= 0.70 else "red")
-        st.markdown(
-            f"Extraction Confidence: <span style='color:{conf_color}; font-weight:bold;'>{conf * 100:.1f}%</span> "
-            f"({'High Confidence' if conf >= 0.85 else 'Review Carefully'})",
-            unsafe_allow_html=True,
-        )
+        if extracted.get("is_real_extraction") and extracted.get("confidence") is not None:
+            conf = float(extracted["confidence"])
+            conf_color = "green" if conf >= 0.85 else ("orange" if conf >= 0.70 else "red")
+            st.markdown(
+                f"Extraction Confidence: <span style='color:{conf_color}; font-weight:bold;'>{conf * 100:.1f}%</span> "
+                f"({'High Confidence' if conf >= 0.85 else 'Review Carefully'})",
+                unsafe_allow_html=True,
+            )
 
         with st.form("confirm_invoice_form"):
             fcol1, fcol2 = st.columns(2)
