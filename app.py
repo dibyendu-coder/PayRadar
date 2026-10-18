@@ -716,33 +716,19 @@ def render_chase_page(health: dict[str, Any]) -> None:
     st.write("")
     col_r1, col_r2 = st.columns([1, 2])
     with col_r1:
-        st.markdown(
-            f"""
-            <div class="metric-card">
-                <h4>Invoice Summary</h4>
-                <p><strong>ID:</strong> {selected_invoice["id"]}</p>
-                <p><strong>Client:</strong> {selected_invoice["client"]}</p>
-                <p><strong>Amount:</strong> ${float(selected_invoice["amount"]):,.2f}</p>
-                <p><strong>Due Date:</strong> {selected_invoice["due_on"]}</p>
-                <p><strong>Assigned Tone:</strong> <span style="color:#4361ee; font-weight:600;">{tone_label}</span></p>
-            </div>
-            """,
-            unsafe_allow_html=True,
-        )
+        with st.container(border=True):
+            st.markdown("#### 📄 Invoice Summary")
+            st.markdown(f"**ID:** `{selected_invoice['id']}`")
+            st.markdown(f"**Client:** {selected_invoice['client']}")
+            st.markdown(f"**Amount:** ${float(selected_invoice['amount']):,.2f}")
+            st.markdown(f"**Due Date:** {selected_invoice['due_on']}")
+            st.markdown(f"**Assigned Tone:** {tone_label}")
 
     with col_r2:
-        st.markdown(
-            f"""
-            <div class="metric-card" style="border-left-color: {"#d90429" if risk_val >= 0.6 else ("#e85d04" if risk_val >= 0.3 else "#2b9348")};">
-                <h4>Risk Rationale (Plain Words)</h4>
-                <p style="font-size: 1.05rem; line-height: 1.5;">{reason_text}</p>
-                <p style="font-size: 0.9rem; color: #6c757d; margin-top: 8px;">
-                    <strong>Tone Strategy:</strong> {tone_instruction}
-                </p>
-            </div>
-            """,
-            unsafe_allow_html=True,
-        )
+        with st.container(border=True):
+            st.markdown("#### 🔍 Risk Rationale (Plain Words)")
+            st.markdown(f"{reason_text}")
+            st.caption(f"**Tone Strategy:** {tone_instruction}")
 
     st.divider()
 
