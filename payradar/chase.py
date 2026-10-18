@@ -21,12 +21,11 @@ from datetime import datetime
 from pathlib import Path
 from typing import Any
 
-import httpx
-
 from payradar.db import get_draft, save_draft
-from payradar.extract import DEFAULT_OLLAMA_URL, resolve_model
 
+DEFAULT_OLLAMA_URL = os.environ.get("OLLAMA_HOST", "http://localhost:11434")
 CHASE_TIMEOUT_SECONDS = float(os.environ.get("CHASE_TIMEOUT", "90.0"))
+
 
 
 def get_tone_category(risk: float) -> tuple[str, str, str]:
@@ -188,6 +187,10 @@ def draft_chase_email_with_gemma(
     timeout: float = CHASE_TIMEOUT_SECONDS,
 ) -> tuple[str, str]:
     """Call local Gemma to draft a tailored reminder email using short context."""
+    import httpx
+
+    from payradar.extract import resolve_model
+
     chosen_model = resolve_model(model_name, base_url=base_url)
 
     inv_id = invoice.get("id", "INV")

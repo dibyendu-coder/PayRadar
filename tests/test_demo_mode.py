@@ -45,3 +45,41 @@ def test_demo_artifacts_content_validity():
     assert len(forecast) == 8
     assert "expected_cash_in" in forecast[0]
     assert "weekly_cost" in forecast[0]
+
+
+def test_requirements_demo_excludes_heavy_packages():
+    """Verify requirements-demo.txt exists and explicitly excludes heavy packages."""
+    req_file = PROJECT_ROOT / "requirements-demo.txt"
+    assert req_file.exists()
+    content = req_file.read_text(encoding="utf-8").lower()
+    assert "torch" not in content
+    assert "tabpfn" not in content
+    assert "ollama" not in content
+    assert "pymupdf" not in content
+    assert "streamlit" in content
+    assert "pandas" in content
+
+
+def test_app_demo_mode_no_heavy_imports_at_module_level(monkeypatch):
+    """Verify importing app under DEMO_MODE=1 does not load torch, tabpfn, or pymupdf."""
+    import sys
+
+    monkeypatch.setenv("DEMO_MODE", "1")
+
+    # If already loaded, remove to test fresh import
+    for mod in list(sys.modules.keys()):
+        if mod == "app" or mod.startswith("payradar"):
+            del sys.modules[mod]
+
+    import app
+
+    health = app.check_system_health()
+    assert health["db_ok"] is True
+    assert health["tabpfn_ok"] is True
+
+    # Assert heavy packages are not loaded into sys.modules
+    assert "torch" not in sys.modules
+    assert "tabpfn" not in sys.modules
+    assert "pymupdf" not in sys.modules
+    assert "fitz" not in sys.modules
+

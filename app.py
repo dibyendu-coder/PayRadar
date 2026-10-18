@@ -22,26 +22,9 @@ import streamlit as st
 
 from payradar.chase import (
     generate_plain_words_reason,
-    get_or_create_chase_draft,
     get_tone_category,
 )
-from payradar.db import (
-    get_all_invoices,
-    get_draft,
-    get_scored_open_invoices,
-    get_setting,
-    init_db,
-    insert_invoice,
-    save_draft,
-    set_setting,
-)
-from payradar.extract import (
-    extract_invoice,
-    get_available_models,
-    render_doc_to_image_bytes,
-)
 from payradar.forecast import build_weekly_forecast, calculate_expected_pay_dates
-from scripts.predict_open import score_open_invoices
 
 PROJECT_ROOT = Path(__file__).resolve().parent
 DEMO_MODE = os.environ.get("DEMO_MODE", "0").strip() in ("1", "true", "True")
@@ -120,6 +103,14 @@ st.markdown(
 
 def check_system_health() -> dict[str, Any]:
     """Check availability of SQLite DB, TabPFN token, and Ollama server."""
+    if DEMO_MODE:
+        return {
+            "db_ok": True,
+            "tabpfn_ok": True,
+            "ollama_ok": True,
+            "ollama_model": "gemma4:e2b (Precomputed)",
+        }
+
     health: dict[str, Any] = {
         "db_ok": True,
         "tabpfn_ok": bool(os.environ.get("TABPFN_TOKEN")),
@@ -127,11 +118,15 @@ def check_system_health() -> dict[str, Any]:
         "ollama_model": None,
     }
     try:
+        from payradar.db import init_db
+
         init_db()
     except Exception:
         health["db_ok"] = False
 
     try:
+        from payradar.extract import get_available_models
+
         models = get_available_models()
         if models:
             health["ollama_ok"] = True
@@ -247,6 +242,8 @@ def render_inbox_page(health: dict[str, Any]) -> None:
             with col_prev:
                 st.subheader("Document Preview")
                 try:
+                    from payradar.extract import render_doc_to_image_bytes
+
                     img_bytes = render_doc_to_image_bytes(
                         file_bytes, filename=uploaded_file.name, max_dimension=800
                     )
@@ -275,6 +272,8 @@ def render_inbox_page(health: dict[str, Any]) -> None:
                     else:
                         with st.spinner("Extracting invoice fields with local Gemma vision..."):
                             try:
+                                from payradar.extract import extract_invoice
+
                                 extraction = extract_invoice(
                                     file_bytes=file_bytes,
                                     filename=uploaded_file.name,
@@ -370,6 +369,8 @@ def render_inbox_page(health: dict[str, Any]) -> None:
                             f"Confirmed invoice {inv_id} for {client}! (In DEMO_MODE, DB writes are simulated)"
                         )
                     else:
+                        from payradar.db import insert_invoice
+
                         insert_invoice(invoice_record)
                         st.success(
                             f"Invoice {inv_id} successfully saved to SQLite! It is now tracked on your Radar."
@@ -420,6 +421,8 @@ def render_radar_page(health: dict[str, Any]) -> None:
             demo_settings = json.load(f)
         monthly_costs = float(demo_settings.get("monthly_costs", 5000.0))
     else:
+        from payradar.db import get_scored_open_invoices, get_setting, init_db
+
         init_db()
         open_invoices = get_scored_open_invoices()
         cost_str = get_setting("monthly_costs", "5000.0")
@@ -484,6 +487,8 @@ def render_radar_page(health: dict[str, Any]) -> None:
             if st.button("🔄 Re-score Open Invoices (Run TabPFN)", type="primary"):
                 with st.spinner("Running TabPFN inference to score all open invoices..."):
                     try:
+                        from scripts.predict_open import score_open_invoices
+
                         score_open_invoices(today=DEFAULT_REF_DATE, fast=True)
                         st.success("Successfully updated scores table!")
                         st.rerun()
@@ -501,6 +506,8 @@ def render_radar_page(health: dict[str, Any]) -> None:
             )
             if st.button("Save Cost Setting"):
                 if not DEMO_MODE:
+                    from payradar.db import set_setting
+
                     set_setting("monthly_costs", str(new_cost))
                     st.success("Updated monthly cost setting!")
                     st.rerun()
@@ -671,6 +678,8 @@ def render_chase_page(health: dict[str, Any]) -> None:
                 open_invoices.append(rec)
         open_invoices.sort(key=lambda x: x.get("risk", 0.0), reverse=True)
     else:
+        from payradar.db import get_all_invoices, get_scored_open_invoices, init_db
+
         init_db()
         all_invoices = get_all_invoices()
         open_invoices = get_scored_open_invoices()
@@ -741,6 +750,8 @@ def render_chase_page(health: dict[str, Any]) -> None:
     if DEMO_MODE:
         draft = drafts_by_id.get(inv_id)
         if not draft:
+            from payradar.chase import get_or_create_chase_draft
+
             draft = get_or_create_chase_draft(
                 selected_invoice,
                 history_invoices=all_invoices,
@@ -749,6 +760,9 @@ def render_chase_page(health: dict[str, Any]) -> None:
                 use_fallback_only=True,
             )
     else:
+        from payradar.chase import get_or_create_chase_draft
+        from payradar.db import get_draft
+
         existing_row = get_draft(inv_id)
         if existing_row:
             draft = {
@@ -785,6 +799,8 @@ def render_chase_page(health: dict[str, Any]) -> None:
                         "⚠️ This draft has been edited by you. Re-drafting will preserve your custom text unless explicitly confirmed."
                     )
                 with st.spinner("Drafting reminder email with Gemma..."):
+                    from payradar.chase import get_or_create_chase_draft
+
                     draft = get_or_create_chase_draft(
                         selected_invoice,
                         history_invoices=all_invoices,
@@ -825,6 +841,8 @@ def render_chase_page(health: dict[str, Any]) -> None:
     with save_col:
         if st.button("💾 Save Custom Draft"):
             if not DEMO_MODE:
+                from payradar.db import save_draft
+
                 save_draft(
                     invoice_id=inv_id,
                     subject=edit_subject,

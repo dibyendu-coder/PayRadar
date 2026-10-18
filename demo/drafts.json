@@ -9,6 +9,7 @@
     "reason": "This client has paid late on 10 of their last 14 invoices (averaging +14.1 days delay). TabPFN model flags high risk (66.3%) with ~+15.3 days expected delay.",
     "is_user_edited": false,
     "is_fallback": true,
+    "source": "gemma",
     "model": "Fallback Template",
     "created_at": "2026-10-18T14:03:42.596644",
     "updated_at": "2026-10-18T14:03:42.596644"
@@ -23,23 +24,25 @@
     "reason": "This client has paid late on 12 of their last 15 invoices (averaging +17.9 days delay). TabPFN model flags high risk (92.1%) with ~+19.0 days expected delay.",
     "is_user_edited": false,
     "is_fallback": true,
+    "source": "gemma",
     "model": "Fallback Template",
     "created_at": "2026-10-18T14:04:02.450149",
     "updated_at": "2026-10-18T14:04:02.450149"
   },
   {
     "invoice_id": "INV-2026-0016",
-    "subject": "Action Required: Outstanding Invoice INV-2026-0016 ($6,863.46) due 2026-10-01",
-    "body": "Dear Apex Innovations Accounts Payable,\n\nI am writing regarding invoice INV-2026-0016 for $6,863.46, which was due on 2026-10-01.\n\nAccording to our records, payment for this invoice remains outstanding. Please review the attached invoice details and confirm today when the transfer will be completed.\n\nIf payment has already been sent, please reply with the remittance confirmation so we can update our ledger.\n\nSincerely,\n[Your Name]",
+    "subject": "URGENT: Overdue Invoice INV-2026-0016 Due October 1st",
+    "body": "This is a final reminder regarding Invoice INV-2026-0016 for the amount of $6,863.46, which was due on October 1, 2026.\n\nGiven the significant delay and high-risk profile associated with this account, immediate action is required. We require immediate confirmation today of the exact date the payment transfer will be executed. Failure to confirm payment execution today will result in further escalation.\n\n[Your Name]",
     "tone": "firm_and_specific",
     "tone_label": "Firm & Specific (>60% risk)",
     "risk": 0.9982653856277466,
     "reason": "This client has paid late on 15 of their last 15 invoices (averaging +29.1 days delay). TabPFN model flags high risk (99.8%) with ~+30.7 days expected delay.",
     "is_user_edited": false,
-    "is_fallback": true,
-    "model": "Fallback Template",
+    "is_fallback": false,
+    "source": "gemma",
+    "model": "Gemma",
     "created_at": "2026-10-18T14:04:22.381458",
-    "updated_at": "2026-10-18T14:04:22.381458"
+    "updated_at": "2026-10-18T15:01:48.585546"
   },
   {
     "invoice_id": "INV-2026-0031",
@@ -51,6 +54,7 @@
     "reason": "This client has paid late on 14 of their last 14 invoices (averaging +26.7 days delay). TabPFN model flags high risk (99.2%) with ~+29.2 days expected delay.",
     "is_user_edited": false,
     "is_fallback": true,
+    "source": "gemma",
     "model": "Fallback Template",
     "created_at": "2026-10-18T14:04:42.304487",
     "updated_at": "2026-10-18T14:04:42.304487"
@@ -65,6 +69,7 @@
     "reason": "This client has paid late on 10 of their last 14 invoices (averaging +14.1 days delay). TabPFN model flags high risk (66.7%) with ~+15.4 days expected delay.",
     "is_user_edited": false,
     "is_fallback": true,
+    "source": "gemma",
     "model": "Fallback Template",
     "created_at": "2026-10-18T14:05:02.095174",
     "updated_at": "2026-10-18T14:05:02.095174"
@@ -79,7 +84,10 @@
     "reason": "This client has paid late on 10 of their last 15 invoices (averaging +21.1 days delay). TabPFN model flags high risk (95.6%) with ~+29.1 days expected delay.",
     "is_user_edited": false,
     "is_fallback": true,
-    "model": "Fallback Template"
+    "source": "gemma",
+    "model": "Fallback Template",
+    "created_at": "2026-10-18T14:07:04.588622",
+    "updated_at": "2026-10-18T14:07:04.588622"
   },
   {
     "invoice_id": "INV-2026-0303",
@@ -91,19 +99,25 @@
     "reason": "Client has paid all 14 prior invoices on time. TabPFN model predicts payment on schedule (0.7% risk).",
     "is_user_edited": false,
     "is_fallback": true,
-    "model": "Fallback Template"
+    "source": "gemma",
+    "model": "Fallback Template",
+    "created_at": "2026-10-18T14:07:04.607802",
+    "updated_at": "2026-10-18T14:07:04.607802"
   },
   {
     "invoice_id": "INV-2026-0304",
-    "subject": "Friendly check-in: Invoice INV-2026-0304 ($3,773.12)",
-    "body": "Hi Solaria Renewable Energy team,\n\nHope you are having a productive week!\n\nJust sending a quick, friendly note regarding invoice INV-2026-0304 for $3,773.12, which is due on 2026-10-23.\n\nPlease let me know if you need any additional project details or another copy of the invoice. Thank you for the wonderful collaboration!\n\nBest regards,\n[Your Name]",
+    "subject": "Quick Check-in Regarding Invoice INV-2026-0304",
+    "body": "Hi Solaria Renewable Energy Team,\n\nHope everything is going well on your end.\n\nI'm just sending a friendly reminder regarding invoice INV-2026-0304 for $3,773.12, which was due on October 23, 2026.\n\nWe truly appreciate your continued collaboration and prompt payments\u2014you have a great track record!\n\nPlease let me know if you have any questions or if the payment has already been processed.\n\nBest regards,\n\n[Your Name]",
     "tone": "friendly_nudge",
     "tone_label": "Friendly Nudge (<30% risk)",
     "risk": 0.0007813943084329367,
     "reason": "Client has paid all 14 prior invoices on time. TabPFN model predicts payment on schedule (0.1% risk).",
     "is_user_edited": false,
-    "is_fallback": true,
-    "model": "Fallback Template"
+    "is_fallback": false,
+    "source": "gemma",
+    "model": "Gemma",
+    "created_at": "2026-10-18T14:07:04.626229",
+    "updated_at": "2026-10-18T15:02:04.078689"
   },
   {
     "invoice_id": "INV-2026-0384",
@@ -115,7 +129,10 @@
     "reason": "This client has paid late on 14 of their last 15 invoices (averaging +12.5 days delay). TabPFN model flags high risk (83.9%) with ~+13.0 days expected delay.",
     "is_user_edited": false,
     "is_fallback": true,
-    "model": "Fallback Template"
+    "source": "gemma",
+    "model": "Fallback Template",
+    "created_at": "2026-10-18T14:07:04.643878",
+    "updated_at": "2026-10-18T14:07:04.643878"
   },
   {
     "invoice_id": "INV-2026-0176",
@@ -127,7 +144,10 @@
     "reason": "This client has paid late on 12 of their last 15 invoices (averaging +24.9 days delay). TabPFN model predicts payment on schedule (7.8% risk).",
     "is_user_edited": false,
     "is_fallback": true,
-    "model": "Fallback Template"
+    "source": "gemma",
+    "model": "Fallback Template",
+    "created_at": "2026-10-18T14:07:04.664707",
+    "updated_at": "2026-10-18T14:07:04.664707"
   },
   {
     "invoice_id": "INV-2026-0048",
@@ -139,7 +159,10 @@
     "reason": "This client has paid late on 15 of their last 15 invoices (averaging +30.7 days delay). TabPFN model flags high risk (99.3%) with ~+31.1 days expected delay.",
     "is_user_edited": false,
     "is_fallback": true,
-    "model": "Fallback Template"
+    "source": "gemma",
+    "model": "Fallback Template",
+    "created_at": "2026-10-18T14:07:04.681109",
+    "updated_at": "2026-10-18T14:07:04.681109"
   },
   {
     "invoice_id": "INV-2026-0064",
@@ -151,7 +174,10 @@
     "reason": "This client has paid late on 15 of their last 15 invoices (averaging +29.2 days delay). TabPFN model flags high risk (99.4%) with ~+29.6 days expected delay.",
     "is_user_edited": false,
     "is_fallback": true,
-    "model": "Fallback Template"
+    "source": "gemma",
+    "model": "Fallback Template",
+    "created_at": "2026-10-18T14:07:04.698606",
+    "updated_at": "2026-10-18T14:07:04.698606"
   },
   {
     "invoice_id": "INV-2026-0287",
@@ -163,7 +189,10 @@
     "reason": "Client has paid all 14 prior invoices on time. TabPFN model predicts payment on schedule (0.1% risk).",
     "is_user_edited": false,
     "is_fallback": true,
-    "model": "Fallback Template"
+    "source": "gemma",
+    "model": "Fallback Template",
+    "created_at": "2026-10-18T14:07:04.715951",
+    "updated_at": "2026-10-18T14:07:04.715951"
   },
   {
     "invoice_id": "INV-2026-0032",
@@ -175,7 +204,10 @@
     "reason": "This client has paid late on 14 of their last 14 invoices (averaging +26.7 days delay). TabPFN model flags high risk (99.5%) with ~+29.0 days expected delay.",
     "is_user_edited": false,
     "is_fallback": true,
-    "model": "Fallback Template"
+    "source": "gemma",
+    "model": "Fallback Template",
+    "created_at": "2026-10-18T14:07:04.734783",
+    "updated_at": "2026-10-18T14:07:04.734783"
   },
   {
     "invoice_id": "INV-2026-0288",
@@ -187,7 +219,10 @@
     "reason": "Client has paid all 14 prior invoices on time. TabPFN model predicts payment on schedule (0.1% risk).",
     "is_user_edited": false,
     "is_fallback": true,
-    "model": "Fallback Template"
+    "source": "gemma",
+    "model": "Fallback Template",
+    "created_at": "2026-10-18T14:07:04.752955",
+    "updated_at": "2026-10-18T14:07:04.752955"
   },
   {
     "invoice_id": "INV-2026-0192",
@@ -199,7 +234,10 @@
     "reason": "This client has paid late on 11 of their last 15 invoices (averaging +21.4 days delay). TabPFN model predicts payment on schedule (13.0% risk).",
     "is_user_edited": false,
     "is_fallback": true,
-    "model": "Fallback Template"
+    "source": "gemma",
+    "model": "Fallback Template",
+    "created_at": "2026-10-18T14:07:04.769875",
+    "updated_at": "2026-10-18T14:07:04.769875"
   },
   {
     "invoice_id": "INV-2026-0272",
@@ -211,6 +249,9 @@
     "reason": "Client has paid all 15 prior invoices on time. TabPFN model predicts payment on schedule (0.1% risk).",
     "is_user_edited": false,
     "is_fallback": true,
-    "model": "Fallback Template"
+    "source": "gemma",
+    "model": "Fallback Template",
+    "created_at": "2026-10-18T14:07:04.785885",
+    "updated_at": "2026-10-18T14:07:04.785885"
   }
 ]
