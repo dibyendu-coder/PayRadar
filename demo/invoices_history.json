@@ -9,8 +9,7 @@
     "terms_days": 45,
     "project_type": "ui_ux_design",
     "paid_on": "2023-12-28",
-    "source_file": "INV-2023-0081.pdf",
-    "synthetic": true
+    "source_file": "INV-2023-0081.pdf"
   },
   {
     "id": "INV-2023-0145",
@@ -22,8 +21,7 @@
     "terms_days": 30,
     "project_type": "ai_consulting",
     "paid_on": "2023-12-28",
-    "source_file": "INV-2023-0145.pdf",
-    "synthetic": true
+    "source_file": "INV-2023-0145.pdf"
   },
   {
     "id": "INV-2023-0097",
@@ -35,8 +33,7 @@
     "terms_days": 30,
     "project_type": "cloud_infrastructure",
     "paid_on": "2023-12-30",
-    "source_file": "INV-2023-0097.pdf",
-    "synthetic": true
+    "source_file": "INV-2023-0097.pdf"
   },
   {
     "id": "INV-2023-0241",
@@ -48,8 +45,7 @@
     "terms_days": 30,
     "project_type": "ai_consulting",
     "paid_on": "2023-12-15",
-    "source_file": "INV-2023-0241.pdf",
-    "synthetic": true
+    "source_file": "INV-2023-0241.pdf"
   },
   {
     "id": "INV-2023-0033",
@@ -61,8 +57,7 @@
     "terms_days": 30,
     "project_type": "data_engineering",
     "paid_on": "2024-01-07",
-    "source_file": "INV-2023-0033.pdf",
-    "synthetic": true
+    "source_file": "INV-2023-0033.pdf"
   },
   {
     "id": "INV-2023-0193",
@@ -74,8 +69,7 @@
     "terms_days": 60,
     "project_type": "cloud_infrastructure",
     "paid_on": "2024-02-05",
-    "source_file": "INV-2023-0193.pdf",
-    "synthetic": true
+    "source_file": "INV-2023-0193.pdf"
   },
   {
     "id": "INV-2023-0353",
@@ -87,8 +81,7 @@
     "terms_days": 14,
     "project_type": "ui_ux_design",
     "paid_on": "2024-01-01",
-    "source_file": "INV-2023-0353.pdf",
-    "synthetic": true
+    "source_file": "INV-2023-0353.pdf"
   },
   {
     "id": "INV-2023-0177",
@@ -100,8 +93,7 @@
     "terms_days": 60,
     "project_type": "ui_ux_design",
     "paid_on": "2024-03-10",
-    "source_file": "INV-2023-0177.pdf",
-    "synthetic": true
+    "source_file": "INV-2023-0177.pdf"
   },
   {
     "id": "INV-2023-0369",
@@ -113,8 +105,7 @@
     "terms_days": 60,
     "project_type": "data_engineering",
     "paid_on": "2024-02-23",
-    "source_file": "INV-2023-0369.pdf",
-    "synthetic": true
+    "source_file": "INV-2023-0369.pdf"
   },
   {
     "id": "INV-2023-0098",
@@ -126,8 +117,7 @@
     "terms_days": 60,
     "project_type": "data_engineering",
     "paid_on": "2024-02-28",
-    "source_file": "INV-2023-0098.pdf",
-    "synthetic": true
+    "source_file": "INV-2023-0098.pdf"
   },
   {
     "id": "INV-2023-0034",
@@ -139,8 +129,7 @@
     "terms_days": 60,
     "project_type": "mobile_app",
     "paid_on": "2024-03-28",
-    "source_file": "INV-2023-0034.pdf",
-    "synthetic": true
+    "source_file": "INV-2023-0034.pdf"
   },
   {
     "id": "INV-2023-0194",
@@ -152,8 +141,7 @@
     "terms_days": 45,
     "project_type": "web_dev",
     "paid_on": "2024-02-26",
-    "source_file": "INV-2023-0194.pdf",
-    "synthetic": true
+    "source_file": "INV-2023-0194.pdf"
   },
   {
     "id": "INV-2023-0065",
@@ -165,8 +153,7 @@
     "terms_days": 30,
     "project_type": "web_dev",
     "paid_on": "2024-02-28",
-    "source_file": "INV-2023-0065.pdf",
-    "synthetic": true
+    "source_file": "INV-2023-0065.pdf"
   },
   {
     "id": "INV-2023-0001",
@@ -178,8 +165,7 @@
     "terms_days": 45,
     "project_type": "ai_consulting",
     "paid_on": "2024-03-17",
-    "source_file": "INV-2023-0001.pdf",
-    "synthetic": true
+    "source_file": "INV-2023-0001.pdf"
   },
   {
     "id": "INV-2023-0113",
@@ -191,8 +177,7 @@
     "terms_days": 45,
     "project_type": "web_dev",
     "paid_on": "2024-02-28",
-    "source_file": "INV-2023-0113.pdf",
-    "synthetic": true
+    "source_file": "INV-2023-0113.pdf"
   },
   {
     "id": "INV-2023-0002",
@@ -204,8 +189,7 @@
     "terms_days": 30,
     "project_type": "web_dev",
     "paid_on": "2024-02-18",
-    "source_file": "INV-2023-0002.pdf",
-    "synthetic": true
+    "source_file": "INV-2023-0002.pdf"
   },
   {
     "id": "INV-2024-0003",
@@ -217,8 +201,7 @@
     "terms_days": 60,
     "project_type": "mobile_app",
     "paid_on": "2024-03-29",
-    "source_file": "INV-2024-0003.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0003.pdf"
   },
   {
     "id": "INV-2024-0242",
@@ -230,8 +213,7 @@
     "terms_days": 45,
     "project_type": "web_dev",
     "paid_on": "2024-02-15",
-    "source_file": "INV-2024-0242.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0242.pdf"
   },
   {
     "id": "INV-2024-0035",
@@ -243,8 +225,7 @@
     "terms_days": 30,
     "project_type": "ai_consulting",
     "paid_on": "2024-03-16",
-    "source_file": "INV-2024-0035.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0035.pdf"
   },
   {
     "id": "INV-2024-0370",
@@ -256,8 +237,7 @@
     "terms_days": 60,
     "project_type": "ui_ux_design",
     "paid_on": "2024-03-11",
-    "source_file": "INV-2024-0370.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0370.pdf"
   },
   {
     "id": "INV-2024-0004",
@@ -269,8 +249,7 @@
     "terms_days": 30,
     "project_type": "web_dev",
     "paid_on": "2024-03-12",
-    "source_file": "INV-2024-0004.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0004.pdf"
   },
   {
     "id": "INV-2024-0146",
@@ -282,8 +261,7 @@
     "terms_days": 30,
     "project_type": "web_dev",
     "paid_on": "2024-02-28",
-    "source_file": "INV-2024-0146.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0146.pdf"
   },
   {
     "id": "INV-2024-0321",
@@ -295,8 +273,7 @@
     "terms_days": 14,
     "project_type": "data_engineering",
     "paid_on": "2024-02-09",
-    "source_file": "INV-2024-0321.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0321.pdf"
   },
   {
     "id": "INV-2024-0209",
@@ -308,8 +285,7 @@
     "terms_days": 45,
     "project_type": "cloud_infrastructure",
     "paid_on": "2024-03-19",
-    "source_file": "INV-2024-0209.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0209.pdf"
   },
   {
     "id": "INV-2024-0385",
@@ -321,8 +297,7 @@
     "terms_days": 30,
     "project_type": "ai_consulting",
     "paid_on": "2024-02-27",
-    "source_file": "INV-2024-0385.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0385.pdf"
   },
   {
     "id": "INV-2024-0305",
@@ -334,8 +309,7 @@
     "terms_days": 30,
     "project_type": "mobile_app",
     "paid_on": "2024-02-11",
-    "source_file": "INV-2024-0305.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0305.pdf"
   },
   {
     "id": "INV-2024-0386",
@@ -347,8 +321,7 @@
     "terms_days": 14,
     "project_type": "data_engineering",
     "paid_on": "2024-02-01",
-    "source_file": "INV-2024-0386.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0386.pdf"
   },
   {
     "id": "INV-2024-0049",
@@ -360,8 +333,7 @@
     "terms_days": 30,
     "project_type": "ai_consulting",
     "paid_on": "2024-03-25",
-    "source_file": "INV-2024-0049.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0049.pdf"
   },
   {
     "id": "INV-2024-0114",
@@ -373,8 +345,7 @@
     "terms_days": 60,
     "project_type": "cloud_infrastructure",
     "paid_on": "2024-03-29",
-    "source_file": "INV-2024-0114.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0114.pdf"
   },
   {
     "id": "INV-2024-0306",
@@ -386,8 +357,7 @@
     "terms_days": 30,
     "project_type": "data_engineering",
     "paid_on": "2024-03-04",
-    "source_file": "INV-2024-0306.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0306.pdf"
   },
   {
     "id": "INV-2024-0354",
@@ -399,8 +369,7 @@
     "terms_days": 30,
     "project_type": "cloud_infrastructure",
     "paid_on": "2024-04-02",
-    "source_file": "INV-2024-0354.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0354.pdf"
   },
   {
     "id": "INV-2024-0355",
@@ -412,8 +381,7 @@
     "terms_days": 30,
     "project_type": "ai_consulting",
     "paid_on": "2024-03-12",
-    "source_file": "INV-2024-0355.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0355.pdf"
   },
   {
     "id": "INV-2024-0195",
@@ -425,8 +393,7 @@
     "terms_days": 30,
     "project_type": "mobile_app",
     "paid_on": "2024-04-02",
-    "source_file": "INV-2024-0195.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0195.pdf"
   },
   {
     "id": "INV-2024-0356",
@@ -438,8 +405,7 @@
     "terms_days": 30,
     "project_type": "ui_ux_design",
     "paid_on": "2024-04-13",
-    "source_file": "INV-2024-0356.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0356.pdf"
   },
   {
     "id": "INV-2024-0161",
@@ -451,8 +417,7 @@
     "terms_days": 14,
     "project_type": "mobile_app",
     "paid_on": "2024-04-09",
-    "source_file": "INV-2024-0161.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0161.pdf"
   },
   {
     "id": "INV-2024-0289",
@@ -464,8 +429,7 @@
     "terms_days": 30,
     "project_type": "mobile_app",
     "paid_on": "2024-03-20",
-    "source_file": "INV-2024-0289.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0289.pdf"
   },
   {
     "id": "INV-2024-0273",
@@ -477,8 +441,7 @@
     "terms_days": 30,
     "project_type": "ai_consulting",
     "paid_on": "2024-03-16",
-    "source_file": "INV-2024-0273.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0273.pdf"
   },
   {
     "id": "INV-2024-0162",
@@ -490,8 +453,7 @@
     "terms_days": 30,
     "project_type": "data_engineering",
     "paid_on": "2024-04-22",
-    "source_file": "INV-2024-0162.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0162.pdf"
   },
   {
     "id": "INV-2024-0036",
@@ -503,8 +465,7 @@
     "terms_days": 30,
     "project_type": "ai_consulting",
     "paid_on": "2024-04-17",
-    "source_file": "INV-2024-0036.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0036.pdf"
   },
   {
     "id": "INV-2024-0387",
@@ -516,8 +477,7 @@
     "terms_days": 30,
     "project_type": "ai_consulting",
     "paid_on": "2024-04-30",
-    "source_file": "INV-2024-0387.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0387.pdf"
   },
   {
     "id": "INV-2024-0099",
@@ -529,8 +489,7 @@
     "terms_days": 30,
     "project_type": "cloud_infrastructure",
     "paid_on": "2024-04-28",
-    "source_file": "INV-2024-0099.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0099.pdf"
   },
   {
     "id": "INV-2024-0371",
@@ -542,8 +501,7 @@
     "terms_days": 30,
     "project_type": "ui_ux_design",
     "paid_on": "2024-04-18",
-    "source_file": "INV-2024-0371.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0371.pdf"
   },
   {
     "id": "INV-2024-0307",
@@ -555,8 +513,7 @@
     "terms_days": 30,
     "project_type": "mobile_app",
     "paid_on": "2024-04-09",
-    "source_file": "INV-2024-0307.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0307.pdf"
   },
   {
     "id": "INV-2024-0037",
@@ -568,8 +525,7 @@
     "terms_days": 60,
     "project_type": "web_dev",
     "paid_on": "2024-05-28",
-    "source_file": "INV-2024-0037.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0037.pdf"
   },
   {
     "id": "INV-2024-0100",
@@ -581,8 +537,7 @@
     "terms_days": 30,
     "project_type": "cloud_infrastructure",
     "paid_on": "2024-04-30",
-    "source_file": "INV-2024-0100.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0100.pdf"
   },
   {
     "id": "INV-2024-0225",
@@ -594,8 +549,7 @@
     "terms_days": 60,
     "project_type": "ai_consulting",
     "paid_on": "2024-05-18",
-    "source_file": "INV-2024-0225.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0225.pdf"
   },
   {
     "id": "INV-2024-0274",
@@ -607,8 +561,7 @@
     "terms_days": 30,
     "project_type": "mobile_app",
     "paid_on": "2024-04-15",
-    "source_file": "INV-2024-0274.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0274.pdf"
   },
   {
     "id": "INV-2024-0038",
@@ -620,8 +573,7 @@
     "terms_days": 30,
     "project_type": "web_dev",
     "paid_on": "2024-05-17",
-    "source_file": "INV-2024-0038.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0038.pdf"
   },
   {
     "id": "INV-2024-0050",
@@ -633,8 +585,7 @@
     "terms_days": 30,
     "project_type": "web_dev",
     "paid_on": "2024-05-03",
-    "source_file": "INV-2024-0050.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0050.pdf"
   },
   {
     "id": "INV-2024-0051",
@@ -646,8 +597,7 @@
     "terms_days": 30,
     "project_type": "web_dev",
     "paid_on": "2024-05-08",
-    "source_file": "INV-2024-0051.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0051.pdf"
   },
   {
     "id": "INV-2024-0243",
@@ -659,8 +609,7 @@
     "terms_days": 30,
     "project_type": "ai_consulting",
     "paid_on": "2024-04-19",
-    "source_file": "INV-2024-0243.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0243.pdf"
   },
   {
     "id": "INV-2024-0039",
@@ -672,8 +621,7 @@
     "terms_days": 30,
     "project_type": "mobile_app",
     "paid_on": "2024-06-05",
-    "source_file": "INV-2024-0039.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0039.pdf"
   },
   {
     "id": "INV-2024-0147",
@@ -685,8 +633,7 @@
     "terms_days": 30,
     "project_type": "data_engineering",
     "paid_on": "2024-04-29",
-    "source_file": "INV-2024-0147.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0147.pdf"
   },
   {
     "id": "INV-2024-0226",
@@ -698,8 +645,7 @@
     "terms_days": 45,
     "project_type": "cloud_infrastructure",
     "paid_on": "2024-06-16",
-    "source_file": "INV-2024-0226.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0226.pdf"
   },
   {
     "id": "INV-2024-0148",
@@ -711,8 +657,7 @@
     "terms_days": 30,
     "project_type": "ui_ux_design",
     "paid_on": "2024-05-30",
-    "source_file": "INV-2024-0148.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0148.pdf"
   },
   {
     "id": "INV-2024-0178",
@@ -724,8 +669,7 @@
     "terms_days": 60,
     "project_type": "data_engineering",
     "paid_on": "2024-06-21",
-    "source_file": "INV-2024-0178.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0178.pdf"
   },
   {
     "id": "INV-2024-0115",
@@ -737,8 +681,7 @@
     "terms_days": 14,
     "project_type": "ai_consulting",
     "paid_on": "2024-04-29",
-    "source_file": "INV-2024-0115.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0115.pdf"
   },
   {
     "id": "INV-2024-0257",
@@ -750,8 +693,7 @@
     "terms_days": 45,
     "project_type": "ui_ux_design",
     "paid_on": "2024-05-22",
-    "source_file": "INV-2024-0257.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0257.pdf"
   },
   {
     "id": "INV-2024-0322",
@@ -763,8 +705,7 @@
     "terms_days": 45,
     "project_type": "ui_ux_design",
     "paid_on": "2024-06-14",
-    "source_file": "INV-2024-0322.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0322.pdf"
   },
   {
     "id": "INV-2024-0258",
@@ -776,8 +717,7 @@
     "terms_days": 60,
     "project_type": "mobile_app",
     "paid_on": "2024-06-09",
-    "source_file": "INV-2024-0258.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0258.pdf"
   },
   {
     "id": "INV-2024-0337",
@@ -789,8 +729,7 @@
     "terms_days": 45,
     "project_type": "ai_consulting",
     "paid_on": "2024-06-11",
-    "source_file": "INV-2024-0337.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0337.pdf"
   },
   {
     "id": "INV-2024-0179",
@@ -802,8 +741,7 @@
     "terms_days": 45,
     "project_type": "ai_consulting",
     "paid_on": "2024-05-29",
-    "source_file": "INV-2024-0179.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0179.pdf"
   },
   {
     "id": "INV-2024-0227",
@@ -815,8 +753,7 @@
     "terms_days": 30,
     "project_type": "cloud_infrastructure",
     "paid_on": "2024-06-14",
-    "source_file": "INV-2024-0227.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0227.pdf"
   },
   {
     "id": "INV-2024-0052",
@@ -828,8 +765,7 @@
     "terms_days": 45,
     "project_type": "mobile_app",
     "paid_on": "2024-07-07",
-    "source_file": "INV-2024-0052.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0052.pdf"
   },
   {
     "id": "INV-2024-0290",
@@ -841,8 +777,7 @@
     "terms_days": 30,
     "project_type": "cloud_infrastructure",
     "paid_on": "2024-05-22",
-    "source_file": "INV-2024-0290.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0290.pdf"
   },
   {
     "id": "INV-2024-0082",
@@ -854,8 +789,7 @@
     "terms_days": 30,
     "project_type": "mobile_app",
     "paid_on": "2024-05-28",
-    "source_file": "INV-2024-0082.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0082.pdf"
   },
   {
     "id": "INV-2024-0005",
@@ -867,8 +801,7 @@
     "terms_days": 30,
     "project_type": "web_dev",
     "paid_on": "2024-07-10",
-    "source_file": "INV-2024-0005.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0005.pdf"
   },
   {
     "id": "INV-2024-0388",
@@ -880,8 +813,7 @@
     "terms_days": 45,
     "project_type": "mobile_app",
     "paid_on": "2024-07-14",
-    "source_file": "INV-2024-0388.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0388.pdf"
   },
   {
     "id": "INV-2024-0017",
@@ -893,8 +825,7 @@
     "terms_days": 14,
     "project_type": "ai_consulting",
     "paid_on": "2024-06-13",
-    "source_file": "INV-2024-0017.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0017.pdf"
   },
   {
     "id": "INV-2024-0244",
@@ -906,8 +837,7 @@
     "terms_days": 30,
     "project_type": "cloud_infrastructure",
     "paid_on": "2024-06-09",
-    "source_file": "INV-2024-0244.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0244.pdf"
   },
   {
     "id": "INV-2024-0006",
@@ -919,8 +849,7 @@
     "terms_days": 45,
     "project_type": "cloud_infrastructure",
     "paid_on": "2024-07-14",
-    "source_file": "INV-2024-0006.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0006.pdf"
   },
   {
     "id": "INV-2024-0338",
@@ -932,8 +861,7 @@
     "terms_days": 45,
     "project_type": "web_dev",
     "paid_on": "2024-06-25",
-    "source_file": "INV-2024-0338.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0338.pdf"
   },
   {
     "id": "INV-2024-0275",
@@ -945,8 +873,7 @@
     "terms_days": 30,
     "project_type": "cloud_infrastructure",
     "paid_on": "2024-06-10",
-    "source_file": "INV-2024-0275.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0275.pdf"
   },
   {
     "id": "INV-2024-0196",
@@ -958,8 +885,7 @@
     "terms_days": 45,
     "project_type": "ui_ux_design",
     "paid_on": "2024-07-25",
-    "source_file": "INV-2024-0196.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0196.pdf"
   },
   {
     "id": "INV-2024-0210",
@@ -971,8 +897,7 @@
     "terms_days": 30,
     "project_type": "cloud_infrastructure",
     "paid_on": "2024-06-19",
-    "source_file": "INV-2024-0210.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0210.pdf"
   },
   {
     "id": "INV-2024-0211",
@@ -984,8 +909,7 @@
     "terms_days": 60,
     "project_type": "data_engineering",
     "paid_on": "2024-07-20",
-    "source_file": "INV-2024-0211.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0211.pdf"
   },
   {
     "id": "INV-2024-0228",
@@ -997,8 +921,7 @@
     "terms_days": 30,
     "project_type": "cloud_infrastructure",
     "paid_on": "2024-07-20",
-    "source_file": "INV-2024-0228.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0228.pdf"
   },
   {
     "id": "INV-2024-0180",
@@ -1010,8 +933,7 @@
     "terms_days": 30,
     "project_type": "web_dev",
     "paid_on": "2024-08-04",
-    "source_file": "INV-2024-0180.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0180.pdf"
   },
   {
     "id": "INV-2024-0181",
@@ -1023,8 +945,7 @@
     "terms_days": 60,
     "project_type": "cloud_infrastructure",
     "paid_on": "2024-08-16",
-    "source_file": "INV-2024-0181.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0181.pdf"
   },
   {
     "id": "INV-2024-0116",
@@ -1036,8 +957,7 @@
     "terms_days": 60,
     "project_type": "ai_consulting",
     "paid_on": "2024-08-30",
-    "source_file": "INV-2024-0116.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0116.pdf"
   },
   {
     "id": "INV-2024-0007",
@@ -1049,8 +969,7 @@
     "terms_days": 45,
     "project_type": "data_engineering",
     "paid_on": "2024-08-19",
-    "source_file": "INV-2024-0007.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0007.pdf"
   },
   {
     "id": "INV-2024-0066",
@@ -1062,8 +981,7 @@
     "terms_days": 14,
     "project_type": "mobile_app",
     "paid_on": "2024-07-26",
-    "source_file": "INV-2024-0066.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0066.pdf"
   },
   {
     "id": "INV-2024-0291",
@@ -1075,8 +993,7 @@
     "terms_days": 30,
     "project_type": "ui_ux_design",
     "paid_on": "2024-06-28",
-    "source_file": "INV-2024-0291.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0291.pdf"
   },
   {
     "id": "INV-2024-0308",
@@ -1088,8 +1005,7 @@
     "terms_days": 30,
     "project_type": "ai_consulting",
     "paid_on": "2024-07-02",
-    "source_file": "INV-2024-0308.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0308.pdf"
   },
   {
     "id": "INV-2024-0259",
@@ -1101,8 +1017,7 @@
     "terms_days": 14,
     "project_type": "mobile_app",
     "paid_on": "2024-06-17",
-    "source_file": "INV-2024-0259.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0259.pdf"
   },
   {
     "id": "INV-2024-0357",
@@ -1114,8 +1029,7 @@
     "terms_days": 30,
     "project_type": "data_engineering",
     "paid_on": "2024-08-05",
-    "source_file": "INV-2024-0357.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0357.pdf"
   },
   {
     "id": "INV-2024-0117",
@@ -1127,8 +1041,7 @@
     "terms_days": 60,
     "project_type": "data_engineering",
     "paid_on": "2024-08-29",
-    "source_file": "INV-2024-0117.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0117.pdf"
   },
   {
     "id": "INV-2024-0372",
@@ -1140,8 +1053,7 @@
     "terms_days": 45,
     "project_type": "mobile_app",
     "paid_on": "2024-08-10",
-    "source_file": "INV-2024-0372.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0372.pdf"
   },
   {
     "id": "INV-2024-0008",
@@ -1153,8 +1065,7 @@
     "terms_days": 45,
     "project_type": "web_dev",
     "paid_on": "2024-08-29",
-    "source_file": "INV-2024-0008.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0008.pdf"
   },
   {
     "id": "INV-2024-0323",
@@ -1166,8 +1077,7 @@
     "terms_days": 30,
     "project_type": "cloud_infrastructure",
     "paid_on": "2024-07-28",
-    "source_file": "INV-2024-0323.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0323.pdf"
   },
   {
     "id": "INV-2024-0260",
@@ -1179,8 +1089,7 @@
     "terms_days": 60,
     "project_type": "ai_consulting",
     "paid_on": "2024-08-24",
-    "source_file": "INV-2024-0260.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0260.pdf"
   },
   {
     "id": "INV-2024-0118",
@@ -1192,8 +1101,7 @@
     "terms_days": 30,
     "project_type": "data_engineering",
     "paid_on": "2024-07-29",
-    "source_file": "INV-2024-0118.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0118.pdf"
   },
   {
     "id": "INV-2024-0129",
@@ -1205,8 +1113,7 @@
     "terms_days": 60,
     "project_type": "data_engineering",
     "paid_on": "2024-09-30",
-    "source_file": "INV-2024-0129.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0129.pdf"
   },
   {
     "id": "INV-2024-0053",
@@ -1218,8 +1125,7 @@
     "terms_days": 14,
     "project_type": "mobile_app",
     "paid_on": "2024-08-29",
-    "source_file": "INV-2024-0053.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0053.pdf"
   },
   {
     "id": "INV-2024-0119",
@@ -1231,8 +1137,7 @@
     "terms_days": 30,
     "project_type": "web_dev",
     "paid_on": "2024-08-29",
-    "source_file": "INV-2024-0119.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0119.pdf"
   },
   {
     "id": "INV-2024-0130",
@@ -1244,8 +1149,7 @@
     "terms_days": 45,
     "project_type": "mobile_app",
     "paid_on": "2024-08-29",
-    "source_file": "INV-2024-0130.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0130.pdf"
   },
   {
     "id": "INV-2024-0163",
@@ -1257,8 +1161,7 @@
     "terms_days": 14,
     "project_type": "web_dev",
     "paid_on": "2024-07-22",
-    "source_file": "INV-2024-0163.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0163.pdf"
   },
   {
     "id": "INV-2024-0292",
@@ -1270,8 +1173,7 @@
     "terms_days": 14,
     "project_type": "ai_consulting",
     "paid_on": "2024-07-29",
-    "source_file": "INV-2024-0292.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0292.pdf"
   },
   {
     "id": "INV-2024-0339",
@@ -1283,8 +1185,7 @@
     "terms_days": 14,
     "project_type": "ui_ux_design",
     "paid_on": "2024-08-06",
-    "source_file": "INV-2024-0339.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0339.pdf"
   },
   {
     "id": "INV-2024-0229",
@@ -1296,8 +1197,7 @@
     "terms_days": 60,
     "project_type": "mobile_app",
     "paid_on": "2024-10-24",
-    "source_file": "INV-2024-0229.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0229.pdf"
   },
   {
     "id": "INV-2024-0164",
@@ -1309,8 +1209,7 @@
     "terms_days": 14,
     "project_type": "cloud_infrastructure",
     "paid_on": "2024-09-19",
-    "source_file": "INV-2024-0164.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0164.pdf"
   },
   {
     "id": "INV-2024-0309",
@@ -1322,8 +1221,7 @@
     "terms_days": 30,
     "project_type": "cloud_infrastructure",
     "paid_on": "2024-09-02",
-    "source_file": "INV-2024-0309.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0309.pdf"
   },
   {
     "id": "INV-2024-0358",
@@ -1335,8 +1233,7 @@
     "terms_days": 30,
     "project_type": "web_dev",
     "paid_on": "2024-09-04",
-    "source_file": "INV-2024-0358.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0358.pdf"
   },
   {
     "id": "INV-2024-0310",
@@ -1348,8 +1245,7 @@
     "terms_days": 60,
     "project_type": "cloud_infrastructure",
     "paid_on": "2024-10-04",
-    "source_file": "INV-2024-0310.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0310.pdf"
   },
   {
     "id": "INV-2024-0197",
@@ -1361,8 +1257,7 @@
     "terms_days": 30,
     "project_type": "ui_ux_design",
     "paid_on": "2024-10-18",
-    "source_file": "INV-2024-0197.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0197.pdf"
   },
   {
     "id": "INV-2024-0324",
@@ -1374,8 +1269,7 @@
     "terms_days": 14,
     "project_type": "cloud_infrastructure",
     "paid_on": "2024-08-29",
-    "source_file": "INV-2024-0324.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0324.pdf"
   },
   {
     "id": "INV-2024-0018",
@@ -1387,8 +1281,7 @@
     "terms_days": 60,
     "project_type": "cloud_infrastructure",
     "paid_on": "2024-11-17",
-    "source_file": "INV-2024-0018.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0018.pdf"
   },
   {
     "id": "INV-2024-0293",
@@ -1400,8 +1293,7 @@
     "terms_days": 30,
     "project_type": "cloud_infrastructure",
     "paid_on": "2024-09-08",
-    "source_file": "INV-2024-0293.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0293.pdf"
   },
   {
     "id": "INV-2024-0009",
@@ -1413,8 +1305,7 @@
     "terms_days": 30,
     "project_type": "web_dev",
     "paid_on": "2024-10-20",
-    "source_file": "INV-2024-0009.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0009.pdf"
   },
   {
     "id": "INV-2024-0019",
@@ -1426,8 +1317,7 @@
     "terms_days": 45,
     "project_type": "data_engineering",
     "paid_on": "2024-10-11",
-    "source_file": "INV-2024-0019.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0019.pdf"
   },
   {
     "id": "INV-2024-0245",
@@ -1439,8 +1329,7 @@
     "terms_days": 30,
     "project_type": "data_engineering",
     "paid_on": "2024-09-14",
-    "source_file": "INV-2024-0245.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0245.pdf"
   },
   {
     "id": "INV-2024-0020",
@@ -1452,8 +1341,7 @@
     "terms_days": 60,
     "project_type": "data_engineering",
     "paid_on": "2024-11-19",
-    "source_file": "INV-2024-0020.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0020.pdf"
   },
   {
     "id": "INV-2024-0246",
@@ -1465,8 +1353,7 @@
     "terms_days": 30,
     "project_type": "ai_consulting",
     "paid_on": "2024-09-23",
-    "source_file": "INV-2024-0246.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0246.pdf"
   },
   {
     "id": "INV-2024-0182",
@@ -1478,8 +1365,7 @@
     "terms_days": 60,
     "project_type": "web_dev",
     "paid_on": "2024-11-19",
-    "source_file": "INV-2024-0182.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0182.pdf"
   },
   {
     "id": "INV-2024-0373",
@@ -1491,8 +1377,7 @@
     "terms_days": 45,
     "project_type": "ui_ux_design",
     "paid_on": "2024-10-27",
-    "source_file": "INV-2024-0373.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0373.pdf"
   },
   {
     "id": "INV-2024-0230",
@@ -1504,8 +1389,7 @@
     "terms_days": 30,
     "project_type": "web_dev",
     "paid_on": "2024-09-28",
-    "source_file": "INV-2024-0230.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0230.pdf"
   },
   {
     "id": "INV-2024-0374",
@@ -1517,8 +1401,7 @@
     "terms_days": 60,
     "project_type": "cloud_infrastructure",
     "paid_on": "2024-11-21",
-    "source_file": "INV-2024-0374.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0374.pdf"
   },
   {
     "id": "INV-2024-0325",
@@ -1530,8 +1413,7 @@
     "terms_days": 60,
     "project_type": "ai_consulting",
     "paid_on": "2024-11-25",
-    "source_file": "INV-2024-0325.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0325.pdf"
   },
   {
     "id": "INV-2024-0067",
@@ -1543,8 +1425,7 @@
     "terms_days": 30,
     "project_type": "mobile_app",
     "paid_on": "2024-11-10",
-    "source_file": "INV-2024-0067.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0067.pdf"
   },
   {
     "id": "INV-2024-0183",
@@ -1556,8 +1437,7 @@
     "terms_days": 14,
     "project_type": "cloud_infrastructure",
     "paid_on": "2024-10-19",
-    "source_file": "INV-2024-0183.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0183.pdf"
   },
   {
     "id": "INV-2024-0212",
@@ -1569,8 +1449,7 @@
     "terms_days": 14,
     "project_type": "mobile_app",
     "paid_on": "2024-11-02",
-    "source_file": "INV-2024-0212.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0212.pdf"
   },
   {
     "id": "INV-2024-0149",
@@ -1582,8 +1461,7 @@
     "terms_days": 30,
     "project_type": "cloud_infrastructure",
     "paid_on": "2024-10-29",
-    "source_file": "INV-2024-0149.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0149.pdf"
   },
   {
     "id": "INV-2024-0389",
@@ -1595,8 +1473,7 @@
     "terms_days": 30,
     "project_type": "web_dev",
     "paid_on": "2024-11-05",
-    "source_file": "INV-2024-0389.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0389.pdf"
   },
   {
     "id": "INV-2024-0276",
@@ -1608,8 +1485,7 @@
     "terms_days": 45,
     "project_type": "ui_ux_design",
     "paid_on": "2024-11-08",
-    "source_file": "INV-2024-0276.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0276.pdf"
   },
   {
     "id": "INV-2024-0294",
@@ -1621,8 +1497,7 @@
     "terms_days": 60,
     "project_type": "web_dev",
     "paid_on": "2024-11-21",
-    "source_file": "INV-2024-0294.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0294.pdf"
   },
   {
     "id": "INV-2024-0295",
@@ -1634,8 +1509,7 @@
     "terms_days": 14,
     "project_type": "mobile_app",
     "paid_on": "2024-10-14",
-    "source_file": "INV-2024-0295.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0295.pdf"
   },
   {
     "id": "INV-2024-0340",
@@ -1647,8 +1521,7 @@
     "terms_days": 45,
     "project_type": "web_dev",
     "paid_on": "2024-12-08",
-    "source_file": "INV-2024-0340.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0340.pdf"
   },
   {
     "id": "INV-2024-0068",
@@ -1660,8 +1533,7 @@
     "terms_days": 14,
     "project_type": "ui_ux_design",
     "paid_on": "2024-11-13",
-    "source_file": "INV-2024-0068.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0068.pdf"
   },
   {
     "id": "INV-2024-0120",
@@ -1673,8 +1545,7 @@
     "terms_days": 30,
     "project_type": "data_engineering",
     "paid_on": "2024-11-30",
-    "source_file": "INV-2024-0120.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0120.pdf"
   },
   {
     "id": "INV-2024-0341",
@@ -1686,8 +1557,7 @@
     "terms_days": 60,
     "project_type": "ui_ux_design",
     "paid_on": "2024-12-28",
-    "source_file": "INV-2024-0341.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0341.pdf"
   },
   {
     "id": "INV-2024-0261",
@@ -1699,8 +1569,7 @@
     "terms_days": 30,
     "project_type": "data_engineering",
     "paid_on": "2024-11-13",
-    "source_file": "INV-2024-0261.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0261.pdf"
   },
   {
     "id": "INV-2024-0342",
@@ -1712,8 +1581,7 @@
     "terms_days": 30,
     "project_type": "cloud_infrastructure",
     "paid_on": "2024-11-25",
-    "source_file": "INV-2024-0342.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0342.pdf"
   },
   {
     "id": "INV-2024-0083",
@@ -1725,8 +1593,7 @@
     "terms_days": 14,
     "project_type": "cloud_infrastructure",
     "paid_on": "2024-11-30",
-    "source_file": "INV-2024-0083.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0083.pdf"
   },
   {
     "id": "INV-2024-0311",
@@ -1738,8 +1605,7 @@
     "terms_days": 30,
     "project_type": "ui_ux_design",
     "paid_on": "2024-11-24",
-    "source_file": "INV-2024-0311.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0311.pdf"
   },
   {
     "id": "INV-2024-0390",
@@ -1751,8 +1617,7 @@
     "terms_days": 30,
     "project_type": "ui_ux_design",
     "paid_on": "2024-11-30",
-    "source_file": "INV-2024-0390.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0390.pdf"
   },
   {
     "id": "INV-2024-0391",
@@ -1764,8 +1629,7 @@
     "terms_days": 14,
     "project_type": "ui_ux_design",
     "paid_on": "2024-12-11",
-    "source_file": "INV-2024-0391.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0391.pdf"
   },
   {
     "id": "INV-2024-0069",
@@ -1777,8 +1641,7 @@
     "terms_days": 14,
     "project_type": "ai_consulting",
     "paid_on": "2024-12-21",
-    "source_file": "INV-2024-0069.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0069.pdf"
   },
   {
     "id": "INV-2024-0070",
@@ -1790,8 +1653,7 @@
     "terms_days": 60,
     "project_type": "web_dev",
     "paid_on": "2025-01-23",
-    "source_file": "INV-2024-0070.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0070.pdf"
   },
   {
     "id": "INV-2024-0247",
@@ -1803,8 +1665,7 @@
     "terms_days": 45,
     "project_type": "mobile_app",
     "paid_on": "2024-12-24",
-    "source_file": "INV-2024-0247.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0247.pdf"
   },
   {
     "id": "INV-2024-0312",
@@ -1816,8 +1677,7 @@
     "terms_days": 14,
     "project_type": "cloud_infrastructure",
     "paid_on": "2024-11-21",
-    "source_file": "INV-2024-0312.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0312.pdf"
   },
   {
     "id": "INV-2024-0131",
@@ -1829,8 +1689,7 @@
     "terms_days": 30,
     "project_type": "web_dev",
     "paid_on": "2024-12-30",
-    "source_file": "INV-2024-0131.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0131.pdf"
   },
   {
     "id": "INV-2024-0054",
@@ -1842,8 +1701,7 @@
     "terms_days": 45,
     "project_type": "ai_consulting",
     "paid_on": "2025-01-14",
-    "source_file": "INV-2024-0054.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0054.pdf"
   },
   {
     "id": "INV-2024-0165",
@@ -1855,8 +1713,7 @@
     "terms_days": 30,
     "project_type": "cloud_infrastructure",
     "paid_on": "2025-01-22",
-    "source_file": "INV-2024-0165.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0165.pdf"
   },
   {
     "id": "INV-2024-0198",
@@ -1868,8 +1725,7 @@
     "terms_days": 30,
     "project_type": "web_dev",
     "paid_on": "2025-01-16",
-    "source_file": "INV-2024-0198.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0198.pdf"
   },
   {
     "id": "INV-2024-0375",
@@ -1881,8 +1737,7 @@
     "terms_days": 30,
     "project_type": "ai_consulting",
     "paid_on": "2025-01-07",
-    "source_file": "INV-2024-0375.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0375.pdf"
   },
   {
     "id": "INV-2024-0132",
@@ -1894,8 +1749,7 @@
     "terms_days": 45,
     "project_type": "web_dev",
     "paid_on": "2025-01-30",
-    "source_file": "INV-2024-0132.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0132.pdf"
   },
   {
     "id": "INV-2024-0133",
@@ -1907,8 +1761,7 @@
     "terms_days": 30,
     "project_type": "ai_consulting",
     "paid_on": "2025-01-29",
-    "source_file": "INV-2024-0133.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0133.pdf"
   },
   {
     "id": "INV-2024-0343",
@@ -1920,8 +1773,7 @@
     "terms_days": 30,
     "project_type": "mobile_app",
     "paid_on": "2025-01-30",
-    "source_file": "INV-2024-0343.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0343.pdf"
   },
   {
     "id": "INV-2024-0150",
@@ -1933,8 +1785,7 @@
     "terms_days": 14,
     "project_type": "cloud_infrastructure",
     "paid_on": "2024-12-30",
-    "source_file": "INV-2024-0150.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0150.pdf"
   },
   {
     "id": "INV-2024-0121",
@@ -1946,8 +1797,7 @@
     "terms_days": 60,
     "project_type": "cloud_infrastructure",
     "paid_on": "2025-02-28",
-    "source_file": "INV-2024-0121.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0121.pdf"
   },
   {
     "id": "INV-2024-0296",
@@ -1959,8 +1809,7 @@
     "terms_days": 14,
     "project_type": "ui_ux_design",
     "paid_on": "2024-12-25",
-    "source_file": "INV-2024-0296.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0296.pdf"
   },
   {
     "id": "INV-2024-0392",
@@ -1972,8 +1821,7 @@
     "terms_days": 60,
     "project_type": "data_engineering",
     "paid_on": "2025-03-04",
-    "source_file": "INV-2024-0392.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0392.pdf"
   },
   {
     "id": "INV-2024-0166",
@@ -1985,8 +1833,7 @@
     "terms_days": 30,
     "project_type": "mobile_app",
     "paid_on": "2025-01-22",
-    "source_file": "INV-2024-0166.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0166.pdf"
   },
   {
     "id": "INV-2024-0376",
@@ -1998,8 +1845,7 @@
     "terms_days": 30,
     "project_type": "data_engineering",
     "paid_on": "2025-02-10",
-    "source_file": "INV-2024-0376.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0376.pdf"
   },
   {
     "id": "INV-2024-0055",
@@ -2011,8 +1857,7 @@
     "terms_days": 60,
     "project_type": "ai_consulting",
     "paid_on": "2025-03-14",
-    "source_file": "INV-2024-0055.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0055.pdf"
   },
   {
     "id": "INV-2024-0101",
@@ -2024,8 +1869,7 @@
     "terms_days": 30,
     "project_type": "mobile_app",
     "paid_on": "2025-02-28",
-    "source_file": "INV-2024-0101.pdf",
-    "synthetic": true
+    "source_file": "INV-2024-0101.pdf"
   },
   {
     "id": "INV-2025-0071",
@@ -2037,8 +1881,7 @@
     "terms_days": 30,
     "project_type": "ui_ux_design",
     "paid_on": "2025-02-20",
-    "source_file": "INV-2025-0071.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0071.pdf"
   },
   {
     "id": "INV-2025-0084",
@@ -2050,8 +1893,7 @@
     "terms_days": 14,
     "project_type": "ai_consulting",
     "paid_on": "2025-01-30",
-    "source_file": "INV-2025-0084.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0084.pdf"
   },
   {
     "id": "INV-2025-0085",
@@ -2063,8 +1905,7 @@
     "terms_days": 30,
     "project_type": "cloud_infrastructure",
     "paid_on": "2025-02-28",
-    "source_file": "INV-2025-0085.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0085.pdf"
   },
   {
     "id": "INV-2025-0102",
@@ -2076,8 +1917,7 @@
     "terms_days": 45,
     "project_type": "data_engineering",
     "paid_on": "2025-03-30",
-    "source_file": "INV-2025-0102.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0102.pdf"
   },
   {
     "id": "INV-2025-0248",
@@ -2089,8 +1929,7 @@
     "terms_days": 45,
     "project_type": "ui_ux_design",
     "paid_on": "2025-02-28",
-    "source_file": "INV-2025-0248.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0248.pdf"
   },
   {
     "id": "INV-2025-0134",
@@ -2102,8 +1941,7 @@
     "terms_days": 14,
     "project_type": "ui_ux_design",
     "paid_on": "2025-02-28",
-    "source_file": "INV-2025-0134.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0134.pdf"
   },
   {
     "id": "INV-2025-0213",
@@ -2115,8 +1953,7 @@
     "terms_days": 30,
     "project_type": "data_engineering",
     "paid_on": "2025-02-17",
-    "source_file": "INV-2025-0213.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0213.pdf"
   },
   {
     "id": "INV-2025-0010",
@@ -2128,8 +1965,7 @@
     "terms_days": 30,
     "project_type": "ui_ux_design",
     "paid_on": "2025-03-17",
-    "source_file": "INV-2025-0010.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0010.pdf"
   },
   {
     "id": "INV-2025-0199",
@@ -2141,8 +1977,7 @@
     "terms_days": 30,
     "project_type": "ai_consulting",
     "paid_on": "2025-03-24",
-    "source_file": "INV-2025-0199.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0199.pdf"
   },
   {
     "id": "INV-2025-0021",
@@ -2154,8 +1989,7 @@
     "terms_days": 60,
     "project_type": "cloud_infrastructure",
     "paid_on": "2025-04-18",
-    "source_file": "INV-2025-0021.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0021.pdf"
   },
   {
     "id": "INV-2025-0040",
@@ -2167,8 +2001,7 @@
     "terms_days": 30,
     "project_type": "web_dev",
     "paid_on": "2025-04-08",
-    "source_file": "INV-2025-0040.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0040.pdf"
   },
   {
     "id": "INV-2025-0262",
@@ -2180,8 +2013,7 @@
     "terms_days": 60,
     "project_type": "data_engineering",
     "paid_on": "2025-03-30",
-    "source_file": "INV-2025-0262.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0262.pdf"
   },
   {
     "id": "INV-2025-0011",
@@ -2193,8 +2025,7 @@
     "terms_days": 30,
     "project_type": "ui_ux_design",
     "paid_on": "2025-03-21",
-    "source_file": "INV-2025-0011.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0011.pdf"
   },
   {
     "id": "INV-2025-0041",
@@ -2206,8 +2037,7 @@
     "terms_days": 45,
     "project_type": "data_engineering",
     "paid_on": "2025-04-04",
-    "source_file": "INV-2025-0041.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0041.pdf"
   },
   {
     "id": "INV-2025-0344",
@@ -2219,8 +2049,7 @@
     "terms_days": 30,
     "project_type": "ui_ux_design",
     "paid_on": "2025-03-11",
-    "source_file": "INV-2025-0344.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0344.pdf"
   },
   {
     "id": "INV-2025-0042",
@@ -2232,8 +2061,7 @@
     "terms_days": 14,
     "project_type": "mobile_app",
     "paid_on": "2025-04-07",
-    "source_file": "INV-2025-0042.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0042.pdf"
   },
   {
     "id": "INV-2025-0043",
@@ -2245,8 +2073,7 @@
     "terms_days": 30,
     "project_type": "cloud_infrastructure",
     "paid_on": "2025-04-03",
-    "source_file": "INV-2025-0043.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0043.pdf"
   },
   {
     "id": "INV-2025-0200",
@@ -2258,8 +2085,7 @@
     "terms_days": 45,
     "project_type": "cloud_infrastructure",
     "paid_on": "2025-03-30",
-    "source_file": "INV-2025-0200.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0200.pdf"
   },
   {
     "id": "INV-2025-0135",
@@ -2271,8 +2097,7 @@
     "terms_days": 30,
     "project_type": "web_dev",
     "paid_on": "2025-03-29",
-    "source_file": "INV-2025-0135.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0135.pdf"
   },
   {
     "id": "INV-2025-0151",
@@ -2284,8 +2109,7 @@
     "terms_days": 30,
     "project_type": "web_dev",
     "paid_on": "2025-03-28",
-    "source_file": "INV-2025-0151.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0151.pdf"
   },
   {
     "id": "INV-2025-0393",
@@ -2297,8 +2121,7 @@
     "terms_days": 30,
     "project_type": "cloud_infrastructure",
     "paid_on": "2025-03-22",
-    "source_file": "INV-2025-0393.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0393.pdf"
   },
   {
     "id": "INV-2025-0012",
@@ -2310,8 +2133,7 @@
     "terms_days": 45,
     "project_type": "ai_consulting",
     "paid_on": "2025-05-05",
-    "source_file": "INV-2025-0012.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0012.pdf"
   },
   {
     "id": "INV-2025-0152",
@@ -2323,8 +2145,7 @@
     "terms_days": 60,
     "project_type": "data_engineering",
     "paid_on": "2025-04-28",
-    "source_file": "INV-2025-0152.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0152.pdf"
   },
   {
     "id": "INV-2025-0056",
@@ -2336,8 +2157,7 @@
     "terms_days": 30,
     "project_type": "web_dev",
     "paid_on": "2025-04-19",
-    "source_file": "INV-2025-0056.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0056.pdf"
   },
   {
     "id": "INV-2025-0214",
@@ -2349,8 +2169,7 @@
     "terms_days": 45,
     "project_type": "mobile_app",
     "paid_on": "2025-04-13",
-    "source_file": "INV-2025-0214.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0214.pdf"
   },
   {
     "id": "INV-2025-0072",
@@ -2362,8 +2181,7 @@
     "terms_days": 14,
     "project_type": "ai_consulting",
     "paid_on": "2025-04-17",
-    "source_file": "INV-2025-0072.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0072.pdf"
   },
   {
     "id": "INV-2025-0044",
@@ -2375,8 +2193,7 @@
     "terms_days": 30,
     "project_type": "cloud_infrastructure",
     "paid_on": "2025-05-02",
-    "source_file": "INV-2025-0044.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0044.pdf"
   },
   {
     "id": "INV-2025-0057",
@@ -2388,8 +2205,7 @@
     "terms_days": 30,
     "project_type": "ai_consulting",
     "paid_on": "2025-05-08",
-    "source_file": "INV-2025-0057.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0057.pdf"
   },
   {
     "id": "INV-2025-0313",
@@ -2401,8 +2217,7 @@
     "terms_days": 45,
     "project_type": "web_dev",
     "paid_on": "2025-04-24",
-    "source_file": "INV-2025-0313.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0313.pdf"
   },
   {
     "id": "INV-2025-0377",
@@ -2414,8 +2229,7 @@
     "terms_days": 30,
     "project_type": "mobile_app",
     "paid_on": "2025-04-24",
-    "source_file": "INV-2025-0377.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0377.pdf"
   },
   {
     "id": "INV-2025-0122",
@@ -2427,8 +2241,7 @@
     "terms_days": 30,
     "project_type": "ui_ux_design",
     "paid_on": "2025-04-29",
-    "source_file": "INV-2025-0122.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0122.pdf"
   },
   {
     "id": "INV-2025-0263",
@@ -2440,8 +2253,7 @@
     "terms_days": 60,
     "project_type": "web_dev",
     "paid_on": "2025-05-16",
-    "source_file": "INV-2025-0263.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0263.pdf"
   },
   {
     "id": "INV-2025-0013",
@@ -2453,8 +2265,7 @@
     "terms_days": 30,
     "project_type": "ai_consulting",
     "paid_on": "2025-05-14",
-    "source_file": "INV-2025-0013.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0013.pdf"
   },
   {
     "id": "INV-2025-0058",
@@ -2466,8 +2277,7 @@
     "terms_days": 30,
     "project_type": "ui_ux_design",
     "paid_on": "2025-06-03",
-    "source_file": "INV-2025-0058.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0058.pdf"
   },
   {
     "id": "INV-2025-0022",
@@ -2479,8 +2289,7 @@
     "terms_days": 30,
     "project_type": "ai_consulting",
     "paid_on": "2025-05-20",
-    "source_file": "INV-2025-0022.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0022.pdf"
   },
   {
     "id": "INV-2025-0045",
@@ -2492,8 +2301,7 @@
     "terms_days": 30,
     "project_type": "ai_consulting",
     "paid_on": "2025-06-06",
-    "source_file": "INV-2025-0045.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0045.pdf"
   },
   {
     "id": "INV-2025-0073",
@@ -2505,8 +2313,7 @@
     "terms_days": 30,
     "project_type": "web_dev",
     "paid_on": "2025-05-31",
-    "source_file": "INV-2025-0073.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0073.pdf"
   },
   {
     "id": "INV-2025-0074",
@@ -2518,8 +2325,7 @@
     "terms_days": 45,
     "project_type": "ai_consulting",
     "paid_on": "2025-06-21",
-    "source_file": "INV-2025-0074.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0074.pdf"
   },
   {
     "id": "INV-2025-0326",
@@ -2531,8 +2337,7 @@
     "terms_days": 60,
     "project_type": "data_engineering",
     "paid_on": "2025-06-24",
-    "source_file": "INV-2025-0326.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0326.pdf"
   },
   {
     "id": "INV-2025-0297",
@@ -2544,8 +2349,7 @@
     "terms_days": 14,
     "project_type": "data_engineering",
     "paid_on": "2025-04-14",
-    "source_file": "INV-2025-0297.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0297.pdf"
   },
   {
     "id": "INV-2025-0201",
@@ -2557,8 +2361,7 @@
     "terms_days": 30,
     "project_type": "ui_ux_design",
     "paid_on": "2025-06-06",
-    "source_file": "INV-2025-0201.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0201.pdf"
   },
   {
     "id": "INV-2025-0345",
@@ -2570,8 +2373,7 @@
     "terms_days": 30,
     "project_type": "ai_consulting",
     "paid_on": "2025-05-15",
-    "source_file": "INV-2025-0345.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0345.pdf"
   },
   {
     "id": "INV-2025-0136",
@@ -2583,8 +2385,7 @@
     "terms_days": 30,
     "project_type": "cloud_infrastructure",
     "paid_on": "2025-05-29",
-    "source_file": "INV-2025-0136.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0136.pdf"
   },
   {
     "id": "INV-2025-0059",
@@ -2596,8 +2397,7 @@
     "terms_days": 30,
     "project_type": "ai_consulting",
     "paid_on": "2025-06-29",
-    "source_file": "INV-2025-0059.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0059.pdf"
   },
   {
     "id": "INV-2025-0023",
@@ -2609,8 +2409,7 @@
     "terms_days": 45,
     "project_type": "web_dev",
     "paid_on": "2025-07-10",
-    "source_file": "INV-2025-0023.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0023.pdf"
   },
   {
     "id": "INV-2025-0153",
@@ -2622,8 +2421,7 @@
     "terms_days": 60,
     "project_type": "web_dev",
     "paid_on": "2025-06-28",
-    "source_file": "INV-2025-0153.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0153.pdf"
   },
   {
     "id": "INV-2025-0359",
@@ -2635,8 +2433,7 @@
     "terms_days": 60,
     "project_type": "data_engineering",
     "paid_on": "2025-07-19",
-    "source_file": "INV-2025-0359.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0359.pdf"
   },
   {
     "id": "INV-2025-0024",
@@ -2648,8 +2445,7 @@
     "terms_days": 60,
     "project_type": "mobile_app",
     "paid_on": "2025-08-02",
-    "source_file": "INV-2025-0024.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0024.pdf"
   },
   {
     "id": "INV-2025-0184",
@@ -2661,8 +2457,7 @@
     "terms_days": 30,
     "project_type": "ai_consulting",
     "paid_on": "2025-06-19",
-    "source_file": "INV-2025-0184.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0184.pdf"
   },
   {
     "id": "INV-2025-0167",
@@ -2674,8 +2469,7 @@
     "terms_days": 30,
     "project_type": "mobile_app",
     "paid_on": "2025-06-20",
-    "source_file": "INV-2025-0167.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0167.pdf"
   },
   {
     "id": "INV-2025-0137",
@@ -2687,8 +2481,7 @@
     "terms_days": 14,
     "project_type": "web_dev",
     "paid_on": "2025-05-28",
-    "source_file": "INV-2025-0137.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0137.pdf"
   },
   {
     "id": "INV-2025-0298",
@@ -2700,8 +2493,7 @@
     "terms_days": 14,
     "project_type": "cloud_infrastructure",
     "paid_on": "2025-05-23",
-    "source_file": "INV-2025-0298.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0298.pdf"
   },
   {
     "id": "INV-2025-0249",
@@ -2713,8 +2505,7 @@
     "terms_days": 30,
     "project_type": "ui_ux_design",
     "paid_on": "2025-06-10",
-    "source_file": "INV-2025-0249.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0249.pdf"
   },
   {
     "id": "INV-2025-0202",
@@ -2726,8 +2517,7 @@
     "terms_days": 60,
     "project_type": "cloud_infrastructure",
     "paid_on": "2025-08-23",
-    "source_file": "INV-2025-0202.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0202.pdf"
   },
   {
     "id": "INV-2025-0346",
@@ -2739,8 +2529,7 @@
     "terms_days": 30,
     "project_type": "data_engineering",
     "paid_on": "2025-07-16",
-    "source_file": "INV-2025-0346.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0346.pdf"
   },
   {
     "id": "INV-2025-0014",
@@ -2752,8 +2541,7 @@
     "terms_days": 60,
     "project_type": "web_dev",
     "paid_on": "2025-08-14",
-    "source_file": "INV-2025-0014.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0014.pdf"
   },
   {
     "id": "INV-2025-0231",
@@ -2765,8 +2553,7 @@
     "terms_days": 30,
     "project_type": "ui_ux_design",
     "paid_on": "2025-06-21",
-    "source_file": "INV-2025-0231.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0231.pdf"
   },
   {
     "id": "INV-2025-0327",
@@ -2778,8 +2565,7 @@
     "terms_days": 30,
     "project_type": "ai_consulting",
     "paid_on": "2025-06-30",
-    "source_file": "INV-2025-0327.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0327.pdf"
   },
   {
     "id": "INV-2025-0215",
@@ -2791,8 +2577,7 @@
     "terms_days": 30,
     "project_type": "web_dev",
     "paid_on": "2025-07-22",
-    "source_file": "INV-2025-0215.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0215.pdf"
   },
   {
     "id": "INV-2025-0360",
@@ -2804,8 +2589,7 @@
     "terms_days": 30,
     "project_type": "mobile_app",
     "paid_on": "2025-07-15",
-    "source_file": "INV-2025-0360.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0360.pdf"
   },
   {
     "id": "INV-2025-0154",
@@ -2817,8 +2601,7 @@
     "terms_days": 30,
     "project_type": "ui_ux_design",
     "paid_on": "2025-07-28",
-    "source_file": "INV-2025-0154.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0154.pdf"
   },
   {
     "id": "INV-2025-0277",
@@ -2830,8 +2613,7 @@
     "terms_days": 60,
     "project_type": "mobile_app",
     "paid_on": "2025-07-30",
-    "source_file": "INV-2025-0277.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0277.pdf"
   },
   {
     "id": "INV-2025-0086",
@@ -2843,8 +2625,7 @@
     "terms_days": 30,
     "project_type": "web_dev",
     "paid_on": "2025-07-28",
-    "source_file": "INV-2025-0086.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0086.pdf"
   },
   {
     "id": "INV-2025-0347",
@@ -2856,8 +2637,7 @@
     "terms_days": 14,
     "project_type": "web_dev",
     "paid_on": "2025-07-01",
-    "source_file": "INV-2025-0347.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0347.pdf"
   },
   {
     "id": "INV-2025-0299",
@@ -2869,8 +2649,7 @@
     "terms_days": 60,
     "project_type": "ai_consulting",
     "paid_on": "2025-08-04",
-    "source_file": "INV-2025-0299.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0299.pdf"
   },
   {
     "id": "INV-2025-0394",
@@ -2882,8 +2661,7 @@
     "terms_days": 30,
     "project_type": "mobile_app",
     "paid_on": "2025-07-03",
-    "source_file": "INV-2025-0394.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0394.pdf"
   },
   {
     "id": "INV-2025-0361",
@@ -2895,8 +2673,7 @@
     "terms_days": 45,
     "project_type": "data_engineering",
     "paid_on": "2025-08-07",
-    "source_file": "INV-2025-0361.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0361.pdf"
   },
   {
     "id": "INV-2025-0203",
@@ -2908,8 +2685,7 @@
     "terms_days": 30,
     "project_type": "cloud_infrastructure",
     "paid_on": "2025-07-08",
-    "source_file": "INV-2025-0203.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0203.pdf"
   },
   {
     "id": "INV-2025-0087",
@@ -2921,8 +2697,7 @@
     "terms_days": 30,
     "project_type": "ai_consulting",
     "paid_on": "2025-07-30",
-    "source_file": "INV-2025-0087.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0087.pdf"
   },
   {
     "id": "INV-2025-0395",
@@ -2934,8 +2709,7 @@
     "terms_days": 30,
     "project_type": "ui_ux_design",
     "paid_on": "2025-07-28",
-    "source_file": "INV-2025-0395.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0395.pdf"
   },
   {
     "id": "INV-2025-0168",
@@ -2947,8 +2721,7 @@
     "terms_days": 30,
     "project_type": "cloud_infrastructure",
     "paid_on": "2025-08-10",
-    "source_file": "INV-2025-0168.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0168.pdf"
   },
   {
     "id": "INV-2025-0155",
@@ -2960,8 +2733,7 @@
     "terms_days": 45,
     "project_type": "cloud_infrastructure",
     "paid_on": "2025-08-28",
-    "source_file": "INV-2025-0155.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0155.pdf"
   },
   {
     "id": "INV-2025-0156",
@@ -2973,8 +2745,7 @@
     "terms_days": 30,
     "project_type": "ui_ux_design",
     "paid_on": "2025-07-30",
-    "source_file": "INV-2025-0156.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0156.pdf"
   },
   {
     "id": "INV-2025-0232",
@@ -2986,8 +2757,7 @@
     "terms_days": 30,
     "project_type": "data_engineering",
     "paid_on": "2025-08-31",
-    "source_file": "INV-2025-0232.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0232.pdf"
   },
   {
     "id": "INV-2025-0204",
@@ -2999,8 +2769,7 @@
     "terms_days": 45,
     "project_type": "data_engineering",
     "paid_on": "2025-09-06",
-    "source_file": "INV-2025-0204.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0204.pdf"
   },
   {
     "id": "INV-2025-0205",
@@ -3012,8 +2781,7 @@
     "terms_days": 60,
     "project_type": "cloud_infrastructure",
     "paid_on": "2025-08-31",
-    "source_file": "INV-2025-0205.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0205.pdf"
   },
   {
     "id": "INV-2025-0123",
@@ -3025,8 +2793,7 @@
     "terms_days": 30,
     "project_type": "ui_ux_design",
     "paid_on": "2025-08-30",
-    "source_file": "INV-2025-0123.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0123.pdf"
   },
   {
     "id": "INV-2025-0348",
@@ -3038,8 +2805,7 @@
     "terms_days": 30,
     "project_type": "web_dev",
     "paid_on": "2025-08-26",
-    "source_file": "INV-2025-0348.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0348.pdf"
   },
   {
     "id": "INV-2025-0088",
@@ -3051,8 +2817,7 @@
     "terms_days": 30,
     "project_type": "web_dev",
     "paid_on": "2025-08-29",
-    "source_file": "INV-2025-0088.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0088.pdf"
   },
   {
     "id": "INV-2025-0138",
@@ -3064,8 +2829,7 @@
     "terms_days": 30,
     "project_type": "ui_ux_design",
     "paid_on": "2025-08-28",
-    "source_file": "INV-2025-0138.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0138.pdf"
   },
   {
     "id": "INV-2025-0250",
@@ -3077,8 +2841,7 @@
     "terms_days": 14,
     "project_type": "mobile_app",
     "paid_on": "2025-08-07",
-    "source_file": "INV-2025-0250.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0250.pdf"
   },
   {
     "id": "INV-2025-0264",
@@ -3090,8 +2853,7 @@
     "terms_days": 30,
     "project_type": "ui_ux_design",
     "paid_on": "2025-08-24",
-    "source_file": "INV-2025-0264.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0264.pdf"
   },
   {
     "id": "INV-2025-0124",
@@ -3103,8 +2865,7 @@
     "terms_days": 14,
     "project_type": "web_dev",
     "paid_on": "2025-08-28",
-    "source_file": "INV-2025-0124.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0124.pdf"
   },
   {
     "id": "INV-2025-0125",
@@ -3116,8 +2877,7 @@
     "terms_days": 60,
     "project_type": "mobile_app",
     "paid_on": "2025-10-30",
-    "source_file": "INV-2025-0125.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0125.pdf"
   },
   {
     "id": "INV-2025-0378",
@@ -3129,8 +2889,7 @@
     "terms_days": 14,
     "project_type": "web_dev",
     "paid_on": "2025-09-05",
-    "source_file": "INV-2025-0378.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0378.pdf"
   },
   {
     "id": "INV-2025-0060",
@@ -3142,8 +2901,7 @@
     "terms_days": 30,
     "project_type": "mobile_app",
     "paid_on": "2025-10-05",
-    "source_file": "INV-2025-0060.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0060.pdf"
   },
   {
     "id": "INV-2025-0328",
@@ -3155,8 +2913,7 @@
     "terms_days": 30,
     "project_type": "mobile_app",
     "paid_on": "2025-09-08",
-    "source_file": "INV-2025-0328.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0328.pdf"
   },
   {
     "id": "INV-2025-0139",
@@ -3168,8 +2925,7 @@
     "terms_days": 30,
     "project_type": "cloud_infrastructure",
     "paid_on": "2025-09-30",
-    "source_file": "INV-2025-0139.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0139.pdf"
   },
   {
     "id": "INV-2025-0061",
@@ -3181,8 +2937,7 @@
     "terms_days": 30,
     "project_type": "ai_consulting",
     "paid_on": "2025-10-20",
-    "source_file": "INV-2025-0061.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0061.pdf"
   },
   {
     "id": "INV-2025-0396",
@@ -3194,8 +2949,7 @@
     "terms_days": 30,
     "project_type": "web_dev",
     "paid_on": "2025-09-30",
-    "source_file": "INV-2025-0396.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0396.pdf"
   },
   {
     "id": "INV-2025-0089",
@@ -3207,8 +2961,7 @@
     "terms_days": 30,
     "project_type": "data_engineering",
     "paid_on": "2025-09-30",
-    "source_file": "INV-2025-0089.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0089.pdf"
   },
   {
     "id": "INV-2025-0233",
@@ -3220,8 +2973,7 @@
     "terms_days": 30,
     "project_type": "ui_ux_design",
     "paid_on": "2025-10-30",
-    "source_file": "INV-2025-0233.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0233.pdf"
   },
   {
     "id": "INV-2025-0349",
@@ -3233,8 +2985,7 @@
     "terms_days": 30,
     "project_type": "mobile_app",
     "paid_on": "2025-09-27",
-    "source_file": "INV-2025-0349.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0349.pdf"
   },
   {
     "id": "INV-2025-0234",
@@ -3246,8 +2997,7 @@
     "terms_days": 30,
     "project_type": "web_dev",
     "paid_on": "2025-10-24",
-    "source_file": "INV-2025-0234.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0234.pdf"
   },
   {
     "id": "INV-2025-0185",
@@ -3259,8 +3009,7 @@
     "terms_days": 30,
     "project_type": "cloud_infrastructure",
     "paid_on": "2025-10-06",
-    "source_file": "INV-2025-0185.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0185.pdf"
   },
   {
     "id": "INV-2025-0278",
@@ -3272,8 +3021,7 @@
     "terms_days": 60,
     "project_type": "ui_ux_design",
     "paid_on": "2025-11-02",
-    "source_file": "INV-2025-0278.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0278.pdf"
   },
   {
     "id": "INV-2025-0046",
@@ -3285,8 +3033,7 @@
     "terms_days": 30,
     "project_type": "web_dev",
     "paid_on": "2025-10-25",
-    "source_file": "INV-2025-0046.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0046.pdf"
   },
   {
     "id": "INV-2025-0103",
@@ -3298,8 +3045,7 @@
     "terms_days": 60,
     "project_type": "cloud_infrastructure",
     "paid_on": "2025-11-28",
-    "source_file": "INV-2025-0103.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0103.pdf"
   },
   {
     "id": "INV-2025-0140",
@@ -3311,8 +3057,7 @@
     "terms_days": 45,
     "project_type": "data_engineering",
     "paid_on": "2025-10-29",
-    "source_file": "INV-2025-0140.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0140.pdf"
   },
   {
     "id": "INV-2025-0075",
@@ -3324,8 +3069,7 @@
     "terms_days": 14,
     "project_type": "data_engineering",
     "paid_on": "2025-10-22",
-    "source_file": "INV-2025-0075.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0075.pdf"
   },
   {
     "id": "INV-2025-0314",
@@ -3337,8 +3081,7 @@
     "terms_days": 60,
     "project_type": "data_engineering",
     "paid_on": "2025-11-13",
-    "source_file": "INV-2025-0314.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0314.pdf"
   },
   {
     "id": "INV-2025-0265",
@@ -3350,8 +3093,7 @@
     "terms_days": 30,
     "project_type": "cloud_infrastructure",
     "paid_on": "2025-10-17",
-    "source_file": "INV-2025-0265.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0265.pdf"
   },
   {
     "id": "INV-2025-0279",
@@ -3363,8 +3105,7 @@
     "terms_days": 30,
     "project_type": "mobile_app",
     "paid_on": "2025-10-18",
-    "source_file": "INV-2025-0279.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0279.pdf"
   },
   {
     "id": "INV-2025-0047",
@@ -3376,8 +3117,7 @@
     "terms_days": 60,
     "project_type": "data_engineering",
     "paid_on": "2026-01-06",
-    "source_file": "INV-2025-0047.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0047.pdf"
   },
   {
     "id": "INV-2025-0280",
@@ -3389,8 +3129,7 @@
     "terms_days": 30,
     "project_type": "mobile_app",
     "paid_on": "2025-10-22",
-    "source_file": "INV-2025-0280.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0280.pdf"
   },
   {
     "id": "INV-2025-0186",
@@ -3402,8 +3141,7 @@
     "terms_days": 60,
     "project_type": "data_engineering",
     "paid_on": "2025-11-23",
-    "source_file": "INV-2025-0186.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0186.pdf"
   },
   {
     "id": "INV-2025-0315",
@@ -3415,8 +3153,7 @@
     "terms_days": 30,
     "project_type": "cloud_infrastructure",
     "paid_on": "2025-10-21",
-    "source_file": "INV-2025-0315.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0315.pdf"
   },
   {
     "id": "INV-2025-0251",
@@ -3428,8 +3165,7 @@
     "terms_days": 30,
     "project_type": "data_engineering",
     "paid_on": "2025-10-28",
-    "source_file": "INV-2025-0251.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0251.pdf"
   },
   {
     "id": "INV-2025-0266",
@@ -3441,8 +3177,7 @@
     "terms_days": 14,
     "project_type": "ui_ux_design",
     "paid_on": "2025-10-08",
-    "source_file": "INV-2025-0266.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0266.pdf"
   },
   {
     "id": "INV-2025-0141",
@@ -3454,8 +3189,7 @@
     "terms_days": 30,
     "project_type": "data_engineering",
     "paid_on": "2025-11-29",
-    "source_file": "INV-2025-0141.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0141.pdf"
   },
   {
     "id": "INV-2025-0316",
@@ -3467,8 +3201,7 @@
     "terms_days": 60,
     "project_type": "data_engineering",
     "paid_on": "2025-12-09",
-    "source_file": "INV-2025-0316.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0316.pdf"
   },
   {
     "id": "INV-2025-0350",
@@ -3480,8 +3213,7 @@
     "terms_days": 30,
     "project_type": "mobile_app",
     "paid_on": "2025-11-14",
-    "source_file": "INV-2025-0350.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0350.pdf"
   },
   {
     "id": "INV-2025-0126",
@@ -3493,8 +3225,7 @@
     "terms_days": 30,
     "project_type": "cloud_infrastructure",
     "paid_on": "2025-11-28",
-    "source_file": "INV-2025-0126.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0126.pdf"
   },
   {
     "id": "INV-2025-0252",
@@ -3506,8 +3237,7 @@
     "terms_days": 14,
     "project_type": "web_dev",
     "paid_on": "2025-11-05",
-    "source_file": "INV-2025-0252.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0252.pdf"
   },
   {
     "id": "INV-2025-0104",
@@ -3519,8 +3249,7 @@
     "terms_days": 30,
     "project_type": "cloud_infrastructure",
     "paid_on": "2025-11-29",
-    "source_file": "INV-2025-0104.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0104.pdf"
   },
   {
     "id": "INV-2025-0142",
@@ -3532,8 +3261,7 @@
     "terms_days": 30,
     "project_type": "data_engineering",
     "paid_on": "2025-11-30",
-    "source_file": "INV-2025-0142.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0142.pdf"
   },
   {
     "id": "INV-2025-0206",
@@ -3545,8 +3273,7 @@
     "terms_days": 30,
     "project_type": "mobile_app",
     "paid_on": "2025-12-11",
-    "source_file": "INV-2025-0206.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0206.pdf"
   },
   {
     "id": "INV-2025-0317",
@@ -3558,8 +3285,7 @@
     "terms_days": 30,
     "project_type": "web_dev",
     "paid_on": "2025-11-19",
-    "source_file": "INV-2025-0317.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0317.pdf"
   },
   {
     "id": "INV-2025-0362",
@@ -3571,8 +3297,7 @@
     "terms_days": 45,
     "project_type": "data_engineering",
     "paid_on": "2026-01-06",
-    "source_file": "INV-2025-0362.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0362.pdf"
   },
   {
     "id": "INV-2025-0076",
@@ -3584,8 +3309,7 @@
     "terms_days": 30,
     "project_type": "ai_consulting",
     "paid_on": "2025-12-30",
-    "source_file": "INV-2025-0076.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0076.pdf"
   },
   {
     "id": "INV-2025-0077",
@@ -3597,8 +3321,7 @@
     "terms_days": 45,
     "project_type": "web_dev",
     "paid_on": "2026-01-20",
-    "source_file": "INV-2025-0077.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0077.pdf"
   },
   {
     "id": "INV-2025-0169",
@@ -3610,8 +3333,7 @@
     "terms_days": 45,
     "project_type": "ui_ux_design",
     "paid_on": "2026-02-05",
-    "source_file": "INV-2025-0169.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0169.pdf"
   },
   {
     "id": "INV-2025-0025",
@@ -3623,8 +3345,7 @@
     "terms_days": 30,
     "project_type": "data_engineering",
     "paid_on": "2025-12-26",
-    "source_file": "INV-2025-0025.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0025.pdf"
   },
   {
     "id": "INV-2025-0329",
@@ -3636,8 +3357,7 @@
     "terms_days": 30,
     "project_type": "ui_ux_design",
     "paid_on": "2026-01-11",
-    "source_file": "INV-2025-0329.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0329.pdf"
   },
   {
     "id": "INV-2025-0216",
@@ -3649,8 +3369,7 @@
     "terms_days": 30,
     "project_type": "mobile_app",
     "paid_on": "2025-12-11",
-    "source_file": "INV-2025-0216.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0216.pdf"
   },
   {
     "id": "INV-2025-0281",
@@ -3662,8 +3381,7 @@
     "terms_days": 14,
     "project_type": "web_dev",
     "paid_on": "2025-11-26",
-    "source_file": "INV-2025-0281.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0281.pdf"
   },
   {
     "id": "INV-2025-0363",
@@ -3675,8 +3393,7 @@
     "terms_days": 30,
     "project_type": "cloud_infrastructure",
     "paid_on": "2025-12-16",
-    "source_file": "INV-2025-0363.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0363.pdf"
   },
   {
     "id": "INV-2025-0330",
@@ -3688,8 +3405,7 @@
     "terms_days": 45,
     "project_type": "data_engineering",
     "paid_on": "2026-01-09",
-    "source_file": "INV-2025-0330.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0330.pdf"
   },
   {
     "id": "INV-2025-0217",
@@ -3701,8 +3417,7 @@
     "terms_days": 60,
     "project_type": "web_dev",
     "paid_on": "2026-02-20",
-    "source_file": "INV-2025-0217.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0217.pdf"
   },
   {
     "id": "INV-2025-0218",
@@ -3714,8 +3429,7 @@
     "terms_days": 30,
     "project_type": "mobile_app",
     "paid_on": "2026-01-24",
-    "source_file": "INV-2025-0218.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0218.pdf"
   },
   {
     "id": "INV-2025-0331",
@@ -3727,8 +3441,7 @@
     "terms_days": 45,
     "project_type": "cloud_infrastructure",
     "paid_on": "2026-02-08",
-    "source_file": "INV-2025-0331.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0331.pdf"
   },
   {
     "id": "INV-2025-0300",
@@ -3740,8 +3453,7 @@
     "terms_days": 30,
     "project_type": "ui_ux_design",
     "paid_on": "2025-12-30",
-    "source_file": "INV-2025-0300.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0300.pdf"
   },
   {
     "id": "INV-2025-0332",
@@ -3753,8 +3465,7 @@
     "terms_days": 45,
     "project_type": "data_engineering",
     "paid_on": "2026-01-15",
-    "source_file": "INV-2025-0332.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0332.pdf"
   },
   {
     "id": "INV-2025-0282",
@@ -3766,8 +3477,7 @@
     "terms_days": 60,
     "project_type": "data_engineering",
     "paid_on": "2026-01-31",
-    "source_file": "INV-2025-0282.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0282.pdf"
   },
   {
     "id": "INV-2025-0127",
@@ -3779,8 +3489,7 @@
     "terms_days": 14,
     "project_type": "ai_consulting",
     "paid_on": "2025-12-28",
-    "source_file": "INV-2025-0127.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0127.pdf"
   },
   {
     "id": "INV-2025-0253",
@@ -3792,8 +3501,7 @@
     "terms_days": 14,
     "project_type": "ui_ux_design",
     "paid_on": "2025-12-27",
-    "source_file": "INV-2025-0253.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0253.pdf"
   },
   {
     "id": "INV-2025-0105",
@@ -3805,8 +3513,7 @@
     "terms_days": 30,
     "project_type": "cloud_infrastructure",
     "paid_on": "2026-01-29",
-    "source_file": "INV-2025-0105.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0105.pdf"
   },
   {
     "id": "INV-2025-0235",
@@ -3818,8 +3525,7 @@
     "terms_days": 45,
     "project_type": "data_engineering",
     "paid_on": "2026-02-06",
-    "source_file": "INV-2025-0235.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0235.pdf"
   },
   {
     "id": "INV-2025-0333",
@@ -3831,8 +3537,7 @@
     "terms_days": 30,
     "project_type": "cloud_infrastructure",
     "paid_on": "2026-02-17",
-    "source_file": "INV-2025-0333.pdf",
-    "synthetic": true
+    "source_file": "INV-2025-0333.pdf"
   },
   {
     "id": "INV-2026-0283",
@@ -3844,8 +3549,7 @@
     "terms_days": 45,
     "project_type": "mobile_app",
     "paid_on": "2026-02-13",
-    "source_file": "INV-2026-0283.pdf",
-    "synthetic": true
+    "source_file": "INV-2026-0283.pdf"
   },
   {
     "id": "INV-2026-0284",
@@ -3857,8 +3561,7 @@
     "terms_days": 60,
     "project_type": "ui_ux_design",
     "paid_on": "2026-03-03",
-    "source_file": "INV-2026-0284.pdf",
-    "synthetic": true
+    "source_file": "INV-2026-0284.pdf"
   },
   {
     "id": "INV-2026-0106",
@@ -3870,8 +3573,7 @@
     "terms_days": 30,
     "project_type": "cloud_infrastructure",
     "paid_on": "2026-02-28",
-    "source_file": "INV-2026-0106.pdf",
-    "synthetic": true
+    "source_file": "INV-2026-0106.pdf"
   },
   {
     "id": "INV-2026-0026",
@@ -3883,8 +3585,7 @@
     "terms_days": 45,
     "project_type": "web_dev",
     "paid_on": "2026-04-12",
-    "source_file": "INV-2026-0026.pdf",
-    "synthetic": true
+    "source_file": "INV-2026-0026.pdf"
   },
   {
     "id": "INV-2026-0207",
@@ -3896,8 +3597,7 @@
     "terms_days": 14,
     "project_type": "web_dev",
     "paid_on": "2026-02-24",
-    "source_file": "INV-2026-0207.pdf",
-    "synthetic": true
+    "source_file": "INV-2026-0207.pdf"
   },
   {
     "id": "INV-2026-0267",
@@ -3909,8 +3609,7 @@
     "terms_days": 60,
     "project_type": "web_dev",
     "paid_on": "2026-03-23",
-    "source_file": "INV-2026-0267.pdf",
-    "synthetic": true
+    "source_file": "INV-2026-0267.pdf"
   },
   {
     "id": "INV-2026-0128",
@@ -3922,8 +3621,7 @@
     "terms_days": 30,
     "project_type": "cloud_infrastructure",
     "paid_on": "2026-02-28",
-    "source_file": "INV-2026-0128.pdf",
-    "synthetic": true
+    "source_file": "INV-2026-0128.pdf"
   },
   {
     "id": "INV-2026-0187",
@@ -3935,8 +3633,7 @@
     "terms_days": 30,
     "project_type": "cloud_infrastructure",
     "paid_on": "2026-03-21",
-    "source_file": "INV-2026-0187.pdf",
-    "synthetic": true
+    "source_file": "INV-2026-0187.pdf"
   },
   {
     "id": "INV-2026-0334",
@@ -3948,8 +3645,7 @@
     "terms_days": 60,
     "project_type": "data_engineering",
     "paid_on": "2026-04-27",
-    "source_file": "INV-2026-0334.pdf",
-    "synthetic": true
+    "source_file": "INV-2026-0334.pdf"
   },
   {
     "id": "INV-2026-0027",
@@ -3961,8 +3657,7 @@
     "terms_days": 30,
     "project_type": "data_engineering",
     "paid_on": "2026-03-17",
-    "source_file": "INV-2026-0027.pdf",
-    "synthetic": true
+    "source_file": "INV-2026-0027.pdf"
   },
   {
     "id": "INV-2026-0254",
@@ -3974,8 +3669,7 @@
     "terms_days": 45,
     "project_type": "cloud_infrastructure",
     "paid_on": "2026-03-16",
-    "source_file": "INV-2026-0254.pdf",
-    "synthetic": true
+    "source_file": "INV-2026-0254.pdf"
   },
   {
     "id": "INV-2026-0268",
@@ -3987,8 +3681,7 @@
     "terms_days": 30,
     "project_type": "ai_consulting",
     "paid_on": "2026-02-25",
-    "source_file": "INV-2026-0268.pdf",
-    "synthetic": true
+    "source_file": "INV-2026-0268.pdf"
   },
   {
     "id": "INV-2026-0364",
@@ -4000,8 +3693,7 @@
     "terms_days": 30,
     "project_type": "cloud_infrastructure",
     "paid_on": "2026-04-02",
-    "source_file": "INV-2026-0364.pdf",
-    "synthetic": true
+    "source_file": "INV-2026-0364.pdf"
   },
   {
     "id": "INV-2026-0365",
@@ -4013,8 +3705,7 @@
     "terms_days": 30,
     "project_type": "ai_consulting",
     "paid_on": "2026-03-02",
-    "source_file": "INV-2026-0365.pdf",
-    "synthetic": true
+    "source_file": "INV-2026-0365.pdf"
   },
   {
     "id": "INV-2026-0062",
@@ -4026,8 +3717,7 @@
     "terms_days": 45,
     "project_type": "ai_consulting",
     "paid_on": "2026-04-14",
-    "source_file": "INV-2026-0062.pdf",
-    "synthetic": true
+    "source_file": "INV-2026-0062.pdf"
   },
   {
     "id": "INV-2026-0090",
@@ -4039,8 +3729,7 @@
     "terms_days": 45,
     "project_type": "cloud_infrastructure",
     "paid_on": "2026-04-30",
-    "source_file": "INV-2026-0090.pdf",
-    "synthetic": true
+    "source_file": "INV-2026-0090.pdf"
   },
   {
     "id": "INV-2026-0078",
@@ -4052,8 +3741,7 @@
     "terms_days": 45,
     "project_type": "ui_ux_design",
     "paid_on": "2026-05-06",
-    "source_file": "INV-2026-0078.pdf",
-    "synthetic": true
+    "source_file": "INV-2026-0078.pdf"
   },
   {
     "id": "INV-2026-0397",
@@ -4065,8 +3753,7 @@
     "terms_days": 60,
     "project_type": "web_dev",
     "paid_on": "2026-04-15",
-    "source_file": "INV-2026-0397.pdf",
-    "synthetic": true
+    "source_file": "INV-2026-0397.pdf"
   },
   {
     "id": "INV-2026-0107",
@@ -4078,8 +3765,7 @@
     "terms_days": 60,
     "project_type": "ui_ux_design",
     "paid_on": "2026-04-28",
-    "source_file": "INV-2026-0107.pdf",
-    "synthetic": true
+    "source_file": "INV-2026-0107.pdf"
   },
   {
     "id": "INV-2026-0219",
@@ -4091,8 +3777,7 @@
     "terms_days": 14,
     "project_type": "data_engineering",
     "paid_on": "2026-02-26",
-    "source_file": "INV-2026-0219.pdf",
-    "synthetic": true
+    "source_file": "INV-2026-0219.pdf"
   },
   {
     "id": "INV-2026-0157",
@@ -4104,8 +3789,7 @@
     "terms_days": 14,
     "project_type": "cloud_infrastructure",
     "paid_on": "2026-03-30",
-    "source_file": "INV-2026-0157.pdf",
-    "synthetic": true
+    "source_file": "INV-2026-0157.pdf"
   },
   {
     "id": "INV-2026-0285",
@@ -4117,8 +3801,7 @@
     "terms_days": 30,
     "project_type": "ai_consulting",
     "paid_on": "2026-03-21",
-    "source_file": "INV-2026-0285.pdf",
-    "synthetic": true
+    "source_file": "INV-2026-0285.pdf"
   },
   {
     "id": "INV-2026-0188",
@@ -4130,8 +3813,7 @@
     "terms_days": 60,
     "project_type": "cloud_infrastructure",
     "paid_on": "2026-04-19",
-    "source_file": "INV-2026-0188.pdf",
-    "synthetic": true
+    "source_file": "INV-2026-0188.pdf"
   },
   {
     "id": "INV-2026-0379",
@@ -4143,8 +3825,7 @@
     "terms_days": 30,
     "project_type": "cloud_infrastructure",
     "paid_on": "2026-03-29",
-    "source_file": "INV-2026-0379.pdf",
-    "synthetic": true
+    "source_file": "INV-2026-0379.pdf"
   },
   {
     "id": "INV-2026-0079",
@@ -4156,8 +3837,7 @@
     "terms_days": 60,
     "project_type": "mobile_app",
     "paid_on": "2026-06-02",
-    "source_file": "INV-2026-0079.pdf",
-    "synthetic": true
+    "source_file": "INV-2026-0079.pdf"
   },
   {
     "id": "INV-2026-0080",
@@ -4169,8 +3849,7 @@
     "terms_days": 60,
     "project_type": "mobile_app",
     "paid_on": "2026-05-27",
-    "source_file": "INV-2026-0080.pdf",
-    "synthetic": true
+    "source_file": "INV-2026-0080.pdf"
   },
   {
     "id": "INV-2026-0380",
@@ -4182,8 +3861,7 @@
     "terms_days": 30,
     "project_type": "data_engineering",
     "paid_on": "2026-04-07",
-    "source_file": "INV-2026-0380.pdf",
-    "synthetic": true
+    "source_file": "INV-2026-0380.pdf"
   },
   {
     "id": "INV-2026-0170",
@@ -4195,8 +3873,7 @@
     "terms_days": 30,
     "project_type": "ai_consulting",
     "paid_on": "2026-04-29",
-    "source_file": "INV-2026-0170.pdf",
-    "synthetic": true
+    "source_file": "INV-2026-0170.pdf"
   },
   {
     "id": "INV-2026-0108",
@@ -4208,8 +3885,7 @@
     "terms_days": 60,
     "project_type": "ai_consulting",
     "paid_on": "2026-05-28",
-    "source_file": "INV-2026-0108.pdf",
-    "synthetic": true
+    "source_file": "INV-2026-0108.pdf"
   },
   {
     "id": "INV-2026-0220",
@@ -4221,8 +3897,7 @@
     "terms_days": 60,
     "project_type": "ui_ux_design",
     "paid_on": "2026-05-01",
-    "source_file": "INV-2026-0220.pdf",
-    "synthetic": true
+    "source_file": "INV-2026-0220.pdf"
   },
   {
     "id": "INV-2026-0109",
@@ -4234,8 +3909,7 @@
     "terms_days": 14,
     "project_type": "web_dev",
     "paid_on": "2026-03-30",
-    "source_file": "INV-2026-0109.pdf",
-    "synthetic": true
+    "source_file": "INV-2026-0109.pdf"
   },
   {
     "id": "INV-2026-0398",
@@ -4247,8 +3921,7 @@
     "terms_days": 30,
     "project_type": "ai_consulting",
     "paid_on": "2026-05-02",
-    "source_file": "INV-2026-0398.pdf",
-    "synthetic": true
+    "source_file": "INV-2026-0398.pdf"
   },
   {
     "id": "INV-2026-0381",
@@ -4260,8 +3933,7 @@
     "terms_days": 30,
     "project_type": "data_engineering",
     "paid_on": "2026-04-17",
-    "source_file": "INV-2026-0381.pdf",
-    "synthetic": true
+    "source_file": "INV-2026-0381.pdf"
   },
   {
     "id": "INV-2026-0063",
@@ -4273,8 +3945,7 @@
     "terms_days": 45,
     "project_type": "data_engineering",
     "paid_on": "2026-05-16",
-    "source_file": "INV-2026-0063.pdf",
-    "synthetic": true
+    "source_file": "INV-2026-0063.pdf"
   },
   {
     "id": "INV-2026-0221",
@@ -4286,8 +3957,7 @@
     "terms_days": 45,
     "project_type": "mobile_app",
     "paid_on": "2026-04-25",
-    "source_file": "INV-2026-0221.pdf",
-    "synthetic": true
+    "source_file": "INV-2026-0221.pdf"
   },
   {
     "id": "INV-2026-0255",
@@ -4299,8 +3969,7 @@
     "terms_days": 14,
     "project_type": "ui_ux_design",
     "paid_on": "2026-03-22",
-    "source_file": "INV-2026-0255.pdf",
-    "synthetic": true
+    "source_file": "INV-2026-0255.pdf"
   },
   {
     "id": "INV-2026-0110",
@@ -4312,8 +3981,7 @@
     "terms_days": 30,
     "project_type": "ai_consulting",
     "paid_on": "2026-04-28",
-    "source_file": "INV-2026-0110.pdf",
-    "synthetic": true
+    "source_file": "INV-2026-0110.pdf"
   },
   {
     "id": "INV-2026-0015",
@@ -4325,8 +3993,7 @@
     "terms_days": 14,
     "project_type": "ui_ux_design",
     "paid_on": "2026-04-16",
-    "source_file": "INV-2026-0015.pdf",
-    "synthetic": true
+    "source_file": "INV-2026-0015.pdf"
   },
   {
     "id": "INV-2026-0143",
@@ -4338,8 +4005,7 @@
     "terms_days": 14,
     "project_type": "mobile_app",
     "paid_on": "2026-04-29",
-    "source_file": "INV-2026-0143.pdf",
-    "synthetic": true
+    "source_file": "INV-2026-0143.pdf"
   },
   {
     "id": "INV-2026-0028",
@@ -4351,8 +4017,7 @@
     "terms_days": 14,
     "project_type": "web_dev",
     "paid_on": "2026-05-03",
-    "source_file": "INV-2026-0028.pdf",
-    "synthetic": true
+    "source_file": "INV-2026-0028.pdf"
   },
   {
     "id": "INV-2026-0091",
@@ -4364,8 +4029,7 @@
     "terms_days": 60,
     "project_type": "data_engineering",
     "paid_on": "2026-06-29",
-    "source_file": "INV-2026-0091.pdf",
-    "synthetic": true
+    "source_file": "INV-2026-0091.pdf"
   },
   {
     "id": "INV-2026-0236",
@@ -4377,8 +4041,7 @@
     "terms_days": 30,
     "project_type": "mobile_app",
     "paid_on": "2026-05-05",
-    "source_file": "INV-2026-0236.pdf",
-    "synthetic": true
+    "source_file": "INV-2026-0236.pdf"
   },
   {
     "id": "INV-2026-0366",
@@ -4390,8 +4053,7 @@
     "terms_days": 45,
     "project_type": "ai_consulting",
     "paid_on": "2026-06-18",
-    "source_file": "INV-2026-0366.pdf",
-    "synthetic": true
+    "source_file": "INV-2026-0366.pdf"
   },
   {
     "id": "INV-2026-0269",
@@ -4403,8 +4065,7 @@
     "terms_days": 30,
     "project_type": "mobile_app",
     "paid_on": "2026-05-13",
-    "source_file": "INV-2026-0269.pdf",
-    "synthetic": true
+    "source_file": "INV-2026-0269.pdf"
   },
   {
     "id": "INV-2026-0270",
@@ -4416,8 +4077,7 @@
     "terms_days": 45,
     "project_type": "web_dev",
     "paid_on": "2026-06-01",
-    "source_file": "INV-2026-0270.pdf",
-    "synthetic": true
+    "source_file": "INV-2026-0270.pdf"
   },
   {
     "id": "INV-2026-0171",
@@ -4429,8 +4089,7 @@
     "terms_days": 30,
     "project_type": "ui_ux_design",
     "paid_on": "2026-06-14",
-    "source_file": "INV-2026-0171.pdf",
-    "synthetic": true
+    "source_file": "INV-2026-0171.pdf"
   },
   {
     "id": "INV-2026-0286",
@@ -4442,8 +4101,7 @@
     "terms_days": 30,
     "project_type": "cloud_infrastructure",
     "paid_on": "2026-05-18",
-    "source_file": "INV-2026-0286.pdf",
-    "synthetic": true
+    "source_file": "INV-2026-0286.pdf"
   },
   {
     "id": "INV-2026-0189",
@@ -4455,8 +4113,7 @@
     "terms_days": 60,
     "project_type": "cloud_infrastructure",
     "paid_on": "2026-07-19",
-    "source_file": "INV-2026-0189.pdf",
-    "synthetic": true
+    "source_file": "INV-2026-0189.pdf"
   },
   {
     "id": "INV-2026-0382",
@@ -4468,8 +4125,7 @@
     "terms_days": 30,
     "project_type": "data_engineering",
     "paid_on": "2026-06-01",
-    "source_file": "INV-2026-0382.pdf",
-    "synthetic": true
+    "source_file": "INV-2026-0382.pdf"
   },
   {
     "id": "INV-2026-0092",
@@ -4481,8 +4137,7 @@
     "terms_days": 30,
     "project_type": "cloud_infrastructure",
     "paid_on": "2026-05-29",
-    "source_file": "INV-2026-0092.pdf",
-    "synthetic": true
+    "source_file": "INV-2026-0092.pdf"
   },
   {
     "id": "INV-2026-0093",
@@ -4494,8 +4149,7 @@
     "terms_days": 30,
     "project_type": "data_engineering",
     "paid_on": "2026-05-29",
-    "source_file": "INV-2026-0093.pdf",
-    "synthetic": true
+    "source_file": "INV-2026-0093.pdf"
   },
   {
     "id": "INV-2026-0172",
@@ -4507,8 +4161,7 @@
     "terms_days": 45,
     "project_type": "cloud_infrastructure",
     "paid_on": "2026-07-07",
-    "source_file": "INV-2026-0172.pdf",
-    "synthetic": true
+    "source_file": "INV-2026-0172.pdf"
   },
   {
     "id": "INV-2026-0222",
@@ -4520,8 +4173,7 @@
     "terms_days": 14,
     "project_type": "ai_consulting",
     "paid_on": "2026-06-15",
-    "source_file": "INV-2026-0222.pdf",
-    "synthetic": true
+    "source_file": "INV-2026-0222.pdf"
   },
   {
     "id": "INV-2026-0237",
@@ -4533,8 +4185,7 @@
     "terms_days": 14,
     "project_type": "ui_ux_design",
     "paid_on": "2026-06-02",
-    "source_file": "INV-2026-0237.pdf",
-    "synthetic": true
+    "source_file": "INV-2026-0237.pdf"
   },
   {
     "id": "INV-2026-0335",
@@ -4546,8 +4197,7 @@
     "terms_days": 30,
     "project_type": "cloud_infrastructure",
     "paid_on": "2026-06-25",
-    "source_file": "INV-2026-0335.pdf",
-    "synthetic": true
+    "source_file": "INV-2026-0335.pdf"
   },
   {
     "id": "INV-2026-0223",
@@ -4559,8 +4209,7 @@
     "terms_days": 30,
     "project_type": "web_dev",
     "paid_on": "2026-06-18",
-    "source_file": "INV-2026-0223.pdf",
-    "synthetic": true
+    "source_file": "INV-2026-0223.pdf"
   },
   {
     "id": "INV-2026-0301",
@@ -4572,8 +4221,7 @@
     "terms_days": 45,
     "project_type": "ai_consulting",
     "paid_on": "2026-06-21",
-    "source_file": "INV-2026-0301.pdf",
-    "synthetic": true
+    "source_file": "INV-2026-0301.pdf"
   },
   {
     "id": "INV-2026-0336",
@@ -4585,8 +4233,7 @@
     "terms_days": 14,
     "project_type": "mobile_app",
     "paid_on": "2026-06-08",
-    "source_file": "INV-2026-0336.pdf",
-    "synthetic": true
+    "source_file": "INV-2026-0336.pdf"
   },
   {
     "id": "INV-2026-0158",
@@ -4598,8 +4245,7 @@
     "terms_days": 30,
     "project_type": "cloud_infrastructure",
     "paid_on": "2026-06-30",
-    "source_file": "INV-2026-0158.pdf",
-    "synthetic": true
+    "source_file": "INV-2026-0158.pdf"
   },
   {
     "id": "INV-2026-0144",
@@ -4611,8 +4257,7 @@
     "terms_days": 60,
     "project_type": "mobile_app",
     "paid_on": "2026-07-30",
-    "source_file": "INV-2026-0144.pdf",
-    "synthetic": true
+    "source_file": "INV-2026-0144.pdf"
   },
   {
     "id": "INV-2026-0159",
@@ -4624,8 +4269,7 @@
     "terms_days": 14,
     "project_type": "ui_ux_design",
     "paid_on": "2026-06-29",
-    "source_file": "INV-2026-0159.pdf",
-    "synthetic": true
+    "source_file": "INV-2026-0159.pdf"
   },
   {
     "id": "INV-2026-0238",
@@ -4637,8 +4281,7 @@
     "terms_days": 30,
     "project_type": "cloud_infrastructure",
     "paid_on": "2026-07-23",
-    "source_file": "INV-2026-0238.pdf",
-    "synthetic": true
+    "source_file": "INV-2026-0238.pdf"
   },
   {
     "id": "INV-2026-0256",
@@ -4650,8 +4293,7 @@
     "terms_days": 45,
     "project_type": "ui_ux_design",
     "paid_on": "2026-06-30",
-    "source_file": "INV-2026-0256.pdf",
-    "synthetic": true
+    "source_file": "INV-2026-0256.pdf"
   },
   {
     "id": "INV-2026-0190",
@@ -4663,8 +4305,7 @@
     "terms_days": 45,
     "project_type": "cloud_infrastructure",
     "paid_on": "2026-08-18",
-    "source_file": "INV-2026-0190.pdf",
-    "synthetic": true
+    "source_file": "INV-2026-0190.pdf"
   },
   {
     "id": "INV-2026-0318",
@@ -4676,8 +4317,7 @@
     "terms_days": 60,
     "project_type": "data_engineering",
     "paid_on": "2026-07-24",
-    "source_file": "INV-2026-0318.pdf",
-    "synthetic": true
+    "source_file": "INV-2026-0318.pdf"
   },
   {
     "id": "INV-2026-0029",
@@ -4689,8 +4329,7 @@
     "terms_days": 30,
     "project_type": "data_engineering",
     "paid_on": "2026-07-22",
-    "source_file": "INV-2026-0029.pdf",
-    "synthetic": true
+    "source_file": "INV-2026-0029.pdf"
   },
   {
     "id": "INV-2026-0173",
@@ -4702,8 +4341,7 @@
     "terms_days": 30,
     "project_type": "cloud_infrastructure",
     "paid_on": "2026-07-30",
-    "source_file": "INV-2026-0173.pdf",
-    "synthetic": true
+    "source_file": "INV-2026-0173.pdf"
   },
   {
     "id": "INV-2026-0319",
@@ -4715,8 +4353,7 @@
     "terms_days": 14,
     "project_type": "ai_consulting",
     "paid_on": "2026-06-27",
-    "source_file": "INV-2026-0319.pdf",
-    "synthetic": true
+    "source_file": "INV-2026-0319.pdf"
   },
   {
     "id": "INV-2026-0094",
@@ -4728,8 +4365,7 @@
     "terms_days": 60,
     "project_type": "web_dev",
     "paid_on": "2026-08-30",
-    "source_file": "INV-2026-0094.pdf",
-    "synthetic": true
+    "source_file": "INV-2026-0094.pdf"
   },
   {
     "id": "INV-2026-0111",
@@ -4741,8 +4377,7 @@
     "terms_days": 45,
     "project_type": "ui_ux_design",
     "paid_on": "2026-08-29",
-    "source_file": "INV-2026-0111.pdf",
-    "synthetic": true
+    "source_file": "INV-2026-0111.pdf"
   },
   {
     "id": "INV-2026-0191",
@@ -4754,8 +4389,7 @@
     "terms_days": 30,
     "project_type": "mobile_app",
     "paid_on": "2026-08-19",
-    "source_file": "INV-2026-0191.pdf",
-    "synthetic": true
+    "source_file": "INV-2026-0191.pdf"
   },
   {
     "id": "INV-2026-0160",
@@ -4767,8 +4401,7 @@
     "terms_days": 14,
     "project_type": "data_engineering",
     "paid_on": "2026-07-28",
-    "source_file": "INV-2026-0160.pdf",
-    "synthetic": true
+    "source_file": "INV-2026-0160.pdf"
   },
   {
     "id": "INV-2026-0367",
@@ -4780,8 +4413,7 @@
     "terms_days": 45,
     "project_type": "data_engineering",
     "paid_on": "2026-08-31",
-    "source_file": "INV-2026-0367.pdf",
-    "synthetic": true
+    "source_file": "INV-2026-0367.pdf"
   },
   {
     "id": "INV-2026-0383",
@@ -4793,8 +4425,7 @@
     "terms_days": 60,
     "project_type": "cloud_infrastructure",
     "paid_on": "2026-09-08",
-    "source_file": "INV-2026-0383.pdf",
-    "synthetic": true
+    "source_file": "INV-2026-0383.pdf"
   },
   {
     "id": "INV-2026-0095",
@@ -4806,8 +4437,7 @@
     "terms_days": 30,
     "project_type": "ui_ux_design",
     "paid_on": "2026-08-30",
-    "source_file": "INV-2026-0095.pdf",
-    "synthetic": true
+    "source_file": "INV-2026-0095.pdf"
   },
   {
     "id": "INV-2026-0399",
@@ -4819,8 +4449,7 @@
     "terms_days": 60,
     "project_type": "web_dev",
     "paid_on": "2026-09-14",
-    "source_file": "INV-2026-0399.pdf",
-    "synthetic": true
+    "source_file": "INV-2026-0399.pdf"
   },
   {
     "id": "INV-2026-0112",
@@ -4832,8 +4461,7 @@
     "terms_days": 30,
     "project_type": "ai_consulting",
     "paid_on": "2026-08-30",
-    "source_file": "INV-2026-0112.pdf",
-    "synthetic": true
+    "source_file": "INV-2026-0112.pdf"
   },
   {
     "id": "INV-2026-0400",
@@ -4845,8 +4473,7 @@
     "terms_days": 30,
     "project_type": "mobile_app",
     "paid_on": "2026-08-30",
-    "source_file": "INV-2026-0400.pdf",
-    "synthetic": true
+    "source_file": "INV-2026-0400.pdf"
   },
   {
     "id": "INV-2026-0320",
@@ -4858,8 +4485,7 @@
     "terms_days": 14,
     "project_type": "ai_consulting",
     "paid_on": "2026-07-24",
-    "source_file": "INV-2026-0320.pdf",
-    "synthetic": true
+    "source_file": "INV-2026-0320.pdf"
   },
   {
     "id": "INV-2026-0302",
@@ -4871,8 +4497,7 @@
     "terms_days": 45,
     "project_type": "data_engineering",
     "paid_on": "2026-08-23",
-    "source_file": "INV-2026-0302.pdf",
-    "synthetic": true
+    "source_file": "INV-2026-0302.pdf"
   },
   {
     "id": "INV-2026-0174",
@@ -4884,8 +4509,7 @@
     "terms_days": 30,
     "project_type": "cloud_infrastructure",
     "paid_on": "2026-08-23",
-    "source_file": "INV-2026-0174.pdf",
-    "synthetic": true
+    "source_file": "INV-2026-0174.pdf"
   },
   {
     "id": "INV-2026-0224",
@@ -4897,8 +4521,7 @@
     "terms_days": 30,
     "project_type": "ai_consulting",
     "paid_on": "2026-09-20",
-    "source_file": "INV-2026-0224.pdf",
-    "synthetic": true
+    "source_file": "INV-2026-0224.pdf"
   },
   {
     "id": "INV-2026-0239",
@@ -4910,8 +4533,7 @@
     "terms_days": 45,
     "project_type": "data_engineering",
     "paid_on": "2026-10-04",
-    "source_file": "INV-2026-0239.pdf",
-    "synthetic": true
+    "source_file": "INV-2026-0239.pdf"
   },
   {
     "id": "INV-2026-0030",
@@ -4923,8 +4545,7 @@
     "terms_days": 30,
     "project_type": "cloud_infrastructure",
     "paid_on": "2026-10-04",
-    "source_file": "INV-2026-0030.pdf",
-    "synthetic": true
+    "source_file": "INV-2026-0030.pdf"
   },
   {
     "id": "INV-2026-0368",
@@ -4936,8 +4557,7 @@
     "terms_days": 30,
     "project_type": "data_engineering",
     "paid_on": "2026-09-29",
-    "source_file": "INV-2026-0368.pdf",
-    "synthetic": true
+    "source_file": "INV-2026-0368.pdf"
   },
   {
     "id": "INV-2026-0208",
@@ -4949,8 +4569,7 @@
     "terms_days": 30,
     "project_type": "cloud_infrastructure",
     "paid_on": "2026-10-13",
-    "source_file": "INV-2026-0208.pdf",
-    "synthetic": true
+    "source_file": "INV-2026-0208.pdf"
   },
   {
     "id": "INV-2026-0175",
@@ -4962,8 +4581,7 @@
     "terms_days": 30,
     "project_type": "ai_consulting",
     "paid_on": "2026-10-09",
-    "source_file": "INV-2026-0175.pdf",
-    "synthetic": true
+    "source_file": "INV-2026-0175.pdf"
   },
   {
     "id": "INV-2026-0031",
@@ -4975,8 +4593,7 @@
     "terms_days": 45,
     "project_type": "mobile_app",
     "paid_on": null,
-    "source_file": "INV-2026-0031.pdf",
-    "synthetic": true
+    "source_file": "INV-2026-0031.pdf"
   },
   {
     "id": "INV-2026-0384",
@@ -4988,8 +4605,7 @@
     "terms_days": 60,
     "project_type": "mobile_app",
     "paid_on": null,
-    "source_file": "INV-2026-0384.pdf",
-    "synthetic": true
+    "source_file": "INV-2026-0384.pdf"
   },
   {
     "id": "INV-2026-0351",
@@ -5001,8 +4617,7 @@
     "terms_days": 30,
     "project_type": "ui_ux_design",
     "paid_on": null,
-    "source_file": "INV-2026-0351.pdf",
-    "synthetic": true
+    "source_file": "INV-2026-0351.pdf"
   },
   {
     "id": "INV-2026-0016",
@@ -5014,8 +4629,7 @@
     "terms_days": 30,
     "project_type": "ui_ux_design",
     "paid_on": null,
-    "source_file": "INV-2026-0016.pdf",
-    "synthetic": true
+    "source_file": "INV-2026-0016.pdf"
   },
   {
     "id": "INV-2026-0240",
@@ -5027,8 +4641,7 @@
     "terms_days": 45,
     "project_type": "ui_ux_design",
     "paid_on": null,
-    "source_file": "INV-2026-0240.pdf",
-    "synthetic": true
+    "source_file": "INV-2026-0240.pdf"
   },
   {
     "id": "INV-2026-0032",
@@ -5040,8 +4653,7 @@
     "terms_days": 60,
     "project_type": "data_engineering",
     "paid_on": null,
-    "source_file": "INV-2026-0032.pdf",
-    "synthetic": true
+    "source_file": "INV-2026-0032.pdf"
   },
   {
     "id": "INV-2026-0271",
@@ -5053,8 +4665,7 @@
     "terms_days": 14,
     "project_type": "ui_ux_design",
     "paid_on": "2026-09-23",
-    "source_file": "INV-2026-0271.pdf",
-    "synthetic": true
+    "source_file": "INV-2026-0271.pdf"
   },
   {
     "id": "INV-2026-0096",
@@ -5066,8 +4677,7 @@
     "terms_days": 14,
     "project_type": "cloud_infrastructure",
     "paid_on": null,
-    "source_file": "INV-2026-0096.pdf",
-    "synthetic": true
+    "source_file": "INV-2026-0096.pdf"
   },
   {
     "id": "INV-2026-0303",
@@ -5079,8 +4689,7 @@
     "terms_days": 30,
     "project_type": "ai_consulting",
     "paid_on": null,
-    "source_file": "INV-2026-0303.pdf",
-    "synthetic": true
+    "source_file": "INV-2026-0303.pdf"
   },
   {
     "id": "INV-2026-0048",
@@ -5092,8 +4701,7 @@
     "terms_days": 45,
     "project_type": "web_dev",
     "paid_on": null,
-    "source_file": "INV-2026-0048.pdf",
-    "synthetic": true
+    "source_file": "INV-2026-0048.pdf"
   },
   {
     "id": "INV-2026-0304",
@@ -5105,8 +4713,7 @@
     "terms_days": 30,
     "project_type": "ui_ux_design",
     "paid_on": null,
-    "source_file": "INV-2026-0304.pdf",
-    "synthetic": true
+    "source_file": "INV-2026-0304.pdf"
   },
   {
     "id": "INV-2026-0176",
@@ -5118,8 +4725,7 @@
     "terms_days": 30,
     "project_type": "data_engineering",
     "paid_on": null,
-    "source_file": "INV-2026-0176.pdf",
-    "synthetic": true
+    "source_file": "INV-2026-0176.pdf"
   },
   {
     "id": "INV-2026-0352",
@@ -5131,8 +4737,7 @@
     "terms_days": 14,
     "project_type": "mobile_app",
     "paid_on": null,
-    "source_file": "INV-2026-0352.pdf",
-    "synthetic": true
+    "source_file": "INV-2026-0352.pdf"
   },
   {
     "id": "INV-2026-0064",
@@ -5144,8 +4749,7 @@
     "terms_days": 30,
     "project_type": "ui_ux_design",
     "paid_on": null,
-    "source_file": "INV-2026-0064.pdf",
-    "synthetic": true
+    "source_file": "INV-2026-0064.pdf"
   },
   {
     "id": "INV-2026-0287",
@@ -5157,8 +4761,7 @@
     "terms_days": 30,
     "project_type": "cloud_infrastructure",
     "paid_on": null,
-    "source_file": "INV-2026-0287.pdf",
-    "synthetic": true
+    "source_file": "INV-2026-0287.pdf"
   },
   {
     "id": "INV-2026-0272",
@@ -5170,8 +4773,7 @@
     "terms_days": 45,
     "project_type": "mobile_app",
     "paid_on": null,
-    "source_file": "INV-2026-0272.pdf",
-    "synthetic": true
+    "source_file": "INV-2026-0272.pdf"
   },
   {
     "id": "INV-2026-0288",
@@ -5183,8 +4785,7 @@
     "terms_days": 30,
     "project_type": "data_engineering",
     "paid_on": null,
-    "source_file": "INV-2026-0288.pdf",
-    "synthetic": true
+    "source_file": "INV-2026-0288.pdf"
   },
   {
     "id": "INV-2026-0192",
@@ -5196,7 +4797,6 @@
     "terms_days": 30,
     "project_type": "data_engineering",
     "paid_on": null,
-    "source_file": "INV-2026-0192.pdf",
-    "synthetic": true
+    "source_file": "INV-2026-0192.pdf"
   }
 ]

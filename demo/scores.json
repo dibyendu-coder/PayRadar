@@ -1,0 +1,121 @@
+[
+  {
+    "invoice_id": "INV-2026-0016",
+    "risk": 0.9982653856277466,
+    "predicted_days_late": 30.688383903952936,
+    "scored_at": "2026-10-18T13:55:36.176786",
+    "model": "TabPFN-3.5"
+  },
+  {
+    "invoice_id": "INV-2026-0032",
+    "risk": 0.9954854249954224,
+    "predicted_days_late": 28.99167870848958,
+    "scored_at": "2026-10-18T13:55:36.176786",
+    "model": "TabPFN-3.5"
+  },
+  {
+    "invoice_id": "INV-2026-0064",
+    "risk": 0.9936417937278748,
+    "predicted_days_late": 29.63403531745231,
+    "scored_at": "2026-10-18T13:55:36.176786",
+    "model": "TabPFN-3.5"
+  },
+  {
+    "invoice_id": "INV-2026-0048",
+    "risk": 0.99334716796875,
+    "predicted_days_late": 31.05257093139698,
+    "scored_at": "2026-10-18T13:55:36.176786",
+    "model": "TabPFN-3.5"
+  },
+  {
+    "invoice_id": "INV-2026-0031",
+    "risk": 0.9920349717140198,
+    "predicted_days_late": 29.24775956300292,
+    "scored_at": "2026-10-18T13:55:36.176786",
+    "model": "TabPFN-3.5"
+  },
+  {
+    "invoice_id": "INV-2026-0240",
+    "risk": 0.95632404088974,
+    "predicted_days_late": 29.12086178459235,
+    "scored_at": "2026-10-18T13:55:36.176786",
+    "model": "TabPFN-3.5"
+  },
+  {
+    "invoice_id": "INV-2026-0096",
+    "risk": 0.9212877750396729,
+    "predicted_days_late": 18.984498391425507,
+    "scored_at": "2026-10-18T13:55:36.176786",
+    "model": "TabPFN-3.5"
+  },
+  {
+    "invoice_id": "INV-2026-0384",
+    "risk": 0.8388155102729797,
+    "predicted_days_late": 12.965366236823675,
+    "scored_at": "2026-10-18T13:55:36.176786",
+    "model": "TabPFN-3.5"
+  },
+  {
+    "invoice_id": "INV-2026-0352",
+    "risk": 0.6671246290206909,
+    "predicted_days_late": 15.397861216085811,
+    "scored_at": "2026-10-18T13:55:36.176786",
+    "model": "TabPFN-3.5"
+  },
+  {
+    "invoice_id": "INV-2026-0351",
+    "risk": 0.6627212762832642,
+    "predicted_days_late": 15.338941211442007,
+    "scored_at": "2026-10-18T13:55:36.176786",
+    "model": "TabPFN-3.5"
+  },
+  {
+    "invoice_id": "INV-2026-0192",
+    "risk": 0.1303292214870453,
+    "predicted_days_late": 1.0686603875298726,
+    "scored_at": "2026-10-18T13:55:36.176786",
+    "model": "TabPFN-3.5"
+  },
+  {
+    "invoice_id": "INV-2026-0176",
+    "risk": 0.07786214351654053,
+    "predicted_days_late": 1.1302425362833226,
+    "scored_at": "2026-10-18T13:55:36.176786",
+    "model": "TabPFN-3.5"
+  },
+  {
+    "invoice_id": "INV-2026-0303",
+    "risk": 0.00670181680470705,
+    "predicted_days_late": -0.7875577588424854,
+    "scored_at": "2026-10-18T13:55:36.176786",
+    "model": "TabPFN-3.5"
+  },
+  {
+    "invoice_id": "INV-2026-0272",
+    "risk": 0.0014012844767421484,
+    "predicted_days_late": -0.8693995684411142,
+    "scored_at": "2026-10-18T13:55:36.176786",
+    "model": "TabPFN-3.5"
+  },
+  {
+    "invoice_id": "INV-2026-0288",
+    "risk": 0.0013609598390758038,
+    "predicted_days_late": -0.9192637704771833,
+    "scored_at": "2026-10-18T13:55:36.176786",
+    "model": "TabPFN-3.5"
+  },
+  {
+    "invoice_id": "INV-2026-0287",
+    "risk": 0.0008068759925663471,
+    "predicted_days_late": -0.9184374200797869,
+    "scored_at": "2026-10-18T13:55:36.176786",
+    "model": "TabPFN-3.5"
+  },
+  {
+    "invoice_id": "INV-2026-0304",
+    "risk": 0.0007813943084329367,
+    "predicted_days_late": -0.8080856937645748,
+    "scored_at": "2026-10-18T13:55:36.176786",
+    "model": "TabPFN-3.5"
+  }
+]

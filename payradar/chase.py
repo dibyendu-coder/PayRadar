@@ -266,6 +266,7 @@ def get_or_create_chase_draft(
     risk: float | None = None,
     predicted_days_late: float | None = None,
     force_regenerate: bool = False,
+    use_fallback_only: bool = False,
     model_name: str | None = None,
     db_path: str | Path | None = None,
 ) -> dict[str, Any]:
@@ -327,20 +328,25 @@ def get_or_create_chase_draft(
     # Generate draft with Gemma, falling back to plain template
     is_fallback = False
     model_used = "Gemma"
-    try:
-        subject, body = draft_chase_email_with_gemma(
-            invoice=invoice,
-            risk=risk_val,
-            reason=reason,
-            tone_key=tone_key,
-            tone_instruction=tone_instruction,
-            model_name=model_name,
-        )
-    except Exception:
-        # Fall back gracefully to plain template
+    if use_fallback_only:
         is_fallback = True
         model_used = "Fallback Template"
         subject, body = get_fallback_template(invoice, tone_key=tone_key)
+    else:
+        try:
+            subject, body = draft_chase_email_with_gemma(
+                invoice=invoice,
+                risk=risk_val,
+                reason=reason,
+                tone_key=tone_key,
+                tone_instruction=tone_instruction,
+                model_name=model_name,
+            )
+        except Exception:
+            # Fall back gracefully to plain template
+            is_fallback = True
+            model_used = "Fallback Template"
+            subject, body = get_fallback_template(invoice, tone_key=tone_key)
 
     # Persist draft to SQLite
     save_draft(

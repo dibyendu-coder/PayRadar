@@ -1,0 +1,114 @@
+[
+  {
+    "week_num": 1,
+    "start_date": "2026-10-15",
+    "end_date": "2026-10-21",
+    "expected_cash_in": 19911.44,
+    "weekly_cost": 1153.85,
+    "net_cash_flow": 18757.59,
+    "is_gap_week": false,
+    "invoice_count": 3,
+    "invoice_ids": [
+      "INV-2026-0351",
+      "INV-2026-0096",
+      "INV-2026-0303"
+    ]
+  },
+  {
+    "week_num": 2,
+    "start_date": "2026-10-22",
+    "end_date": "2026-10-28",
+    "expected_cash_in": 8676.93,
+    "weekly_cost": 1153.85,
+    "net_cash_flow": 7523.08,
+    "is_gap_week": false,
+    "invoice_count": 2,
+    "invoice_ids": [
+      "INV-2026-0352",
+      "INV-2026-0304"
+    ]
+  },
+  {
+    "week_num": 3,
+    "start_date": "2026-10-29",
+    "end_date": "2026-11-04",
+    "expected_cash_in": 19162.78,
+    "weekly_cost": 1153.85,
+    "net_cash_flow": 18008.93,
+    "is_gap_week": false,
+    "invoice_count": 3,
+    "invoice_ids": [
+      "INV-2026-0016",
+      "INV-2026-0031",
+      "INV-2026-0176"
+    ]
+  },
+  {
+    "week_num": 4,
+    "start_date": "2026-11-05",
+    "end_date": "2026-11-11",
+    "expected_cash_in": 24550.68,
+    "weekly_cost": 1153.85,
+    "net_cash_flow": 23396.83,
+    "is_gap_week": false,
+    "invoice_count": 3,
+    "invoice_ids": [
+      "INV-2026-0384",
+      "INV-2026-0287",
+      "INV-2026-0288"
+    ]
+  },
+  {
+    "week_num": 5,
+    "start_date": "2026-11-12",
+    "end_date": "2026-11-18",
+    "expected_cash_in": 9946.66,
+    "weekly_cost": 1153.85,
+    "net_cash_flow": 8792.81,
+    "is_gap_week": false,
+    "invoice_count": 2,
+    "invoice_ids": [
+      "INV-2026-0240",
+      "INV-2026-0192"
+    ]
+  },
+  {
+    "week_num": 6,
+    "start_date": "2026-11-19",
+    "end_date": "2026-11-25",
+    "expected_cash_in": 8370.79,
+    "weekly_cost": 1153.85,
+    "net_cash_flow": 7216.94,
+    "is_gap_week": false,
+    "invoice_count": 1,
+    "invoice_ids": [
+      "INV-2026-0272"
+    ]
+  },
+  {
+    "week_num": 7,
+    "start_date": "2026-11-26",
+    "end_date": "2026-12-02",
+    "expected_cash_in": 0.0,
+    "weekly_cost": 1153.85,
+    "net_cash_flow": -1153.85,
+    "is_gap_week": true,
+    "invoice_count": 0,
+    "invoice_ids": []
+  },
+  {
+    "week_num": 8,
+    "start_date": "2026-12-03",
+    "end_date": "2026-12-09",
+    "expected_cash_in": 21812.46,
+    "weekly_cost": 1153.85,
+    "net_cash_flow": 20658.61,
+    "is_gap_week": false,
+    "invoice_count": 3,
+    "invoice_ids": [
+      "INV-2026-0048",
+      "INV-2026-0064",
+      "INV-2026-0032"
+    ]
+  }
+]
