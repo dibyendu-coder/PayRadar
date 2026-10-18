@@ -1,0 +1,26 @@
+# Render Blueprint specification for PayRadar (DEMO_MODE)
+# Hacktoberfest Open-Source AI Challenge Week 2
+#
+# Dashboard Setup Settings:
+# -------------------------
+# Service Type: Web Service
+# Runtime: Python
+# Build Command: pip install -r requirements-demo.txt
+# Start Command: streamlit run app.py --server.port $PORT --server.address 0.0.0.0
+# Environment Variables:
+#   - DEMO_MODE: 1
+#   - PYTHON_VERSION: 3.11.10
+
+services:
+  - type: web
+    name: payradar-demo
+    runtime: python
+    plan: free
+    region: oregon
+    buildCommand: pip install -r requirements-demo.txt
+    startCommand: streamlit run app.py --server.port $PORT --server.address 0.0.0.0
+    envVars:
+      - key: DEMO_MODE
+        value: "1"
+      - key: PYTHON_VERSION
+        value: 3.11.10
