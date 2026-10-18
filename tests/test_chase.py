@@ -186,3 +186,71 @@ def test_draft_source_tracking(tmp_path):
 
     row = get_draft("INV-SOURCE-1", db_path=db_path)
     assert row["source"] == "template"
+
+
+def test_draft_never_mentions_forbidden_terms():
+    """Verify drafts never contain 'risk', 'profile', 'predict', or 'score' in client emails."""
+    forbidden = ["risk", "profile", "predict", "score"]
+
+    sample_invoices = [
+        {
+            "id": "INV-2026-001",
+            "client": "Vanguard Media",
+            "amount": 5400.0,
+            "currency": "USD",
+            "due_on": "2026-10-31",
+            "is_overdue": False,
+        },
+        {
+            "id": "INV-2026-002",
+            "client": "Apex Innovations",
+            "amount": 9200.0,
+            "currency": "USD",
+            "due_on": "2026-09-15",
+            "is_overdue": True,
+        },
+    ]
+
+    for inv in sample_invoices:
+        for tone in ["friendly_nudge", "clear_and_polite", "firm_and_specific"]:
+            sub, body = get_fallback_template(inv, tone)
+            assert body.startswith(f"Hi {inv['client']} team,"), (
+                f"Body must start with 'Hi {inv['client']} team,': {body[:30]}"
+            )
+            assert inv["id"] in f"{sub} {body}"
+            assert "confirm" in body.lower()
+            assert "payment" in body.lower()
+
+            for term in forbidden:
+                assert term not in sub.lower(), f"Subject contains forbidden term '{term}': {sub}"
+                assert term not in body.lower(), f"Body contains forbidden term '{term}': {body}"
+
+            if not inv.get("is_overdue"):
+                assert "final reminder" not in body.lower()
+
+
+def test_get_or_create_draft_forbidden_terms_safety(tmp_path):
+    """Verify get_or_create_chase_draft produces safe drafts with no forbidden terms."""
+    db_path = tmp_path / "test_safe_draft.db"
+    inv = {
+        "id": "INV-2026-SAFE",
+        "client": "Acme Global",
+        "amount": 4200.0,
+        "currency": "USD",
+        "due_on": "2026-10-25",
+        "risk": 0.85,
+        "predicted_days_late": 15.0,
+    }
+    draft = get_or_create_chase_draft(
+        inv,
+        risk=0.85,
+        predicted_days_late=15.0,
+        use_fallback_only=True,
+        db_path=db_path,
+    )
+    assert draft["body"].startswith("Hi Acme Global team,")
+    assert "confirm" in draft["body"].lower()
+    for term in ["risk", "profile", "predict", "score"]:
+        assert term not in draft["subject"].lower(), f"Found '{term}' in subject"
+        assert term not in draft["body"].lower(), f"Found '{term}' in body"
+

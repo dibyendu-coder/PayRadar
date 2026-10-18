@@ -39,19 +39,19 @@ def get_tone_category(risk: float) -> tuple[str, str, str]:
         return (
             "friendly_nudge",
             "Friendly Nudge (<30% risk)",
-            "Friendly, warm, and casual check-in. Thank the client for the collaboration and remind them gently of the upcoming or recent invoice date.",
+            "Friendly, warm, and casual check-in. Thank the client for the collaboration, note the invoice details, and gently ask them to confirm their scheduled payment date.",
         )
     elif risk <= 0.60:
         return (
             "clear_and_polite",
             "Clear & Polite (30-60% risk)",
-            "Professional, clear, and polite payment reminder. Note the invoice number, due date, and amount, and inquire if payment is on track with their accounts department.",
+            "Professional, clear, and polite payment reminder. Note the invoice number, due date, and amount, and ask them to confirm the payment date with their accounts department.",
         )
     else:
         return (
             "firm_and_specific",
             "Firm & Specific (>60% risk)",
-            "Firm, direct, and urgent tone. Explicitly state the exact overdue or due date, exact outstanding amount, and request immediate confirmation of the payment transfer execution date today.",
+            "Firm and direct tone. State the exact invoice number, amount, and due date. Request prompt confirmation of the scheduled payment date. Do NOT make threats or use 'final reminder' unless the invoice is already overdue.",
         )
 
 
@@ -130,6 +130,20 @@ def generate_plain_words_reason(
     return base_reason + prediction_text
 
 
+def is_invoice_overdue(invoice: dict[str, Any]) -> bool:
+    """Determine whether an invoice is overdue based on is_overdue flag or due_on date."""
+    if invoice.get("is_overdue") is not None:
+        return bool(invoice["is_overdue"])
+    due_str = str(invoice.get("due_on", "")).strip()[:10]
+    if due_str:
+        try:
+            d_due = datetime.strptime(due_str, "%Y-%m-%d").date()
+            return d_due < datetime(2026, 10, 15).date()
+        except Exception:
+            pass
+    return False
+
+
 def get_fallback_template(invoice: dict[str, Any], tone_key: str) -> tuple[str, str]:
     """Generate high-quality deterministic email template when Gemma is unavailable or times out."""
     inv_id = invoice.get("id", "INV")
@@ -137,40 +151,72 @@ def get_fallback_template(invoice: dict[str, Any], tone_key: str) -> tuple[str, 
     amount = float(invoice.get("amount", 0.0))
     currency = invoice.get("currency", "USD")
     due_on = invoice.get("due_on", "due date")
+    is_overdue = is_invoice_overdue(invoice)
 
     formatted_amount = f"${amount:,.2f}" if currency == "USD" else f"{amount:,.2f} {currency}"
 
     if tone_key == "friendly_nudge":
         subject = f"Friendly check-in: Invoice {inv_id} ({formatted_amount})"
-        body = (
-            f"Hi {client} team,\n\n"
-            f"Hope you are having a productive week!\n\n"
-            f"Just sending a quick, friendly note regarding invoice {inv_id} for {formatted_amount}, "
-            f"which is due on {due_on}.\n\n"
-            f"Please let me know if you need any additional project details or another copy of the invoice. "
-            f"Thank you for the wonderful collaboration!\n\n"
-            f"Best regards,\n[Your Name]"
-        )
+        if is_overdue:
+            body = (
+                f"Hi {client} team,\n\n"
+                f"Hope you are having a productive week!\n\n"
+                f"Just sending a quick, friendly note regarding invoice {inv_id} for {formatted_amount}, "
+                f"which was due on {due_on}.\n\n"
+                f"Could you please confirm the payment date, or let me know if you need any additional project details?\n\n"
+                f"Thank you for the wonderful collaboration!\n\n"
+                f"Best regards,\n[Your Name]"
+            )
+        else:
+            body = (
+                f"Hi {client} team,\n\n"
+                f"Hope you are having a productive week!\n\n"
+                f"Just sending a quick, friendly note regarding invoice {inv_id} for {formatted_amount}, "
+                f"which is due on {due_on}.\n\n"
+                f"Could you please confirm the scheduled payment date when you have a moment?\n\n"
+                f"Thank you for the wonderful collaboration!\n\n"
+                f"Best regards,\n[Your Name]"
+            )
     elif tone_key == "clear_and_polite":
-        subject = f"Invoice {inv_id} due on {due_on} ({formatted_amount})"
-        body = (
-            f"Hello {client} Accounts Team,\n\n"
-            f"I hope this note finds you well.\n\n"
-            f"This is a gentle reminder that invoice {inv_id} in the amount of {formatted_amount} "
-            f"is scheduled for payment on {due_on}.\n\n"
-            f"Could you please confirm if this invoice is approved and on track for disbursement?\n\n"
-            f"Thank you for your prompt assistance,\n[Your Name]"
-        )
+        if is_overdue:
+            subject = f"Payment follow-up: Invoice {inv_id} ({formatted_amount})"
+            body = (
+                f"Hi {client} team,\n\n"
+                f"I hope this note finds you well.\n\n"
+                f"This is a reminder regarding invoice {inv_id} in the amount of {formatted_amount}, "
+                f"which was due on {due_on}.\n\n"
+                f"Could you please confirm the payment date with your accounts department?\n\n"
+                f"Thank you for your prompt assistance,\n[Your Name]"
+            )
+        else:
+            subject = f"Invoice {inv_id} due on {due_on} ({formatted_amount})"
+            body = (
+                f"Hi {client} team,\n\n"
+                f"I hope this note finds you well.\n\n"
+                f"This is a reminder regarding invoice {inv_id} in the amount of {formatted_amount}, "
+                f"scheduled for payment on {due_on}.\n\n"
+                f"Could you please confirm the scheduled payment date with your accounts department?\n\n"
+                f"Thank you for your prompt assistance,\n[Your Name]"
+            )
     else:  # firm_and_specific
-        subject = f"Action Required: Outstanding Invoice {inv_id} ({formatted_amount}) due {due_on}"
-        body = (
-            f"Dear {client} Accounts Payable,\n\n"
-            f"I am writing regarding invoice {inv_id} for {formatted_amount}, which was due on {due_on}.\n\n"
-            f"According to our records, payment for this invoice remains outstanding. "
-            f"Please review the attached invoice details and confirm today when the transfer will be completed.\n\n"
-            f"If payment has already been sent, please reply with the remittance confirmation so we can update our ledger.\n\n"
-            f"Sincerely,\n[Your Name]"
-        )
+        if is_overdue:
+            subject = f"Outstanding Invoice {inv_id} ({formatted_amount}) due {due_on}"
+            body = (
+                f"Hi {client} team,\n\n"
+                f"I am writing regarding invoice {inv_id} for {formatted_amount}, which was due on {due_on}.\n\n"
+                f"According to our records, payment for this invoice remains outstanding. "
+                f"Please confirm today when the payment transfer will be executed.\n\n"
+                f"If payment has already been sent, please reply with the remittance confirmation so we can update our ledger.\n\n"
+                f"Sincerely,\n[Your Name]"
+            )
+        else:
+            subject = f"Outstanding Invoice {inv_id} ({formatted_amount}) due {due_on}"
+            body = (
+                f"Hi {client} team,\n\n"
+                f"I am writing to follow up on outstanding invoice {inv_id} for {formatted_amount}, which is due on {due_on}.\n\n"
+                f"Please confirm the scheduled payment date with your accounts team so we can align our records.\n\n"
+                f"Thank you for your attention to this invoice,\n[Your Name]"
+            )
 
     return subject, body
 
@@ -198,15 +244,29 @@ def draft_chase_email_with_gemma(
     currency = invoice.get("currency", "USD")
     due_on = invoice.get("due_on", "due date")
     formatted_amount = f"${amount:,.2f}" if currency == "USD" else f"{amount:,.2f} {currency}"
+    is_overdue = is_invoice_overdue(invoice)
+    status_text = (
+        f"overdue (due date was {due_on})" if is_overdue else f"upcoming (due date is {due_on})"
+    )
 
     system_prompt = (
-        "You are an expert freelance finance assistant drafting invoice chaser emails.\n"
+        "You are an expert freelance finance assistant drafting invoice chaser emails sent to clients.\n"
         "Generate a concise, professional reminder email.\n"
-        "Always output exactly two labeled sections:\n"
+        "\n"
+        "STRICT CLIENT-FACING RULES:\n"
+        "1. Never use the words 'risk', 'score', 'profile', 'predict', 'prediction', or 'AI' anywhere.\n"
+        f"2. The BODY MUST start with exact text: 'Hi {client} team,'\n"
+        f"3. State the invoice number ({inv_id}), amount ({formatted_amount}), and due date ({due_on}).\n"
+        "4. Ask the client to confirm their scheduled payment date.\n"
+        f"5. Maintain tone: {tone_key}.\n"
+        "6. Do NOT include threats, penalties, legal warnings, or 'final reminder' unless the invoice is overdue.\n"
+        "7. End the body with '[Your Name]'.\n"
+        "\n"
+        "Always output exactly two labeled sections without code blocks:\n"
         "SUBJECT: <single line subject>\n"
         "BODY:\n"
-        "<email body ending with [Your Name]>\n"
-        "Do not include markdown code fences or conversational greetings."
+        f"Hi {client} team,\n"
+        "<remainder of email body ending with [Your Name]>"
     )
 
     user_prompt = (
@@ -215,8 +275,7 @@ def draft_chase_email_with_gemma(
         f"- Invoice ID: {inv_id}\n"
         f"- Amount: {formatted_amount}\n"
         f"- Due Date: {due_on}\n"
-        f"- Risk Score: {risk * 100:.1f}%\n"
-        f"- Background Reason: {reason}\n"
+        f"- Payment Status: {status_text}\n"
         f"- Desired Tone: {tone_instruction}\n"
     )
 
@@ -252,16 +311,45 @@ def draft_chase_email_with_gemma(
         body = body_match.group(1).strip()
     elif subject_match:
         subject = subject_match.group(1).strip()
-        # Rest is body
         body = raw_text.split(subject)[-1].replace("BODY:", "").strip()
     else:
-        # Fallback to splitting lines
         lines = [line.strip() for line in raw_text.splitlines() if line.strip()]
         if lines:
             subject = lines[0].replace("Subject:", "").strip()
             body = "\n\n".join(lines[1:])
         else:
             raise ValueError("Empty response from Gemma")
+
+    # Clean up subject
+    subject = subject.strip('"\'')
+
+    # Enforce start with "Hi <client> team,"
+    expected_salutation = f"Hi {client} team,"
+    body_lines = [line.rstrip() for line in body.splitlines()]
+    while body_lines and not body_lines[0].strip():
+        body_lines.pop(0)
+
+    if body_lines:
+        first_line = body_lines[0].strip()
+        if any(
+            first_line.lower().startswith(s) for s in ["hi ", "hello ", "dear ", "to ", "greetings"]
+        ):
+            body_lines[0] = expected_salutation
+            body = "\n".join(body_lines)
+        elif not first_line.startswith(expected_salutation):
+            body = f"{expected_salutation}\n\n" + "\n".join(body_lines)
+    else:
+        body = f"{expected_salutation}\n\n" + body
+
+    # Safety validation: if any forbidden term appears, fall back to safe deterministic template
+    combined_lower = f"{subject} {body}".lower()
+    forbidden_terms = ["risk", "profile", "predict", "score"]
+    for term in forbidden_terms:
+        if term in combined_lower:
+            return get_fallback_template(invoice, tone_key=tone_key)
+
+    if not is_overdue and ("final reminder" in combined_lower or "threat" in combined_lower):
+        return get_fallback_template(invoice, tone_key=tone_key)
 
     return subject, body
 
