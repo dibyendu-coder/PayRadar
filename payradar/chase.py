@@ -304,7 +304,10 @@ def get_or_create_chase_draft(
             "risk": existing["risk"],
             "reason": existing.get("reason") or reason,
             "is_user_edited": bool(existing.get("is_user_edited", 0)),
-            "is_fallback": existing.get("model", "") == "Fallback Template",
+            "is_fallback": existing.get("model", "") == "Fallback Template"
+            or existing.get("source") == "template",
+            "source": existing.get("source")
+            or ("template" if existing.get("model") == "Fallback Template" else "gemma"),
             "model": existing.get("model", "Gemma"),
             "created_at": existing.get("created_at"),
             "updated_at": existing.get("updated_at"),
@@ -321,16 +324,21 @@ def get_or_create_chase_draft(
             "risk": existing["risk"],
             "reason": existing.get("reason") or reason,
             "is_user_edited": True,
-            "is_fallback": False,
+            "is_fallback": existing.get("model", "") == "Fallback Template"
+            or existing.get("source") == "template",
+            "source": existing.get("source")
+            or ("template" if existing.get("model") == "Fallback Template" else "gemma"),
             "model": existing.get("model", "Gemma"),
         }
 
     # Generate draft with Gemma, falling back to plain template
     is_fallback = False
     model_used = "Gemma"
+    source = "gemma"
     if use_fallback_only:
         is_fallback = True
         model_used = "Fallback Template"
+        source = "template"
         subject, body = get_fallback_template(invoice, tone_key=tone_key)
     else:
         try:
@@ -346,6 +354,7 @@ def get_or_create_chase_draft(
             # Fall back gracefully to plain template
             is_fallback = True
             model_used = "Fallback Template"
+            source = "template"
             subject, body = get_fallback_template(invoice, tone_key=tone_key)
 
     # Persist draft to SQLite
@@ -359,6 +368,7 @@ def get_or_create_chase_draft(
         is_user_edited=False,
         force=force_regenerate,
         model=model_used,
+        source=source,
         db_path=db_path,
     )
 
@@ -372,5 +382,6 @@ def get_or_create_chase_draft(
         "reason": reason,
         "is_user_edited": False,
         "is_fallback": is_fallback,
+        "source": source,
         "model": model_used,
     }

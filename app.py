@@ -761,6 +761,8 @@ def render_chase_page(health: dict[str, Any]) -> None:
                 "reason": existing_row.get("reason") or reason_text,
                 "is_user_edited": bool(existing_row["is_user_edited"]),
                 "model": existing_row.get("model", "Gemma"),
+                "source": dict(existing_row).get("source")
+                or ("template" if existing_row.get("model") == "Fallback Template" else "gemma"),
             }
         else:
             draft = get_or_create_chase_draft(
@@ -795,6 +797,22 @@ def render_chase_page(health: dict[str, Any]) -> None:
 
     # Draft Editor
     st.subheader("Edit & Copy Reminder Draft")
+
+    # Source Indicator Badge
+    source_type = draft.get(
+        "source", "template" if draft.get("model") == "Fallback Template" else "gemma"
+    )
+    if source_type == "gemma":
+        st.markdown(
+            '<div style="margin-bottom: 8px;"><span style="background-color: #d8f3dc; color: #2d6a4f; padding: 4px 10px; border-radius: 4px; font-size: 0.85rem; font-weight: 600;">🤖 Source: Gemma 4 (Live LLM)</span></div>',
+            unsafe_allow_html=True,
+        )
+    else:
+        st.markdown(
+            '<div style="margin-bottom: 8px;"><span style="background-color: #f1f3f5; color: #495057; border: 1px solid #ced4da; padding: 4px 10px; border-radius: 4px; font-size: 0.85rem; font-weight: 600;">📋 Source: Plain Template (Fallback)</span></div>',
+            unsafe_allow_html=True,
+        )
+
     if draft.get("is_user_edited"):
         st.info(
             "✏️ **User-Edited Draft**: Your custom edits are protected and will never be overwritten automatically."
@@ -816,6 +834,7 @@ def render_chase_page(health: dict[str, Any]) -> None:
                     reason=reason_text,
                     is_user_edited=True,
                     force=True,
+                    source=source_type,
                 )
                 st.success("Draft saved! Your edits are locked and protected from overwrite.")
                 st.rerun()

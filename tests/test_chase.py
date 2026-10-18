@@ -166,3 +166,23 @@ def test_user_edited_draft_protection(tmp_path):
     # Check DB still has user's text
     row = get_draft("INV-PROTECTED", db_path=db_path)
     assert row["subject"] == user_edited_subject
+
+
+def test_draft_source_tracking(tmp_path):
+    """Verify drafts record source as 'template' or 'gemma'."""
+    db_path = tmp_path / "test_source.db"
+    init_db(db_path)
+    inv = {
+        "id": "INV-SOURCE-1",
+        "client": "Test Client",
+        "amount": 1000.0,
+        "currency": "USD",
+        "due_on": "2026-10-25",
+        "risk": 0.2,
+    }
+    # Draft with fallback template
+    draft_template = get_or_create_chase_draft(inv, use_fallback_only=True, db_path=db_path)
+    assert draft_template["source"] == "template"
+
+    row = get_draft("INV-SOURCE-1", db_path=db_path)
+    assert row["source"] == "template"

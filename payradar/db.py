@@ -52,7 +52,8 @@ CREATE TABLE IF NOT EXISTS drafts (
     is_user_edited INTEGER NOT NULL DEFAULT 0,
     created_at TEXT NOT NULL,
     updated_at TEXT NOT NULL,
-    model TEXT NOT NULL DEFAULT 'Gemma'
+    model TEXT NOT NULL DEFAULT 'Gemma',
+    source TEXT NOT NULL DEFAULT 'gemma'
 );
 
 CREATE INDEX IF NOT EXISTS idx_invoices_client ON invoices(client);
@@ -91,6 +92,11 @@ def init_db(db_path: str | Path | None = None) -> None:
                 "INSERT INTO settings (key, value) VALUES (?, ?)",
                 ("monthly_costs", "5000.0"),
             )
+        # Ensure source column exists on drafts table
+        cur.execute("PRAGMA table_info(drafts)")
+        cols = [r[1] for r in cur.fetchall()]
+        if cols and "source" not in cols:
+            cur.execute("ALTER TABLE drafts ADD COLUMN source TEXT NOT NULL DEFAULT 'gemma'")
 
 
 def insert_invoice(
@@ -214,6 +220,7 @@ def save_draft(
     is_user_edited: bool = False,
     force: bool = False,
     model: str = "Gemma",
+    source: str = "gemma",
     db_path: str | Path | None = None,
 ) -> bool:
     """Save or update a reminder draft.
@@ -245,7 +252,7 @@ def save_draft(
                 """
                 UPDATE drafts
                 SET subject = ?, body = ?, tone = ?, risk = ?, reason = ?,
-                    is_user_edited = ?, updated_at = ?, model = ?
+                    is_user_edited = ?, updated_at = ?, model = ?, source = ?
                 WHERE invoice_id = ?
                 """,
                 (
@@ -257,6 +264,7 @@ def save_draft(
                     1 if is_user_edited else (1 if prev_user_edited else 0),
                     now_iso,
                     model,
+                    source,
                     invoice_id,
                 ),
             )
@@ -266,8 +274,8 @@ def save_draft(
                 """
                 INSERT INTO drafts (
                     invoice_id, subject, body, tone, risk, reason,
-                    is_user_edited, created_at, updated_at, model
-                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                    is_user_edited, created_at, updated_at, model, source
+                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                 """,
                 (
                     invoice_id,
@@ -280,6 +288,7 @@ def save_draft(
                     now_iso,
                     now_iso,
                     model,
+                    source,
                 ),
             )
             return True
