@@ -40,3 +40,6 @@ ignore = ["E501"]
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 python_files = ["test_*.py"]
+markers = [
+    "live: Opt-in live integration tests against running Ollama server (skipped unless OLLAMA_LIVE=1)",
+]
