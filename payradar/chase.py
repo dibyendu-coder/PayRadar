@@ -26,7 +26,7 @@ import httpx
 from payradar.db import get_draft, save_draft
 from payradar.extract import DEFAULT_OLLAMA_URL, resolve_model
 
-CHASE_TIMEOUT_SECONDS = float(os.environ.get("CHASE_TIMEOUT", "15.0"))
+CHASE_TIMEOUT_SECONDS = float(os.environ.get("CHASE_TIMEOUT", "90.0"))
 
 
 def get_tone_category(risk: float) -> tuple[str, str, str]:
