@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: ["3.11"]
+        python-version: ["3.11", "3.12"]
 
     steps:
       - uses: actions/checkout@v4
@@ -27,10 +27,14 @@ jobs:
       - name: Install dependencies
         run: uv sync --all-extras --dev
 
-      - name: Lint with ruff
+      - name: Lint and format check with ruff
         run: |
           uv run ruff check .
           uv run ruff format --check .
 
-      - name: Run tests with pytest
-        run: uv run pytest
+      - name: Run test suite with pytest (skip live and TabPFN tests when no token)
+        env:
+          TABPFN_TOKEN: ""
+          OLLAMA_LIVE: "0"
+        run: uv run pytest -m "not live"
+

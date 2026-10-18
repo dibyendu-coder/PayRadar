@@ -27,7 +27,6 @@ DEFAULT_OLLAMA_URL = os.environ.get("OLLAMA_HOST", "http://localhost:11434")
 CHASE_TIMEOUT_SECONDS = float(os.environ.get("CHASE_TIMEOUT", "90.0"))
 
 
-
 def get_tone_category(risk: float) -> tuple[str, str, str]:
     """Return tone key, display label, and drafting instructions based on late-payment risk.
 

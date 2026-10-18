@@ -90,4 +90,3 @@ def test_app_demo_mode_no_heavy_imports_at_module_level():
     )
     assert proc.returncode == 0, f"STDOUT: {proc.stdout}\nSTDERR: {proc.stderr}"
     assert "PASS" in proc.stdout
-

@@ -175,7 +175,9 @@ def score_open_invoices(
 
     # Print results
     print("=" * 115)
-    print("PAYRADAR OPEN INVOICE RISK RADAR [SYNTHETIC DEMO DATA] (based on invoices issued so far)")
+    print(
+        "PAYRADAR OPEN INVOICE RISK RADAR [SYNTHETIC DEMO DATA] (based on invoices issued so far)"
+    )
     print(f"Scoring Engine: {model_name} | Reference Date (Today): {today.strftime('%Y-%m-%d')}")
     print(f"Monthly Operating Cost: ${monthly_costs:,.2f} (${monthly_costs * 12 / 52:,.2f}/week)")
     print(f"[DB] Persisted {len(score_rows)} predictions to 'scores' table (Model: {model_name})")
@@ -183,7 +185,9 @@ def score_open_invoices(
 
     print(f"\n1. OPEN INVOICES RANKED BY LATE-PAYMENT RISK (Total: {len(scored)} open invoices):")
     print("-" * 115)
-    print(f"{'Invoice ID':<14} | {'Client':<26} | {'Amount':<10} | {'Due Date':<11} | {'Delay':<8} | {'Pay Date':<11} | {'Risk':<7} | {'Status'}")
+    print(
+        f"{'Invoice ID':<14} | {'Client':<26} | {'Amount':<10} | {'Due Date':<11} | {'Delay':<8} | {'Pay Date':<11} | {'Risk':<7} | {'Status'}"
+    )
     print("-" * 115)
 
     for inv in scored_with_dates:
@@ -191,13 +195,17 @@ def score_open_invoices(
         delay_str = f"{float(inv['predicted_days_late']):+.1f}d"
         risk_pct = f"{float(inv['predicted_risk']) * 100:.1f}%"
         status_str = inv.get("pay_status", get_risk_tier(float(inv["predicted_risk"])))
-        print(f"{inv['id']:<14} | {inv['client']:<26} | {amt_str:<10} | {inv['due_on']:<11} | {delay_str:<8} | {inv['expected_pay_date']:<11} | {risk_pct:<7} | {status_str}")
+        print(
+            f"{inv['id']:<14} | {inv['client']:<26} | {amt_str:<10} | {inv['due_on']:<11} | {delay_str:<8} | {inv['expected_pay_date']:<11} | {risk_pct:<7} | {status_str}"
+        )
 
     print("-" * 115)
 
     print("\n2. 8-WEEK CASH FLOW & GAP RADAR FORECAST (based on invoices issued so far):")
     print("-" * 115)
-    print(f"{'Week':<6} | {'Period':<23} | {'Cash-In':<11} | {'Weekly Cost':<12} | {'Net Cash Flow':<14} | {'Status'}")
+    print(
+        f"{'Week':<6} | {'Period':<23} | {'Cash-In':<11} | {'Weekly Cost':<12} | {'Net Cash Flow':<14} | {'Status'}"
+    )
     print("-" * 115)
 
     total_in = 0.0
@@ -208,14 +216,18 @@ def score_open_invoices(
         net_str = f"${float(row['net_cash_flow']):+,.2f}"
         status = "[!] CASH GAP WEEK" if row["is_gap_week"] else "[OK] Covered"
         total_in += float(row["expected_cash_in"])
-        print(f"Wk {int(row['week_num']):<3} | {period:<23} | {cash_str:<11} | {cost_str:<12} | {net_str:<14} | {status}")
+        print(
+            f"Wk {int(row['week_num']):<3} | {period:<23} | {cash_str:<11} | {cost_str:<12} | {net_str:<14} | {status}"
+        )
 
     total_costs = float(forecast_df["weekly_cost"].sum())
     total_net = total_in - total_costs
     gap_count = int(forecast_df["is_gap_week"].sum())
 
     print("-" * 115)
-    print(f"8-Week Cumulative (based on invoices issued so far): Expected In: ${total_in:,.2f} | Costs: ${total_costs:,.2f} | Net: ${total_net:+,.2f} | Gap Weeks: {gap_count}/8")
+    print(
+        f"8-Week Cumulative (based on invoices issued so far): Expected In: ${total_in:,.2f} | Costs: ${total_costs:,.2f} | Net: ${total_net:+,.2f} | Gap Weeks: {gap_count}/8"
+    )
     print("=" * 115 + "\n")
 
     return scored_with_dates, forecast_df
@@ -223,7 +235,9 @@ def score_open_invoices(
 
 def main():
     parser = argparse.ArgumentParser(description="Predict late payment risk on open invoices")
-    parser.add_argument("--today", type=str, default=None, help="Evaluation reference date (YYYY-MM-DD)")
+    parser.add_argument(
+        "--today", type=str, default=None, help="Evaluation reference date (YYYY-MM-DD)"
+    )
     parser.add_argument("--db", type=str, default=None, help="Path to SQLite database")
     parser.add_argument("--fast", action="store_true", help="Use TabPFN-3.5-Fast checkpoint")
     args = parser.parse_args()
