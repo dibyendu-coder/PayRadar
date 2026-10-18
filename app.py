@@ -575,7 +575,42 @@ def render_radar_page(health: dict[str, Any]) -> None:
         )
     )
 
-    st.altair_chart(bar_chart + rule, use_container_width=True)
+    # For gap weeks, add an explicit red marker and "GAP" label so gap weeks are clearly visible even at $0
+    gap_data = chart_data[chart_data["is_gap_week"]].copy()
+
+    gap_markers = (
+        alt.Chart(gap_data)
+        .mark_point(shape="circle", size=100, color="#e63946", filled=True)
+        .encode(
+            x=alt.X("Week Label:N", sort=None),
+            y=alt.Y("expected_cash_in:Q"),
+            tooltip=[
+                alt.Tooltip("Week Label:N", title="Gap Week"),
+                alt.Tooltip("expected_cash_in:Q", title="Expected Cash ($)", format="$,.2f"),
+                alt.Tooltip("weekly_cost:Q", title="Weekly Cost ($)", format="$,.2f"),
+                alt.Tooltip("Status:N", title="Status"),
+            ],
+        )
+    )
+
+    gap_labels = (
+        alt.Chart(gap_data)
+        .mark_text(
+            text="GAP",
+            color="#e63946",
+            dy=-14,
+            fontWeight="bold",
+            fontSize=11,
+        )
+        .encode(
+            x=alt.X("Week Label:N", sort=None),
+            y=alt.Y("expected_cash_in:Q"),
+        )
+    )
+
+    st.altair_chart(
+        bar_chart + rule + gap_markers + gap_labels, use_container_width=True
+    )
 
     # Weekly breakdown table
     with st.expander("📋 View 8-Week Cash Flow Breakdown Table"):
