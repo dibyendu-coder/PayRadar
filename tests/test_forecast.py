@@ -92,7 +92,7 @@ def test_overdue_invoice_clamped_to_today():
     # Future row
     assert res[1]["raw_expected_pay_date"] == "2026-10-27"
     assert res[1]["expected_pay_date"] == "2026-10-27"
-    assert res[1]["pay_status"] == "on schedule"
+    assert res[1]["pay_status"] == "not yet due"
     assert res[1]["is_overdue"] is False
 
 

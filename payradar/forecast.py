@@ -55,7 +55,7 @@ def calculate_expected_pay_dates(
             rec["is_overdue"] = True
         else:
             rec["expected_pay_date"] = raw_expected_dt.strftime("%Y-%m-%d")
-            rec["pay_status"] = "on schedule"
+            rec["pay_status"] = "not yet due"
             rec["is_overdue"] = False
 
         enriched.append(rec)

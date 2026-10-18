@@ -390,11 +390,12 @@ def render_inbox_page(health: dict[str, Any]) -> None:
 # PAGE 2: RADAR
 # ==============================================================================
 def render_radar_page(health: dict[str, Any]) -> None:
+    ref_date_str = DEFAULT_REF_DATE.strftime("%B %d, %Y")
     st.markdown(
         '<div class="main-header">🎯 Late-Payment & Cash Gap Radar</div>', unsafe_allow_html=True
     )
     st.markdown(
-        '<div class="sub-header">Real-time risk scoring of open invoices and 8-week rolling cash flow gap detection.</div>',
+        f'<div class="sub-header">Real-time risk scoring of open invoices and 8-week rolling cash flow gap detection as of {ref_date_str}.</div>',
         unsafe_allow_html=True,
     )
 
@@ -473,10 +474,15 @@ def render_radar_page(health: dict[str, Any]) -> None:
         else None,
         delta_color="inverse",
     )
+    gap_delta = (
+        "1 gap week"
+        if gap_weeks_count == 1
+        else (f"{gap_weeks_count} gap weeks" if gap_weeks_count > 1 else "Fully covered")
+    )
     kpi4.metric(
         "8-Week Cash Gaps",
         f"{gap_weeks_count} of 8 weeks",
-        delta=f"{gap_weeks_count} gap weeks" if gap_weeks_count > 0 else "Fully covered",
+        delta=gap_delta,
         delta_color="inverse" if gap_weeks_count > 0 else "normal",
     )
 
@@ -531,7 +537,7 @@ def render_radar_page(health: dict[str, Any]) -> None:
     # SECTION 1: 8-Week Rolling Cash Flow & Gap Radar
     st.subheader("📊 8-Week Expected Cash-In vs Operating Costs")
     st.caption(
-        "Forecast is strictly based on invoices issued so far. "
+        f"Forecast is strictly based on invoices issued so far, evaluated as of {ref_date_str}. "
         f"Weekly threshold is prorated to ${monthly_costs * 12 / 52:,.2f}/week. "
         "Red bars highlight cash gap weeks where expected cash-in falls below weekly costs."
     )
@@ -652,7 +658,9 @@ def render_radar_page(health: dict[str, Any]) -> None:
     st.divider()
 
     # SECTION 2: Open Invoices Sorted by Late-Payment Risk
-    st.subheader(f"📋 Open Invoices Ranked by Late-Payment Risk ({len(enriched_invoices)} Total)")
+    st.subheader(
+        f"📋 Open Invoices Ranked by Late-Payment Risk ({len(enriched_invoices)} Total as of {ref_date_str})"
+    )
 
     table_rows = []
     for inv in enriched_invoices:
@@ -672,7 +680,7 @@ def render_radar_page(health: dict[str, Any]) -> None:
                 "Expected Pay Date": inv.get("expected_pay_date"),
                 "Late Risk": risk_val,
                 "Risk Tier": risk_tier,
-                "Payment Status": inv.get("pay_status", "on schedule"),
+                "Payment Status": inv.get("pay_status", "not yet due"),
             }
         )
 
@@ -685,6 +693,13 @@ def render_radar_page(health: dict[str, Any]) -> None:
                 "Late Risk": "{:.1%}",
             }
         ),
+        column_config={
+            "Payment Status": st.column_config.TextColumn(
+                "Payment Status",
+                width="large",
+                help="Payment status relative to reference date",
+            ),
+        },
         use_container_width=True,
         hide_index=True,
     )
