@@ -1,8 +1,8 @@
 {
-  "evaluation_timestamp": "2026-10-17 16:09:20",
+  "evaluation_timestamp": "2026-10-18 15:18:00",
   "dataset": "Synthetic Ground Truth",
   "synthetic": true,
-  "total_documents": 1,
+  "total_documents": 20,
   "metrics": {
     "client_accuracy_pct": 100.0,
     "amount_accuracy_pct": 100.0,
@@ -10,7 +10,7 @@
     "due_date_accuracy_pct": 100.0,
     "full_document_accuracy_pct": 100.0,
     "mean_confidence": 1.0,
-    "mean_latency_seconds": 84.85
+    "mean_latency_seconds": 19.1
   },
   "details": [
     {
@@ -22,7 +22,7 @@
         "due_on": "2026-09-09"
       },
       "extracted": {
-        "client": "Apex Innovations",
+        "client": "Apex Innovations Accounts Payable",
         "amount": 2868.25,
         "issued_on": "2026-08-10",
         "due_on": "2026-09-09",
@@ -35,7 +35,463 @@
         "due_on": true,
         "all_fields": true
       },
-      "latency_sec": 84.85
+      "latency_sec": 19.13
+    },
+    {
+      "file": "inv_02.pdf",
+      "ground_truth": {
+        "client": "Vanguard Media",
+        "amount": 6306.04,
+        "issued_on": "2026-08-15",
+        "due_on": "2026-08-29"
+      },
+      "extracted": {
+        "client": "Vanguard Media",
+        "amount": 6306.04,
+        "issued_on": "2026-08-15",
+        "due_on": "2026-08-29",
+        "confidence": 1.0
+      },
+      "matches": {
+        "client": true,
+        "amount": true,
+        "issued_on": true,
+        "due_on": true,
+        "all_fields": true
+      },
+      "latency_sec": 19.29
+    },
+    {
+      "file": "inv_03.pdf",
+      "ground_truth": {
+        "client": "Echo Dynamics",
+        "amount": 7632.39,
+        "issued_on": "2026-08-20",
+        "due_on": "2026-09-19"
+      },
+      "extracted": {
+        "client": "Echo Dynamics",
+        "amount": 7632.39,
+        "issued_on": "2026-08-20",
+        "due_on": "2026-09-19",
+        "confidence": 1.0
+      },
+      "matches": {
+        "client": true,
+        "amount": true,
+        "issued_on": true,
+        "due_on": true,
+        "all_fields": true
+      },
+      "latency_sec": 20.69
+    },
+    {
+      "file": "inv_04.pdf",
+      "ground_truth": {
+        "client": "Summit Global Logistics",
+        "amount": 5113.6,
+        "issued_on": "2026-08-25",
+        "due_on": "2026-10-09"
+      },
+      "extracted": {
+        "client": "Summit Global Logistics",
+        "amount": 5113.6,
+        "issued_on": "2026-08-25",
+        "due_on": "2026-10-09",
+        "confidence": 1.0
+      },
+      "matches": {
+        "client": true,
+        "amount": true,
+        "issued_on": true,
+        "due_on": true,
+        "all_fields": true
+      },
+      "latency_sec": 21.69
+    },
+    {
+      "file": "inv_05.pdf",
+      "ground_truth": {
+        "client": "Cascade Retail Brands",
+        "amount": 9949.61,
+        "issued_on": "2026-09-01",
+        "due_on": "2026-10-01"
+      },
+      "extracted": {
+        "client": "Cascade Retail Brands",
+        "amount": 9949.61,
+        "issued_on": "2026-09-01",
+        "due_on": "2026-10-01",
+        "confidence": 1.0
+      },
+      "matches": {
+        "client": true,
+        "amount": true,
+        "issued_on": true,
+        "due_on": true,
+        "all_fields": true
+      },
+      "latency_sec": 18.02
+    },
+    {
+      "file": "inv_06.pdf",
+      "ground_truth": {
+        "client": "Orion Enterprise",
+        "amount": 2914.28,
+        "issued_on": "2026-09-05",
+        "due_on": "2026-10-05"
+      },
+      "extracted": {
+        "client": "Orion Enterprise Accounts Payable accounting@orionenterprise.com",
+        "amount": 2914.28,
+        "issued_on": "2026-09-05",
+        "due_on": "2026-10-05",
+        "confidence": 1.0
+      },
+      "matches": {
+        "client": true,
+        "amount": true,
+        "issued_on": true,
+        "due_on": true,
+        "all_fields": true
+      },
+      "latency_sec": 18.45
+    },
+    {
+      "file": "inv_07.pdf",
+      "ground_truth": {
+        "client": "Beacon Health Group",
+        "amount": 7663.21,
+        "issued_on": "2026-09-10",
+        "due_on": "2026-09-24"
+      },
+      "extracted": {
+        "client": "Beacon Health Group",
+        "amount": 7663.21,
+        "issued_on": "2026-09-10",
+        "due_on": "2026-09-24",
+        "confidence": 1.0
+      },
+      "matches": {
+        "client": true,
+        "amount": true,
+        "issued_on": true,
+        "due_on": true,
+        "all_fields": true
+      },
+      "latency_sec": 19.0
+    },
+    {
+      "file": "inv_08.pdf",
+      "ground_truth": {
+        "client": "Atlas Financial Tech",
+        "amount": 9968.11,
+        "issued_on": "2026-09-15",
+        "due_on": "2026-10-15"
+      },
+      "extracted": {
+        "client": "Atlas Financial Tech",
+        "amount": 9968.11,
+        "issued_on": "2026-09-15",
+        "due_on": "2026-10-15",
+        "confidence": 1.0
+      },
+      "matches": {
+        "client": true,
+        "amount": true,
+        "issued_on": true,
+        "due_on": true,
+        "all_fields": true
+      },
+      "latency_sec": 21.12
+    },
+    {
+      "file": "inv_09.pdf",
+      "ground_truth": {
+        "client": "Zenith Corp",
+        "amount": 6317.01,
+        "issued_on": "2026-09-20",
+        "due_on": "2026-11-19"
+      },
+      "extracted": {
+        "client": "Zenith Corp",
+        "amount": 6317.01,
+        "issued_on": "2026-09-20",
+        "due_on": "2026-11-19",
+        "confidence": 1.0
+      },
+      "matches": {
+        "client": true,
+        "amount": true,
+        "issued_on": true,
+        "due_on": true,
+        "all_fields": true
+      },
+      "latency_sec": 17.47
+    },
+    {
+      "file": "inv_10.pdf",
+      "ground_truth": {
+        "client": "Prime Legal Solutions",
+        "amount": 7604.27,
+        "issued_on": "2026-09-25",
+        "due_on": "2026-10-25"
+      },
+      "extracted": {
+        "client": "Prime Legal Solutions",
+        "amount": 7604.27,
+        "issued_on": "2026-09-25",
+        "due_on": "2026-10-25",
+        "confidence": 1.0
+      },
+      "matches": {
+        "client": true,
+        "amount": true,
+        "issued_on": true,
+        "due_on": true,
+        "all_fields": true
+      },
+      "latency_sec": 17.91
+    },
+    {
+      "file": "inv_11.pdf",
+      "ground_truth": {
+        "client": "Quantum Ventures",
+        "amount": 6266.83,
+        "issued_on": "2026-09-28",
+        "due_on": "2026-10-28"
+      },
+      "extracted": {
+        "client": "Quantum Ventures",
+        "amount": 6266.83,
+        "issued_on": "2026-09-28",
+        "due_on": "2026-10-28",
+        "confidence": 1.0
+      },
+      "matches": {
+        "client": true,
+        "amount": true,
+        "issued_on": true,
+        "due_on": true,
+        "all_fields": true
+      },
+      "latency_sec": 18.04
+    },
+    {
+      "file": "inv_12.pdf",
+      "ground_truth": {
+        "client": "Starlight Systems",
+        "amount": 9932.15,
+        "issued_on": "2026-10-01",
+        "due_on": "2026-10-15"
+      },
+      "extracted": {
+        "client": "Starlight Systems",
+        "amount": 9932.15,
+        "issued_on": "2026-10-01",
+        "due_on": "2026-10-15",
+        "confidence": 1.0
+      },
+      "matches": {
+        "client": true,
+        "amount": true,
+        "issued_on": true,
+        "due_on": true,
+        "all_fields": true
+      },
+      "latency_sec": 18.08
+    },
+    {
+      "file": "inv_13.pdf",
+      "ground_truth": {
+        "client": "Pinnacle Advisory",
+        "amount": 6280.32,
+        "issued_on": "2026-10-03",
+        "due_on": "2026-11-02"
+      },
+      "extracted": {
+        "client": "Pinnacle Advisory",
+        "amount": 6280.32,
+        "issued_on": "2026-10-03",
+        "due_on": "2026-11-02",
+        "confidence": 1.0
+      },
+      "matches": {
+        "client": true,
+        "amount": true,
+        "issued_on": true,
+        "due_on": true,
+        "all_fields": true
+      },
+      "latency_sec": 20.78
+    },
+    {
+      "file": "inv_14.pdf",
+      "ground_truth": {
+        "client": "Cobalt BioLabs",
+        "amount": 6272.48,
+        "issued_on": "2026-10-05",
+        "due_on": "2026-11-04"
+      },
+      "extracted": {
+        "client": "Cobalt BioLabs",
+        "amount": 6272.48,
+        "issued_on": "2026-10-05",
+        "due_on": "2026-11-04",
+        "confidence": 1.0
+      },
+      "matches": {
+        "client": true,
+        "amount": true,
+        "issued_on": true,
+        "due_on": true,
+        "all_fields": true
+      },
+      "latency_sec": 17.57
+    },
+    {
+      "file": "inv_15.pdf",
+      "ground_truth": {
+        "client": "Horizon CleanTech",
+        "amount": 3978.17,
+        "issued_on": "2026-10-07",
+        "due_on": "2026-11-06"
+      },
+      "extracted": {
+        "client": "Horizon CleanTech",
+        "amount": 3978.17,
+        "issued_on": "2026-10-07",
+        "due_on": "2026-11-06",
+        "confidence": 1.0
+      },
+      "matches": {
+        "client": true,
+        "amount": true,
+        "issued_on": true,
+        "due_on": true,
+        "all_fields": true
+      },
+      "latency_sec": 19.01
+    },
+    {
+      "file": "inv_16.pdf",
+      "ground_truth": {
+        "client": "Nexus Software Labs",
+        "amount": 5017.44,
+        "issued_on": "2026-10-08",
+        "due_on": "2026-11-22"
+      },
+      "extracted": {
+        "client": "Nexus Software Labs",
+        "amount": 5017.44,
+        "issued_on": "2026-10-08",
+        "due_on": "2026-11-22",
+        "confidence": 1.0
+      },
+      "matches": {
+        "client": true,
+        "amount": true,
+        "issued_on": true,
+        "due_on": true,
+        "all_fields": true
+      },
+      "latency_sec": 21.15
+    },
+    {
+      "file": "inv_17.pdf",
+      "ground_truth": {
+        "client": "Pulse Digital Studio",
+        "amount": 2907.54,
+        "issued_on": "2026-10-10",
+        "due_on": "2026-10-24"
+      },
+      "extracted": {
+        "client": "Pulse Digital Studio",
+        "amount": 2907.54,
+        "issued_on": "2026-10-10",
+        "due_on": "2026-10-24",
+        "confidence": 1.0
+      },
+      "matches": {
+        "client": true,
+        "amount": true,
+        "issued_on": true,
+        "due_on": true,
+        "all_fields": true
+      },
+      "latency_sec": 18.99
+    },
+    {
+      "file": "inv_18.pdf",
+      "ground_truth": {
+        "client": "Crestline Partners",
+        "amount": 5013.64,
+        "issued_on": "2026-10-11",
+        "due_on": "2026-11-10"
+      },
+      "extracted": {
+        "client": "Crestline Partners",
+        "amount": 5013.64,
+        "issued_on": "2026-10-11",
+        "due_on": "2026-11-10",
+        "confidence": 1.0
+      },
+      "matches": {
+        "client": true,
+        "amount": true,
+        "issued_on": true,
+        "due_on": true,
+        "all_fields": true
+      },
+      "latency_sec": 19.12
+    },
+    {
+      "file": "inv_19.pdf",
+      "ground_truth": {
+        "client": "Solaria Renewable Energy",
+        "amount": 6316.82,
+        "issued_on": "2026-10-12",
+        "due_on": "2026-11-11"
+      },
+      "extracted": {
+        "client": "Solaria Renewable Energy",
+        "amount": 6316.82,
+        "issued_on": "2026-10-12",
+        "due_on": "2026-11-11",
+        "confidence": 1.0
+      },
+      "matches": {
+        "client": true,
+        "amount": true,
+        "issued_on": true,
+        "due_on": true,
+        "all_fields": true
+      },
+      "latency_sec": 17.12
+    },
+    {
+      "file": "inv_20.pdf",
+      "ground_truth": {
+        "client": "Acuity AI Analytics",
+        "amount": 1618.01,
+        "issued_on": "2026-10-14",
+        "due_on": "2026-11-13"
+      },
+      "extracted": {
+        "client": "Acuity AI Analytics",
+        "amount": 1618.01,
+        "issued_on": "2026-10-14",
+        "due_on": "2026-11-13",
+        "confidence": 1.0
+      },
+      "matches": {
+        "client": true,
+        "amount": true,
+        "issued_on": true,
+        "due_on": true,
+        "all_fields": true
+      },
+      "latency_sec": 19.37
     }
   ]
 }
