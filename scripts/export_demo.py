@@ -13,7 +13,6 @@ from pathlib import Path
 
 from payradar.chase import get_or_create_chase_draft
 from payradar.db import (
-    get_all_drafts,
     get_all_invoices,
     get_open_invoices,
     get_scores,
@@ -70,7 +69,9 @@ def export_demo_artifacts(
     # If not explicitly requested to use templates, test if Ollama responds within 2s
     if not use_templates:
         import httpx
+
         from payradar.extract import DEFAULT_OLLAMA_URL
+
         try:
             with httpx.Client(timeout=2.0) as client:
                 res = client.get(f"{DEFAULT_OLLAMA_URL}/api/tags")
@@ -145,14 +146,19 @@ def main():
     parser = argparse.ArgumentParser(description="Export demo JSON artifacts for DEMO_MODE=1")
     parser.add_argument("--db", type=str, default=None, help="Path to SQLite database")
     parser.add_argument("--outdir", type=str, default=None, help="Target demo directory")
-    parser.add_argument("--ref-date", type=str, default="2026-10-15", help="Reference date YYYY-MM-DD")
-    parser.add_argument("--templates", action="store_true", help="Force plain templates for precomputed drafts")
+    parser.add_argument(
+        "--ref-date", type=str, default="2026-10-15", help="Reference date YYYY-MM-DD"
+    )
+    parser.add_argument(
+        "--templates", action="store_true", help="Force plain templates for precomputed drafts"
+    )
     args = parser.parse_args()
 
     ref_d = datetime.datetime.strptime(args.ref_date, "%Y-%m-%d").date()
-    export_demo_artifacts(db_path=args.db, out_dir=args.outdir, ref_date=ref_d, use_templates=args.templates)
+    export_demo_artifacts(
+        db_path=args.db, out_dir=args.outdir, ref_date=ref_d, use_templates=args.templates
+    )
 
 
 if __name__ == "__main__":
     main()
-

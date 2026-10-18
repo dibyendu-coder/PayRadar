@@ -55,11 +55,50 @@ cd PayRadar
 uv sync --all-extras
 ```
 
-### Run Tests
+### Launch Streamlit UI
 ```bash
-uv run pytest
-uv run ruff check .
+# Standard local-first mode (with local Ollama and TabPFN)
+uv run streamlit run app.py
+
+# Hosted or lightweight demo mode (precomputed synthetic demo dataset)
+DEMO_MODE=1 uv run streamlit run app.py
 ```
+
+### Run Tests and Predictions
+```bash
+# Run full unit and integration test suite
+uv run pytest
+
+# Re-score open invoices via TabPFN-3.5
+uv run python scripts/predict_open.py
+
+# Export precomputed artifacts for DEMO_MODE
+uv run python scripts/export_demo.py --templates
+```
+
+---
+
+## 🖥️ Application Features (3 Pages)
+
+### 1. 📥 Inbox
+- **Document Ingestion**: Upload invoices in PDF, PNG, JPG, or WEBP format.
+- **Offline Gemma Vision Extraction**: User-triggered on-demand extraction with confidence scores per field. Images are automatically downsampled to $\le 1024$px to respect the 4 GB VRAM ceiling.
+- **Review & Confirm**: Validate extracted metadata (ID, Client, Amount, Currency, Dates, Terms) and save directly to SQLite.
+
+### 2. 🎯 Radar
+- **Open Invoice Risk Ranking**: Invoices sorted by late-payment probability $P(\text{Paid} > 7\text{ days late})$ and expected delay days.
+- **Cached Predictions**: Instant page loads with zero LLM/TabPFN latency during render; re-scoring runs as an explicit background action.
+- **8-Week Rolling Cash Flow & Gap Radar**: Altair interactive bar chart displaying weekly expected cash-in versus prorated monthly operating costs, with cash gap weeks visually flagged in red.
+- **Configurable Settings**: Dynamic monthly operating cost slider with immediate forecast recalculation.
+
+### 3. ✉️ Chase
+- **Tone Strategy by Risk Tier**:
+  - **$< 30\%$ Risk**: Friendly nudge (warm check-in, relationship maintenance).
+  - **$30\% - 60\%$ Risk**: Clear & polite (professional status inquiry with terms).
+  - **$> 60\%$ Risk**: Firm & specific (urgent notice detailing exact amounts and due dates).
+- **Plain-Words Rationale**: Explains *why* the client was assigned their risk tier based strictly on historical invoices issued prior to the target invoice (e.g., *"This client has paid late on 6 of their last 8 invoices (averaging +29.0 days delay)"*).
+- **Local-First Safety & Editor**: Edit subject and body directly. User edits are strictly locked and never overwritten. One-click copy container ready for your email client.
+- **Graceful Fallbacks**: If Gemma is offline or times out, high-quality deterministic templates are used automatically without application errors.
 
 ---
 
