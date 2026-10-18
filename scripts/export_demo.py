@@ -28,6 +28,7 @@ def export_demo_artifacts(
     out_dir: str | Path | None = None,
     ref_date: datetime.date | None = None,
     use_templates: bool = False,
+    force: bool = True,
 ) -> dict[str, Path]:
     """Export all invoices, scores, drafts, settings, and forecast to JSON files in demo/."""
     if out_dir is None:
@@ -82,23 +83,24 @@ def export_demo_artifacts(
 
     print(
         f"[EXPORT] Generating precomputed chase drafts for {len(open_invoices)} open invoices "
-        f"(mode: {'Fast Templates' if use_templates else 'Live Gemma'})..."
+        f"(mode: {'Fast Templates' if use_templates else 'Live Gemma'}, force={force})..."
     )
     drafts_list = []
 
-    for inv in open_invoices:
+    for idx, inv in enumerate(open_invoices, 1):
         inv_id = inv["id"]
         score_info = scores_by_id.get(inv_id, {})
         risk = score_info.get("risk", 0.1)
         delay = score_info.get("predicted_days_late", 0.0)
 
+        print(f"  [{idx}/{len(open_invoices)}] Drafting for {inv_id} ({inv.get('client')})...")
         # Get or create draft
         draft = get_or_create_chase_draft(
             invoice=inv,
             history_invoices=invoices,
             risk=risk,
             predicted_days_late=delay,
-            force_regenerate=False,
+            force_regenerate=force,
             use_fallback_only=use_templates,
             db_path=db_path,
         )
