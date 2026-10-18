@@ -164,7 +164,9 @@ def render_sidebar(health: dict[str, Any]) -> str:
         st.sidebar.error("Database: Error connecting")
 
     # TabPFN Status
-    if health["tabpfn_ok"]:
+    if DEMO_MODE:
+        st.sidebar.success("Scoring Engine: TabPFN-3.5 (precomputed)")
+    elif health["tabpfn_ok"]:
         st.sidebar.success("Scoring Engine: TabPFN-3.5 Active")
     else:
         st.sidebar.warning("TabPFN Token: Unset\n(Using HistGradientBoosting baseline)")
@@ -347,8 +349,17 @@ def render_inbox_page(health: dict[str, Any]) -> None:
                     index=0,
                 )
 
-            submitted = st.form_submit_button("✅ Confirm & Save to Radar", type="primary")
-            if submitted:
+            submitted = st.form_submit_button(
+                "✅ Confirm & Save to Radar",
+                type="primary",
+                disabled=DEMO_MODE,
+                help="Disabled in demo mode" if DEMO_MODE else None,
+            )
+            if DEMO_MODE:
+                st.caption(
+                    "ℹ️ Confirm & Save is disabled in demo mode (view-only precomputed data)."
+                )
+            elif submitted:
                 if not inv_id or not client or amount <= 0:
                     st.error("Please fill all required fields (ID, Client, Amount).")
                 else:
@@ -364,17 +375,12 @@ def render_inbox_page(health: dict[str, Any]) -> None:
                         "paid_on": None,
                         "source_file": extracted.get("source_file", "manual_or_upload"),
                     }
-                    if DEMO_MODE:
-                        st.success(
-                            f"Confirmed invoice {inv_id} for {client}! (In DEMO_MODE, DB writes are simulated)"
-                        )
-                    else:
-                        from payradar.db import insert_invoice
+                    from payradar.db import insert_invoice
 
-                        insert_invoice(invoice_record)
-                        st.success(
-                            f"Invoice {inv_id} successfully saved to SQLite! It is now tracked on your Radar."
-                        )
+                    insert_invoice(invoice_record)
+                    st.success(
+                        f"Invoice {inv_id} successfully saved to SQLite! It is now tracked on your Radar."
+                    )
 
 
 # ==============================================================================
@@ -482,6 +488,9 @@ def render_radar_page(health: dict[str, Any]) -> None:
                 "🔄 Re-score Open Invoices",
                 disabled=True,
                 help="Re-scoring is disabled in DEMO_MODE",
+            )
+            st.caption(
+                "ℹ️ Re-scoring is disabled in demo mode (using precomputed TabPFN-3.5 scores)."
             )
         else:
             if st.button("🔄 Re-score Open Invoices (Run TabPFN)", type="primary"):
@@ -804,7 +813,20 @@ def render_chase_page(health: dict[str, Any]) -> None:
     source_type = draft.get(
         "source", "template" if draft.get("model") == "Fallback Template" else "gemma"
     )
-    if source_type == "gemma":
+    if DEMO_MODE:
+        source_label = (
+            "Source: Gemma 4 (precomputed)"
+            if source_type == "gemma"
+            else "Source: Plain Template (precomputed)"
+        )
+        icon = "🤖" if source_type == "gemma" else "📋"
+        bg_col = "#d8f3dc" if source_type == "gemma" else "#f1f3f5"
+        txt_col = "#2d6a4f" if source_type == "gemma" else "#495057"
+        st.markdown(
+            f'<div style="margin-bottom: 8px;"><span style="background-color: {bg_col}; color: {txt_col}; padding: 4px 10px; border-radius: 4px; font-size: 0.85rem; font-weight: 600;">{icon} {source_label}</span></div>',
+            unsafe_allow_html=True,
+        )
+    elif source_type == "gemma":
         st.markdown(
             '<div style="margin-bottom: 8px;"><span style="background-color: #d8f3dc; color: #2d6a4f; padding: 4px 10px; border-radius: 4px; font-size: 0.85rem; font-weight: 600;">🤖 Source: Gemma 4 (Live LLM)</span></div>',
             unsafe_allow_html=True,
